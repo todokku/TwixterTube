@@ -43,8 +43,13 @@ class Signup extends React.Component {
         return (
             <div className='session-form-container'>
                 <form onSubmit={this.handleSubmit} className='session-form'>
-                <h2>Create your TwixterTube Account</h2>
-                <h4>to continue to TwixterTube</h4>
+                <div className="logo">
+                    <h2>TwixterTube</h2>
+                </div>
+                <header className="session-form-header">
+                    <h2>Create your Account</h2>
+                    <h4>to continue to TwixterTube</h4>
+                </header>
                     <div className='session-input-fields'>
                         <label>
                             <input type="text" value={this.state.username} placeholder='Username' onChange={this.update('username')} />
@@ -57,10 +62,13 @@ class Signup extends React.Component {
                         </label>
                     </div>
                     <div className='session-form-buttons'>
-                        <button onClick= {() => this.nextPath('/login')}>
+                        <Link to={`/login`} className='session-form-buttons-Links'>
                             Sign in instead
-                        </button>
-                        <button onClick={this.handleSubmit}>Next</button>
+                            </Link>
+                        {/* <button onClick= {() => this.nextPath('/login')}>
+                            Sign in instead
+                        </button> */}
+                        <button onClick={this.handleSubmit} className='next-button'>Next</button>
                     </div>
                 </form>
                 {this.renderErrors()}
