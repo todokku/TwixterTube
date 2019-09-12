@@ -1,26 +1,39 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default ({ currentUser, logout}) => {
+export default ({ currentUser, logout, clearErrors}) => {
+
+    // handleLogout() {
+    //     logout();
+    // };
+
+    const handleErrors = (e) => {
+        clearErrors();
+    }
+
     const display = currentUser ? (
-        <div>
-            <p>Hello, {currentUser.username}</p>
+        <div className='nav-bar-container'>
+            <h2>TwixterTube</h2>
+            <div className='nav-bar-elements'>
+                <p>Hello, {currentUser.username}</p>
+                <button onClick={logout}>Sign Out</button>
+            </div>
         </div>
     ) : (
-        <div>
-            <Link to={`/signup`}>Sign Up</Link>
-            <Link to={'/login'}>Log In</Link>
+        <div className='nav-bar-container'>
+            <h2>TwixterTube</h2>
+            <div className='nav-bar-elements'>
+                <button onClick={handleErrors}><Link to={`/signup`}>Sign Up</Link></button>
+                <button onClick={handleErrors}><Link to={'/login'}>Log In</Link></button>
+            </div>
         </div>
     )
 
     return (
         <header>
-            <h1>TwixterTube</h1>
             <div>
                 {display}
             </div>
         </header>
     )
 };
-
-export default
