@@ -61,11 +61,21 @@
 
 .session-form-buttons {
     display: flex;
-    width: 300px;
+    width: 350px;
     flex-direction: row;
     justify-content: space-around;
     margin: 15px;
-    
+     
+}
+
+.next-button {
+    background-color: rgb(0, 122, 226);
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 16px;
+    color: white;
 }
 
 .session-form-buttons-Links {
@@ -105,15 +115,7 @@
     justify-content: flex-end;
 }
 
-.next-button {
-    background-color: rgb(0, 122, 226);
-    border: none;
-    border-radius: 5px;
-    padding: 12px 30px;
-    text-align: center;
-    font-size: 16px;
-    color: white;
-}
+
 
 /* .sign-in-form-container h2 {
     order: 1;

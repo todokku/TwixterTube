@@ -52,13 +52,13 @@ class Signup extends React.Component {
                 </header>
                     <div className='session-input-fields'>
                         <label>
-                            <input type="text" value={this.state.username} placeholder='Username' onChange={this.update('username')} />
+                            <input type="text" value={this.state.username} id='username-input' placeholder='Username' onChange={this.update('username')} />
                         </label>
                         <label>
-                            <input type="text" value={this.state.email} placeholder='Email' onChange={this.update('email')}/>
+                            <input type="text" value={this.state.email} id='email-input' placeholder='Email' onChange={this.update('email')}/>
                         </label>
                         <label>
-                            <input type="password" value={this.state.password} placeholder='Password' onChange={this.update('password')} />
+                            <input type="password" value={this.state.password} id='password-input' placeholder='Password' onChange={this.update('password')} />
                         </label>
                     </div>
                     <div className='session-form-buttons'>

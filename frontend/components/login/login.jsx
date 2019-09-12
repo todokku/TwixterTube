@@ -10,6 +10,7 @@ class Login extends React.Component {
         }
         this.update = this.update.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleDemoUser = this.handleDemoUser.bind(this);
     }
 
     update(field) {
@@ -39,7 +40,10 @@ class Login extends React.Component {
     }
 
     handleDemoUser(e) {
-
+        this.setState({
+            email: 'd116',
+            password: '123456'
+        })
     }
 
     render() {
@@ -55,10 +59,10 @@ class Login extends React.Component {
                 </header>
                     <div className='session-input-fields'>
                         <label>
-                            <input type="text" id="" value={this.state.email} placeholder='Email' onChange={this.update('email')} />
+                            <input type="text" id="email-input" value={this.state.email} placeholder='Email' onChange={this.update('email')} />
                         </label>
                         <label>
-                            <input type="password" value={this.state.password} placeholder='Password' onChange={this.update('password')} />
+                            <input type="password" id='password-input' value={this.state.password} placeholder='Password' onChange={this.update('password')} />
                         </label>
                     </div>
                     <div className='session-form-buttons'>
@@ -68,6 +72,7 @@ class Login extends React.Component {
                         {/* <button onClick={() => this.nextPath('/signup') }>
                             Create account
                         </button> */}
+                        <button onClick={this.handleDemoUser} className='next-button'>Demo</button>
                         <button onClick={this.handleSubmit} className='next-button'>Next</button>
                     </div>
                 </form>
