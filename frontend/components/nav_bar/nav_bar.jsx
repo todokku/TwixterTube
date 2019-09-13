@@ -54,7 +54,7 @@ class NavBar extends React.Component {
                 </div>
 
                 <div className='nav-bar-right'>
-                    <p>Hello, {currentUser.username}</p>
+                    <p>Hello, {this.props.currentUser.username}</p>
                     <button onClick={this.handleLogout}>Sign Out</button>
                 </div>
 

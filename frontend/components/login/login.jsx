@@ -24,6 +24,7 @@ class Login extends React.Component {
     }
 
     handleSubmit(e) {
+        // debugger
         e.preventDefault();
         this.props.login(this.state)
             .then(() => this.props.history.push('/'));
@@ -44,6 +45,7 @@ class Login extends React.Component {
     }
 
     handleDemoUser(e) {
+        // debugger
         this.setState({
             email: 'd116',
             password: '123456'
@@ -54,13 +56,13 @@ class Login extends React.Component {
         return (
             <div className='session-form-container'>
                 <form onSubmit={this.handleSubmit} className='session-form'>
-                <div className="logo">
-                    <h2>TwixterTube</h2>
-                </div>
-                <header className="session-form-header">
-                    <h2>Sign In</h2>
-                    <h4>to continue to TwixterTube</h4>
-                </header>
+                    <div className="logo">
+                        <h2>TwixterTube</h2>
+                    </div>         
+                    <header className="session-form-header">
+                        <h2>Sign In</h2>
+                        <h4>to continue to TwixterTube</h4>
+                    </header>
                     <div className='session-input-fields'>
                         <label>
                             <input type="text" id="email-input" value={this.state.email} placeholder='Email' onChange={this.update('email')} />
@@ -76,8 +78,8 @@ class Login extends React.Component {
                         {/* <button onClick={() => this.nextPath('/signup') }>
                             Create account
                         </button> */}
-                        <button onClick={this.handleDemoUser} className='next-button'>Demo</button>
                         <button onClick={this.handleSubmit} className='next-button'>Next</button>
+                        <button onClick={this.handleDemoUser} className='next-button'>Demo</button>
                     </div>
                 </form>
                 {this.renderErrors()}
