@@ -25,13 +25,15 @@ class Signup extends React.Component {
             .then( () => this.props.history.push('/'));
     }
 
-    renderErrors() {
+    obtainErrors() {
+
+        // return (
+        //         this.props.errors.map((error, idx) => (
+        //             <li key={idx}>{error}</li>
+        //         ))
+        // )
         return (
-            <ul>
-                {this.props.errors.map((error, idx) => (
-                    <li key={idx}>{error}</li>
-                ))}
-            </ul>
+            this.props.errors
         )
     }
 
@@ -40,6 +42,23 @@ class Signup extends React.Component {
     }
 
     render() {
+        let errors = this.obtainErrors();
+        let userErrors = undefined;
+        let emailErrors = undefined;
+        let passwordErrors = undefined;
+        let i = 0;
+
+        while (i < errors.length) {
+            if ( errors[i].includes('Username') ) {
+                userErrors = <p className="errors-text">{errors[i]}</p>;
+            } else if (errors[i].includes('Email')) {
+                emailErrors = <p className="errors-text">{errors[i]}</p>;
+            } else if (errors[i].includes('Password')) {
+                passwordErrors = <p className="errors-text">{errors[i]}</p>;
+            }
+            i++;
+        }
+
         return (
             <div className='session-form-container'>
                 <form onSubmit={this.handleSubmit} className='session-form'>
@@ -54,12 +73,15 @@ class Signup extends React.Component {
                         <label>
                             <input type="text" value={this.state.username} id='username-input' placeholder='Username' onChange={this.update('username')} />
                         </label>
+                        {userErrors}
                         <label>
                             <input type="text" value={this.state.email} id='email-input' placeholder='Email' onChange={this.update('email')}/>
                         </label>
+                        {emailErrors}
                         <label>
                             <input type="password" value={this.state.password} id='password-input' placeholder='Password' onChange={this.update('password')} />
                         </label>
+                        {passwordErrors}
                     </div>
                     <div className='session-form-buttons'>
                         <Link to={`/login`} className='session-form-buttons-Links'>
@@ -71,7 +93,6 @@ class Signup extends React.Component {
                         <button onClick={this.handleSubmit} className='next-button'>Next</button>
                     </div>
                 </form>
-                {this.renderErrors()}
             </div>
         )
     }

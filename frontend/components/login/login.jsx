@@ -29,7 +29,7 @@ class Login extends React.Component {
         return (
             <ul>
                 {this.props.errors.map( (error, idx) => (
-                        <li key={idx}>{error}</li>
+                    <li key={idx} className='errors-text-login'>{error}</li>
                 ))}
             </ul>
         )
@@ -68,7 +68,7 @@ class Login extends React.Component {
                     <div className='session-form-buttons'>
                         <Link to={`/signup`} className='session-form-buttons-Links'>
                             Create account
-                            </Link>
+                        </Link>
                         {/* <button onClick={() => this.nextPath('/signup') }>
                             Create account
                         </button> */}
