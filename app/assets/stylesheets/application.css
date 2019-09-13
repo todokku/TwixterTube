@@ -14,6 +14,13 @@
  *= require_self
  */
 
+ input {
+    outline:none;
+ }
+
+ button {
+    outline:none;
+ }
 
 .session-form-container {
     display: flex;
@@ -125,22 +132,70 @@
 }
 
 .nav-bar-left {
-    
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 35px;
+}
+
+.nav-bar-left h2 {
+    font-family: 'Pathway Gothic One', sans-serif;
+    font-size: 20px;
 }
 
 .nav-bar-search {
-    
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 35%;
+}
+
+.search-bar {
+    width: 90%;
+}
+
+.search-bar input {
+    width: 100%;
+}
+
+.search-button {
+    border: 1px solid rgb(208, 208, 208);
+    margin-left: 5px;
 }
 
 .nav-bar-right {
-    
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-right: 35px;
 }
 
-/* .sign-in-form-container h2 {
-    order: 1;
-}
-
-.sign-in-form-container h4 {
-    order: 2;
+/* .nav-bar-right button {
+    background: white;
+    border: 1px solid rgb(0, 102, 206) ;
+    color: rgb(0, 102, 206);
+    height: 28px;
+    width: 80px;
+    padding: 11px 5px;
 } */
+
+.sign-in-button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    background: white;
+    border: 1px solid rgb(0, 102, 206) ;
+    color: rgb(0, 102, 206);
+    height: 80%;
+    width: 80px;
+    padding: 11px 5px;
+    /* font-weight: bolder; */
+}
+
+.sign-in-button p {
+    font-size: 14px;
+    font-weight: bolder;
+}
 

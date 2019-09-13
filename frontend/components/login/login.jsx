@@ -13,6 +13,10 @@ class Login extends React.Component {
         this.handleDemoUser = this.handleDemoUser.bind(this);
     }
 
+    componentDidMount() {
+        this.props.clearErrors();
+    }
+
     update(field) {
         return e => this.setState({
             [field]: e.target.value
@@ -82,4 +86,4 @@ class Login extends React.Component {
     }
 }
 
-export default Login;
+export default withRouter(Login);

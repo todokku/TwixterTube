@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import { Link, withRouter } from 'react-router-dom';
 
 class Signup extends React.Component {
@@ -11,6 +12,11 @@ class Signup extends React.Component {
         }
         this.update = this.update.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        
+    }
+
+    componentDidMount() {
+        this.props.clearErrors();
     }
 
     update(field) {
@@ -54,7 +60,7 @@ class Signup extends React.Component {
             } else if (errors[i].includes('Email')) {
                 emailErrors = <li className="errors-text">{errors[i]}</li>;
             } else if (errors[i].includes('Password')) {
-                passwordErrors = <li className="errors-text">{errors[i]}</li>;
+                passwordErrors = <li className="errors-text" >{errors[i]}</li>;
             }
             i++;
         }
@@ -86,10 +92,7 @@ class Signup extends React.Component {
                     <div className='session-form-buttons'>
                         <Link to={`/login`} className='session-form-buttons-Links'>
                             Sign in instead
-                            </Link>
-                        {/* <button onClick= {() => this.nextPath('/login')}>
-                            Sign in instead
-                        </button> */}
+                        </Link>
                         <button onClick={this.handleSubmit} className='next-button'>Next</button>
                     </div>
                 </form>
