@@ -102,20 +102,6 @@
     margin-bottom: 20px;
 }
 
-.nav-bar-container {
-    display: flex;
-    width: 100%;
-    height: 56px;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.nav-bar-elements {
-    display: flex;
-    justify-content: flex-end;
-}
-
 .errors-text {
     font-size: 12px;
     font-weight: lighter;
@@ -129,6 +115,26 @@
 }
 
 
+.nav-bar-container {
+    display: flex;
+    width: 100%;
+    height: 56px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-bar-left {
+    
+}
+
+.nav-bar-search {
+    
+}
+
+.nav-bar-right {
+    
+}
 
 /* .sign-in-form-container h2 {
     order: 1;

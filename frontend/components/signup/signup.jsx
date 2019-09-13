@@ -50,11 +50,11 @@ class Signup extends React.Component {
 
         while (i < errors.length) {
             if ( errors[i].includes('Username') ) {
-                userErrors = <p className="errors-text">{errors[i]}</p>;
+                userErrors = <li className="errors-text">{errors[i]}</li>;
             } else if (errors[i].includes('Email')) {
-                emailErrors = <p className="errors-text">{errors[i]}</p>;
+                emailErrors = <li className="errors-text">{errors[i]}</li>;
             } else if (errors[i].includes('Password')) {
-                passwordErrors = <p className="errors-text">{errors[i]}</p>;
+                passwordErrors = <li className="errors-text">{errors[i]}</li>;
             }
             i++;
         }
