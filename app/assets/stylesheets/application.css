@@ -20,6 +20,7 @@
 
  button {
     outline:none;
+    cursor: pointer;
  }
 
 .session-form-container {
@@ -66,13 +67,17 @@
     font-size: 16px;
 }
 
+.session-input-fields input:focus {
+    border: 2px rgb(0, 122, 226) solid
+}
+
 .session-form-buttons {
     display: flex;
     width: 350px;
     flex-direction: row;
     justify-content: space-around;
     margin: 15px;
-     
+    cursor: pointer;
 }
 
 .next-button {
@@ -83,6 +88,7 @@
     text-align: center;
     font-size: 16px;
     color: white;
+    cursor: pointer;
 }
 
 .session-form-buttons-Links {
@@ -162,6 +168,7 @@
 .search-button {
     border: 1px solid rgb(208, 208, 208);
     margin-left: 5px;
+    cursor: pointer;
 }
 
 .nav-bar-right {
@@ -192,6 +199,7 @@
     width: 80px;
     padding: 11px 5px;
     /* font-weight: bolder; */
+    cursor: pointer;
 }
 
 .sign-in-button p {
