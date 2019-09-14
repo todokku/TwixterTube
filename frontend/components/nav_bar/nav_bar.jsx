@@ -31,7 +31,7 @@ class NavBar extends React.Component {
                 //
         })
     }
-
+    
     handleSubmit(e) {  // this is for search bar form
         // some ajax call to fetch an index of videos that have matching words in the title
         //  this.props.action(this.state)  which will send the update state for a query to back end

@@ -26,6 +26,9 @@ class Login extends React.Component {
     handleSubmit(e) {
         // debugger
         e.preventDefault();
+        this.setState({
+            email: this.state.email.trim()
+        });
         this.props.login(this.state)
             .then(() => this.props.history.push('/'));
     }

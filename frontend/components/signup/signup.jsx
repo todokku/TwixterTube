@@ -27,6 +27,10 @@ class Signup extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
+        this.setState({
+            username: this.state.username.trim(),
+            email: this.state.email.trim()
+        });
         this.props.createUser(this.state)
             .then( () => this.props.history.push('/'));
     }
@@ -78,6 +82,7 @@ class Signup extends React.Component {
                     <div className='session-input-fields'>
                         <label>
                             <input type="text" value={this.state.username} id='username-input' placeholder='Username' onChange={this.update('username')} />
+
                         </label>
                         {userErrors}
                         <label>
