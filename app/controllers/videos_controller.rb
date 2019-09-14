@@ -14,7 +14,7 @@ class VideosController < ApplicationController
         @video = Video.new(video_params)
         @video.views = 0
         @video.uploader_id = current_user.id
-        if @video.save
+        
     end
 
     def update
