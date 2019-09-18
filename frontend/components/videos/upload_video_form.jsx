@@ -5,9 +5,16 @@ import NavBarContainer from '../nav_bar/nav_bar_container';
 class UploadVideoForm extends React.Component {
     constructor(props) {
         super(props);
-        this.state = this.props.video;
+        this.state = {
+            title: "",
+            description: "",
+            videoFile: null,
+            thumbnailFile: null
+        };
         this.update = this.update.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleVideoFile = this.handleVideoFile.bind(this);
+        this.handleThumbnailFile = this.handleThumbnailFile.bind(this);
     }
 
     update(field){
@@ -18,10 +25,29 @@ class UploadVideoForm extends React.Component {
     
     handleSubmit(e) {
         e.preventDefault();
-        this.props.action(this.state)
+        const formData = new FormData();
+        formData.append('video[title]', this.state.title);
+        formData.append('video[description]', this.state.description);
+        formData.append('video[vid]', this.state.videoFile);
+        formData.append('video[thumbnail]', this.state.thumbnailFile);
+        $.ajax({
+            url: '/api/videos',
+            method: 'POST',
+            data: formData,
+            contentType: false,
+            processData: false
+        })
         .then( (video) => this.props.history.push(`/videos/${video.id}`));
     }
     
+    handleVideoFile(e) {
+        this.setState({ videoFile: e.currentTarget.files[0]})
+    }
+
+    handleThumbnailFile(e) {
+        this.setState({ thumbnailFile: e.currentTarget.files[0] })
+    }
+
     render() {
         if (!this.props.currentUser) {
             this.props.history.replace('/login');
@@ -32,6 +58,14 @@ class UploadVideoForm extends React.Component {
                 <NavBarContainer />
                 <h2>{this.props.formTitle}</h2>
                 <form onSubmit={this.handleSubmit} className='edit-form'>
+                    <label >Upload Video
+                        <input type="file" placeholder='Upload Video' onChange={this.handleVideoFile}/>
+                    </label>
+                    {/* className="custom-file-upload" */}
+                    {/* THIS CSS CLASS NAME IS GONNA BE INCLUDED IN LABLES */}
+                    <label >Upload Thumbnail
+                        <input type="file" placeholder="Upload Thumbnail" onChange={this.handleThumbnailFile}/>
+                    </label>
                     <label> {/* TITLE */}
                         <input
                             type="text"
