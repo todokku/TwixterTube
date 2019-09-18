@@ -7,7 +7,6 @@ import UserAuth from './user_auth';
 const Root = ({ store }) => (
     <Provider store={store}>
         <HashRouter>
-            <UserAuth />
             <App />
         </HashRouter>
     </Provider>

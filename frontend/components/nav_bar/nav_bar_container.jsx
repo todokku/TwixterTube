@@ -4,7 +4,6 @@ import NavBar from './nav_bar';
 import { logout, clearErrors } from '../../actions/session_actions';
 
 const msp = state => {
-    // debugger
     return({
         currentUser: state.entities.users[state.session.currentUser]
     })

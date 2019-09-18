@@ -1,28 +1,31 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import NavBarContainer from '../nav_bar/nav_bar_container';
 
-class VideoIndexItem extends React.Component {
+class VideoShow extends React.Component {
     constructor(props) {
         super(props);
-        this.handleVidClick = this.handleVidClick.bind(this);
     }
 
-    handleVidClick(e) {
-        let vidId = this.props.video.id;
-        this.props.history.push(`/videos/${vidId}`);
+    componentDidMount() {
+        this.props.fetchVideo(this.props.match.params.videoId);
+        // this.props.
+        // this.props.video[views]++;    need an action to update back end, optional for now
     }
 
     render() {
+        
+        if (!this.props.video) {
+            return null;
+        }
         let url = this.props.video.videoUrl;
-        let thumbnail = this.props.video.thumbnailUrl;
-        return(
+        return (
             <div>
-                {/* <video controls>
+                <NavBarContainer />
+                
+                <video controls>
                     <source src={url}/>
-                </video> */}
-                <button onClick={this.handleVidClick}>
-                    <img src={thumbnail} />
-                </button>
+                </video>
                 <div>
                     <h1>{this.props.video.title}</h1>
                     <label>Author:
@@ -34,13 +37,12 @@ class VideoIndexItem extends React.Component {
                     <label>Description:
                         <p>{this.props.video.description}</p>
                     </label>
-                    
+
                 </div>
             </div>
-            
         )
     }
 
 }
 
-export default withRouter(VideoIndexItem);
+export default VideoShow;

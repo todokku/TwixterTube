@@ -10,33 +10,44 @@ import * as VideoUtil from '../util/videos';
 export const RECEIVE_ALL_VIDEOS = 'RECEIVE_ALL_VIDEOS';
 export const RECEIVE_VIDEO = 'RECEIVE_VIDEO';
 export const REMOVE_VIDEO = 'REMOVE_VIDEO';
+export const RECEIVE_UPLOADERS = 'RECEIVE_UPLOADERS';
 
-const receiveAllVideos = (videos) => ({
+const receiveAllVideos = (payload) => ({
     type: RECEIVE_ALL_VIDEOS,
-    videos
+    payload
 })
 
-const receiveVideo = (video) => ({
+const receiveVideo = (payload) => ({
     type: RECEIVE_VIDEO,
-    video
+    payload
 })
 
-const removeVideo = (video) => ({
+const removeVideo = (payload) => ({
     type: REMOVE_VIDEO,
-    videoId: video.id
+    videoId: payload.video.id
+})
+
+const receiveUploaders = (payload) => ({
+    type: RECEIVE_ALL_VIDEOS,
+    payload
+})
+
+const receiveUploader = (payload) => ({
+    type: RECEIVE_VIDEO,
+    payload
 })
 
 export const fetchVideos = () => dispatch => VideoUtil.fetchVideos()
-    .then( videos => dispatch(receiveAllVideos(videos)));
+    .then(payload => dispatch(receiveAllVideos(payload)));
 
 export const fetchVideo = (id) => dispatch => VideoUtil.fetchVideo(id)
-    .then( video => dispatch(receiveVideo(video)));
+    .then(payload => dispatch(receiveVideo(payload)));
 
 export const postVideo = (videoForm) => dispatch => VideoUtil.postVideo(videoForm)
-    .then(video => dispatch(receiveVideo(video)));
+    .then(payload => dispatch(receiveVideo(payload)));
 
 export const editVideo = (videoForm) => dispatch => VideoUtil.editVideo(videoForm)
-    .then(video => dispatch(receiveVideo(video)));
+    .then(payload => dispatch(receiveVideo(payload)));
 
 export const deleteVideo = (id) => dispatch => VideoUtil.deleteVideo(id)
-    .then(video => dispatch(removeVideo(video)));
+    .then(payload => dispatch(removeVideo(payload)));

@@ -4,6 +4,7 @@ import {
     deleteSession
 } from '../util/session';
 
+export const RECEIVE_ALL_USERS = 'RECEIVE_ALL_USERS';
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER';
 export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
@@ -22,6 +23,11 @@ const receiveErrors = (errors) => ({  // errors is an array
     type: RECEIVE_SESSION_ERRORS,
     errors
 })
+
+// const receiveAllUsers = (users) => ({
+//     type: RECEIVE_ALL_USERS,
+//     users
+// })
 
 export const clearErrors = () => ({
     type: CLEAR_ERRORS

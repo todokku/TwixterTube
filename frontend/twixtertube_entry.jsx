@@ -4,9 +4,11 @@ import Root from './components/root';
 import configureStore from './store/store';
 import entitiesReducer from './reducers/entities_reducer';
 import usersReducer from './reducers/users_reducer';
+import * as Action from './actions/session_actions';
 
 document.addEventListener( 'DOMContentLoaded', () => {
     const root = document.getElementById('root');
+    let store;
     let preLoadedState = {};
     if (window.currentUser) {
         preLoadedState = {
@@ -19,8 +21,13 @@ document.addEventListener( 'DOMContentLoaded', () => {
                 currentUser: window.currentUser.id
             }
         }
+        store = configureStore(preLoadedState);
+        delete window.currentUser;
+    } else {
+        store = configureStore();
     }
-    const store = configureStore(preLoadedState);
     window.getState = store.getState;
+    window.dispatch = store.dispatch;
+    window.logout = Action.logout;
     ReactDOM.render(< Root store={store}/> ,root);
 })

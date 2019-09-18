@@ -9,9 +9,9 @@ export default ( state = {}, action ) => {
     let newState = {};
     switch(action.type) {
         case RECEIVE_ALL_VIDEOS:
-            return action.videos;
+            return action.payload.videos;
         case RECEIVE_VIDEO:
-            newState = Object.assign({}, state, { [action.video.id]: action.video } );
+            newState = Object.assign({}, state, { [action.payload.video.id]: action.payload.video } );
             return newState;
         case REMOVE_VIDEO:
             newState = Object.assign({}, state);

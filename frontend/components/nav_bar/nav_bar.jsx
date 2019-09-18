@@ -10,7 +10,7 @@ class NavBar extends React.Component {
         this.handleErrors = this.handleErrors.bind(this);
         this.handleClick = this.handleClick.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-
+        this.handleHomePage = this.handleHomePage.bind(this);
         // need to bind update function
     }
 
@@ -25,12 +25,16 @@ class NavBar extends React.Component {
     handleClick(e) {
         this.props.history.push('/login')
     };
+
+    handleHomePage(e) {
+        this.props.history.push('/')
+    };
     
-    update() {
-        return e => this.setState({
-                //
-        })
-    }
+    // update() {
+    //     return e => this.setState({
+                
+    //     })
+    // }
     
     handleSubmit(e) {  // this is for search bar form
         // some ajax call to fetch an index of videos that have matching words in the title
@@ -38,12 +42,12 @@ class NavBar extends React.Component {
     }
     
     render() {
-        
+        // debugger
         const display = this.props.currentUser ? (
             <div className='nav-bar-container'>
 
                 <div className="nav-bar-left">
-                    <h2>TwixterTube</h2>
+                    <span onClick={this.handleHomePage}>TwixterTube</span>
                 </div>
                                                 
                 <div className="nav-bar-search"> 
@@ -63,7 +67,7 @@ class NavBar extends React.Component {
                 <div className='nav-bar-container'>
 
                     <div className="nav-bar-left">
-                        <h2>TwixterTube</h2>
+                        <span onClick={this.handleHomePage}>TwixterTube</span>
                     </div>
 
                     <div className="nav-bar-search">
@@ -76,6 +80,7 @@ class NavBar extends React.Component {
 
                     <div className='nav-bar-right'>
                         <button onClick={this.handleClick} className="sign-in-button">
+                            
                             <p>SIGN IN</p> 
                         </button>
                     </div>

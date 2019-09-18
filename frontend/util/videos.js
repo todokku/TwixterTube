@@ -20,13 +20,16 @@ export const postVideo = (video) => (
     })
 )
 
-export const editVideo = (video) => (
-    $.ajax({
-        url: `/api/videos/${video.id}`,
-        method: `PATCH`,
-        data: { video }
-    })
-)
+export const editVideo = (video) => {
+    // debugger
+    return (
+        $.ajax({
+            url: `/api/videos/${video.id}`,
+            method: `PATCH`,
+            data: { video }
+        })
+    )
+}
 
 export const deleteVideo = (id) => (
     $.ajax({

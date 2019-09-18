@@ -24,7 +24,6 @@ class Login extends React.Component {
     }
 
     handleSubmit(e) {
-        // debugger
         e.preventDefault();
         this.setState({
             email: this.state.email.trim()
@@ -48,7 +47,6 @@ class Login extends React.Component {
     }
 
     handleDemoUser(e) {
-        // debugger
         this.setState({
             email: 'd116',
             password: '123456'

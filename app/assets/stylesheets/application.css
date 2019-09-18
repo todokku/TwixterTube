@@ -23,6 +23,10 @@
     cursor: pointer;
  }
 
+ textarea {
+    outline: none;
+ }
+
 .session-form-container {
     display: flex;
     width: 450px;
@@ -68,6 +72,43 @@
 }
 
 .session-input-fields input:focus {
+    border: 2px rgb(0, 122, 226) solid
+}
+
+.edit-form {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+}
+
+.edit-form input {
+    height: 25px;
+    width: 300px;
+    padding: 13px 15px;
+    border-radius: 5px;
+    margin: 10px;
+    border: 1px rgb(217, 220, 224) solid;
+    /* border-style: solid; */
+    font-size: 16px;
+}
+
+.edit-form textarea {
+    height: 70px;
+    width: 300px;
+    padding: 13px 15px;
+    border-radius: 5px;
+    margin: 10px;
+    border: 1px rgb(217, 220, 224) solid;
+    /* border-style: solid; */
+    font-size: 16px;
+}
+
+.edit-form input:focus {
+    border: 2px rgb(0, 122, 226) solid
+}
+
+.edit-form textarea:focus {
     border: 2px rgb(0, 122, 226) solid
 }
 
@@ -144,9 +185,10 @@
     padding-left: 35px;
 }
 
-.nav-bar-left h2 {
+.nav-bar-left span {
     font-family: 'Pathway Gothic One', sans-serif;
-    font-size: 20px;
+    font-size: 23px;
+    cursor: pointer;
 }
 
 .nav-bar-search {

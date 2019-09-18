@@ -24,3 +24,5 @@ export const deleteSession = () => (
     })
 
 )
+
+// export const fetchUsers
