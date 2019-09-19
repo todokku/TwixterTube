@@ -15,29 +15,30 @@ class VideoIndexItem extends React.Component {
     render() {
         let url = this.props.video.videoUrl;
         let thumbnail = this.props.video.thumbnailUrl;
+        let author = ""; 
+        this.props.uploaders.forEach( uploader => {
+            if (uploader.id === this.props.video.uploader_id) {
+                author = uploader;
+            }
+        })
         return(
-            <div>
+            <li className="video-item-container" onClick={this.handleVidClick}>
                 {/* <video controls>
                     <source src={url}/>
                 </video> */}
-                <button onClick={this.handleVidClick}>
-                    <img src={thumbnail} />
-                </button>
-                <div>
+                {/* <button onClick={this.handleVidClick}>
+                    <img src={thumbnail}/>
+                </button> */}
+                <img src={thumbnail} />
+                <div className="video-details">
                     <h1>{this.props.video.title}</h1>
-                    <label>Author:
-                        <p>{this.props.uploader.username}</p>
-                    </label>
-                    <label>Views:
-                        <p>{this.props.video.views}</p>
-                    </label>
-                    <label>Description:
+                    <p id='vid-item-text'>{author.username}</p>
+                    <p id='vid-item-text'>{this.props.video.views} Views · {this.props.video.publishedAgo} ago</p>
+                    {/* <label>Description:
                         <p>{this.props.video.description}</p>
-                    </label>
-                    
+                    </label> */}
                 </div>
-            </div>
-            
+            </li>
         )
     }
 

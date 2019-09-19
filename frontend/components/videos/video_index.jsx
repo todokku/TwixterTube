@@ -13,20 +13,16 @@ class VideosIndex extends React.Component {
     }
     
     render() {
-        let videos = [];
-        this.props.videos.forEach( video => {
-            this.props.uploaders.forEach( uploader => {
-                if ( video.uploader_id === uploader.id ) {
-                    videos.push(
+        let videos = this.props.videos.map( video => {
+                return (
                     <VideoIndexItem
                     video={video}
                     key={video.id}
-                    uploader={uploader}
+                    uploaders={this.props.uploaders}
                     />
-                    )
+                )
                 }
-            })
-        })
+        )
         // let videos = this.props.videos.map( video => {
 
         //     return (
@@ -41,10 +37,16 @@ class VideosIndex extends React.Component {
             <div>
                 <NavBarContainer />
                 {/* <h1>React is Working</h1> */}
-                <div>
-                    {videos}
-                </div>
-                    
+                <div className='video-index-container-background'>
+                    <div className='video-index-recommended-header'>
+                        <h1>Recommended</h1>
+                    </div>
+                    <div className="video-index-container">
+                        <ul className="video-index-container-items">
+                            {videos}
+                        </ul>
+                    </div>
+                </div>  
             </div>
         )
     }

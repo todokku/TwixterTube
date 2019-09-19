@@ -30,14 +30,12 @@ class UploadVideoForm extends React.Component {
         formData.append('video[description]', this.state.description);
         formData.append('video[vid]', this.state.videoFile);
         formData.append('video[thumbnail]', this.state.thumbnailFile);
-        $.ajax({
-            url: '/api/videos',
-            method: 'POST',
-            data: formData,
-            contentType: false,
-            processData: false
-        })
-        .then( (video) => this.props.history.push(`/videos/${video.id}`));
+        this.props.action(formData)
+        .then( 
+            (response) => {
+                // debugger
+                this.props.history.push(`/videos/${response.payload.video.id}`)
+            });
     }
     
     handleVideoFile(e) {
