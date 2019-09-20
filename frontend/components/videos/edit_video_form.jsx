@@ -51,21 +51,23 @@ class EditVideoForm extends React.Component {
         return (
             <div>
                 <NavBarContainer />
-                <h2>{this.props.formTitle}</h2>
-                <form onSubmit={this.handleSubmit} className='edit-form'>
-                        <input
-                            type="text"
-                            placeholder='Title'
-                            value={this.state.title} 
-                            onChange={this.update('title')} />
-                            
-                        <textarea
-                            placeholder='Description'
-                            value={this.state.description}
-                            onChange={this.update('description')} />
+                <div className="video-form-container">
+                    <h2>{this.props.formTitle}</h2>
+                    <form onSubmit={this.handleSubmit} className='edit-form'>
+                            <input
+                                type="text"
+                                placeholder='Title'
+                                value={this.state.title} 
+                                onChange={this.update('title')} />
+                                
+                            <textarea
+                                placeholder='Description'
+                                value={this.state.description}
+                                onChange={this.update('description')} />
 
-                    <button className="next-button" onClick={this.handleSubmit}>{this.props.formType}</button>
-                </form>
+                        <button className="next-button" onClick={this.handleSubmit}>{this.props.formType}</button>
+                    </form>
+                </div>
             </div>
         )
     }

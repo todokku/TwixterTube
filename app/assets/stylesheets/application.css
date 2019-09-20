@@ -26,16 +26,61 @@ video {
     outline: none;
 }
 
+input[type="file"] {
+    display: none;
+}
+
+.custom-file-upload {
+    padding: 20px;
+    margin-right: 10px;
+    /* height: 100px; */
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f1f1f1;
+    box-shadow: 0 0 4px gainsboro inset;
+    border: 2px solid #e5e5e5;
+    border-radius: 2px;
+    box-sizing: content-box;
+    cursor: pointer;
+}
+
+.upload-video-icon {
+    font-size: 60px;
+    /* padding-left: 70px;
+    padding-top: 35px; */
+}
+
+.custom-file-thumbnail {
+    padding: 20px;
+    height: 100px;
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f1f1f1;
+    box-shadow: 0 0 4px gainsboro inset;
+    border: 2px solid #e5e5e5;
+    border-radius: 2px;
+    box-sizing: content-box;
+    cursor: pointer;
+}
+
+.upload-thumbnail-icon {
+    font-size: 60px;
+}
+
+.video-form-input-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding-bottom: 15px; 
+}
+
  /* input[type="file"] {
     display: none;
 } */
-
-.custom-file-upload {
-    border: 1px solid #ccc;
-    display: inline-block;
-    padding: 6px 12px;
-    cursor: pointer;
-}
 
  button {
     outline:none;
@@ -94,11 +139,28 @@ video {
     border: 2px rgb(0, 122, 226) solid
 }
 
+.video-form-container {
+    display: flex;
+    flex-direction: column;
+    width: 55%;
+    margin: 0 auto;
+    border: 2px solid #e6e6e6;
+    align-items: center;
+}
+
+.video-form-container h2 {
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+    margin: 20px;
+}
+
 .edit-form {
     display: flex;
     justify-content: space-around;
     flex-direction: column;
     align-items: center;
+    width: 85%;
+
 }
 
 .edit-form input {
@@ -204,12 +266,17 @@ video {
     flex-direction: row;
     align-items: center;
     padding-left: 35px;
+    cursor: pointer;
 }
 
 .nav-bar-left span {
     font-family: 'Pathway Gothic One', sans-serif;
-    font-size: 23px;
-    cursor: pointer;
+    font-size: 25px;
+}
+
+.twixtertube-logo {
+    width: 80px;
+    height: 70px;
 }
 
 .nav-bar-search {
@@ -239,6 +306,8 @@ video {
     flex-direction: row;
     align-items: center;
     padding-right: 35px;
+    justify-content: space-between;
+    width: 179px;
 }
 
 /* .nav-bar-right button {
@@ -249,6 +318,13 @@ video {
     width: 80px;
     padding: 11px 5px;
 } */
+
+.nav-bar-upload-button{
+    width: 50px;
+    height: 40px;
+    cursor: pointer;
+    font-size: 20px;
+}
 
 .sign-in-button {
     display: flex;
@@ -384,17 +460,23 @@ video {
 
 .video-show-details-top {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     border-bottom: 2px solid #e5e5e5;
+    justify-content: space-between;
 }
 
-.video-show-details-top h1 {
+.video-show-details-top-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.video-show-details-top-text h1 {
     font-size: 20px;
     font-family: 'Roboto', sans-serif;
     padding-bottom: 20px;
 }
 
-.video-show-details-top p {
+.video-show-details-top-text p {
     font-size: 16px;
     font-family: 'Roboto', sans-serif;
     padding-bottom: 20px;
@@ -456,6 +538,7 @@ video {
     width: 300px;
     height: 100px;
     cursor: pointer;
+    margin-bottom: 20px;
 }
 
 .video-show-list-item-image-container img {
@@ -483,3 +566,14 @@ video {
     padding-bottom: 13px;
     color: rgb(96,96,96);
 }
+
+.edit-button {
+    width: 80px;
+    height: 35px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    background: #1A73E8;
+}
+

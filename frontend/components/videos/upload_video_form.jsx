@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link, withRouter, Redirect } from 'react-router-dom';
 import NavBarContainer from '../nav_bar/nav_bar_container';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faVideo, faCamera } from '@fortawesome/free-solid-svg-icons';
 
 class UploadVideoForm extends React.Component {
     constructor(props) {
@@ -54,33 +56,42 @@ class UploadVideoForm extends React.Component {
         return (
             <div>
                 <NavBarContainer />
-                <h2>{this.props.formTitle}</h2>
-                <form onSubmit={this.handleSubmit} className='edit-form'>
-                    <label >Upload Video
-                        <input type="file" placeholder='Upload Video' onChange={this.handleVideoFile}/>
-                    </label>
-                    {/* className="custom-file-upload" */}
-                    {/* THIS CSS CLASS NAME IS GONNA BE INCLUDED IN LABLES */}
-                    <label >Upload Thumbnail
-                        <input type="file" placeholder="Upload Thumbnail" onChange={this.handleThumbnailFile}/>
-                    </label>
-                    <label> {/* TITLE */}
-                        <input
-                            type="text"
-                            placeholder='Title'
-                            value={this.state.title}
-                            onChange={this.update('title')} />
-                    </label>
+                <div className="video-form-container">
+                    <h2>{this.props.formTitle}</h2>
+                    <form onSubmit={this.handleSubmit} className='edit-form'>
+                        <div className="video-form-input-buttons">
+                            <label className="custom-file-upload">
+                                <FontAwesomeIcon icon={faVideo} className="upload-video-icon"/>
+                                <input type="file" onChange={this.handleVideoFile} />
+                            </label>
+                            {/* className="custom-file-upload" */}
+                            {/* THIS CSS CLASS NAME IS GONNA BE INCLUDED IN LABLES */}
+                            <label className="custom-file-thumbnail">
+                                <FontAwesomeIcon icon={faCamera} className="upload-thumbnail-icon"/>
+                                <input type="file"
+                                    placeholder="Upload Thumbnail"
+                                    onChange={this.handleThumbnailFile} />
+                            </label>
+                        </div>
+                        
+                        <label> {/* TITLE */}
+                            <input
+                                type="text"
+                                placeholder='Title'
+                                value={this.state.title}
+                                onChange={this.update('title')} />
+                        </label>
 
-                    <label> {/* DESCRIPTION */}
-                        <textarea
-                            placeholder='Description'
-                            value={this.state.description}
-                            onChange={this.update('description')} />
-                    </label>
+                        <label> {/* DESCRIPTION */}
+                            <textarea
+                                placeholder='Description'
+                                value={this.state.description}
+                                onChange={this.update('description')} />
+                        </label>
 
-                    <button className="next-button" onClick={this.handleSubmit}>{this.props.formType}</button>
-                </form>
+                        <button className="next-button" onClick={this.handleSubmit}>{this.props.formType}</button>
+                    </form>
+                </div>
             </div>
         )
     }

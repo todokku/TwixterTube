@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faVideo } from '@fortawesome/free-solid-svg-icons'
 
 class NavBar extends React.Component {
     // ({ currentUser, logout, clearErrors }) =>
@@ -11,6 +13,7 @@ class NavBar extends React.Component {
         this.handleClick = this.handleClick.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleHomePage = this.handleHomePage.bind(this);
+        this.handleUploadPage = this.handleUploadPage.bind(this);
         // need to bind update function
     }
 
@@ -23,12 +26,16 @@ class NavBar extends React.Component {
     }
 
     handleClick(e) {
-        this.props.history.push('/login')
+        this.props.history.push('/login');
     };
 
     handleHomePage(e) {
-        this.props.history.push('/')
+        this.props.history.push('/');
     };
+
+    handleUploadPage(e) {
+        this.props.history.push(`/upload`);
+    }
     
     // update() {
     //     return e => this.setState({
@@ -40,27 +47,32 @@ class NavBar extends React.Component {
         // some ajax call to fetch an index of videos that have matching words in the title
         //  this.props.action(this.state)  which will send the update state for a query to back end
     }
+
+    
     
     render() {
         // debugger
         const display = this.props.currentUser ? (
             <div className='nav-bar-container'>
 
-                <div className="nav-bar-left">
-                    {/* <img src={window.twixLogo} /> */}
-                    <span onClick={this.handleHomePage}>TwixterTube</span>
+                <div className="nav-bar-left" onClick={this.handleHomePage}>
+                    <img src={window.twixLogo} className="twixtertube-logo"/>
+                    <span>TwixterTube</span>
                 </div>
                                                 
-                <div className="nav-bar-search"> 
-                    <form className="search-bar">    
+                <div className="nav-bar-search">
+                    <form className="search-bar">
                         <input type="text" placeholder="Search" onChange={this.update}/> {/* Search Bar should be wrapped in a form */}
                     </form>
-                        <button className='search-button'>Search</button>                                       {/*  */}
+                        <button className='search-button'>Search</button>
                 </div>
 
                 <div className='nav-bar-right'>
-                    <p>Hello, {this.props.currentUser.username}</p>
-                    <button onClick={this.handleLogout}>Sign Out</button>
+                    <FontAwesomeIcon icon={faVideo} className="nav-bar-upload-button" onClick={this.handleUploadPage}/>
+                    <div className="nav-bar-right-profile-btn">
+                        <p>Hello, {this.props.currentUser.username}</p>
+                        <button onClick={this.handleLogout}>Sign Out</button>
+                    </div>
                 </div>
 
             </div>

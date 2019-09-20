@@ -9,7 +9,7 @@ const msp = state => {
     return ({
         video: { title: "", description: "" },
         formType: 'Publish',
-        formTitle: 'Select video to upload',
+        formTitle: 'Upload a video',
         currentUser: state.entities.users[state.session.currentUser]
     })
 

@@ -6,6 +6,7 @@ import VideoShowIndexItem from '../videos/video_show_index_item';
 class VideoShow extends React.Component {
     constructor(props) {
         super(props);
+        this.handleEdit = this.handleEdit.bind(this);
     }
 
     componentDidMount() {
@@ -13,6 +14,10 @@ class VideoShow extends React.Component {
         this.props.fetchVideos();
         // this.props.
         // this.props.video[views]++;    need an action to update back end, optional for now
+    }
+
+    handleEdit(e) {
+        this.props.history.push(`/videos/${this.props.video.id}/edit`);
     }
 
     render() {
@@ -56,6 +61,7 @@ class VideoShow extends React.Component {
                                         <h1>{this.props.video.title}</h1>
                                         <p>{this.props.video.views} Views</p>
                                     </div>
+                                    <button onClick={this.handleEdit} className="edit-button">Edit</button>
                                 </div>
                                 <div className="video-show-details-bottom">
                                     <h1>{this.props.uploader.username}</h1>
@@ -84,4 +90,4 @@ class VideoShow extends React.Component {
 
 }
 
-export default VideoShow;
+export default withRouter(VideoShow);
