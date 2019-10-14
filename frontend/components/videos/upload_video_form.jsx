@@ -11,7 +11,10 @@ class UploadVideoForm extends React.Component {
             title: "",
             description: "",
             videoFile: null,
-            thumbnailFile: null
+            thumbnailFile: null,
+            thumbnailUrl: null,
+            videoUploaded: false,
+            
         };
         this.update = this.update.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -41,17 +44,29 @@ class UploadVideoForm extends React.Component {
     }
     
     handleVideoFile(e) {
+
         this.setState({ videoFile: e.currentTarget.files[0]})
     }
 
     handleThumbnailFile(e) {
-        this.setState({ thumbnailFile: e.currentTarget.files[0] })
+        const file = e.currentTarget.files[0];
+        const fileReader = new FileReader();
+        fileReader.onloadend = () => {
+
+            this.setState({ thumbnailFile: file, thumbnailUrl: fileReader.result })
+        };
+
+        if (file) {
+            fileReader.readAsDataURL(file);
+        }
     }
 
     render() {
         if (!this.props.currentUser) {
             this.props.history.replace('/login');
         }
+        const thumbnailPreview = this.state.thumbnailUrl ? <img src={this.state.thumbnailUrl}/> : null;
+        const videoPreview = ;
 
         return (
             <div>
@@ -62,34 +77,39 @@ class UploadVideoForm extends React.Component {
                         <div className="video-form-input-buttons">
                             <label className="custom-file-upload">
                                 <FontAwesomeIcon icon={faVideo} className="upload-video-icon"/>
-                                <input type="file" onChange={this.handleVideoFile} />
+                                <input type="file" accept="video/mp4,video/x-m4v,video/*" onChange={this.handleVideoFile} />
                             </label>
                             {/* className="custom-file-upload" */}
                             {/* THIS CSS CLASS NAME IS GONNA BE INCLUDED IN LABLES */}
                             <label className="custom-file-thumbnail">
                                 <FontAwesomeIcon icon={faCamera} className="upload-thumbnail-icon"/>
                                 <input type="file"
+                                    accept="image/*" 
                                     placeholder="Upload Thumbnail"
                                     onChange={this.handleThumbnailFile} />
                             </label>
                         </div>
+                        <div className="edit-form-bottom">
+
+                                <input
+                                    type="text"
+                                    placeholder='Title'
+                                    value={this.state.title}
+                                    onChange={this.update('title')}
+                                    />
+
+                                <textarea
+                                    placeholder='Description'
+                                    value={this.state.description}
+                                    onChange={this.update('description')} 
+                                    />
+
+                        </div>
                         
-                        <label> {/* TITLE */}
-                            <input
-                                type="text"
-                                placeholder='Title'
-                                value={this.state.title}
-                                onChange={this.update('title')} />
-                        </label>
+                        <div className="edit-form-buttons">
+                            <button className="publish-button" onClick={this.handleSubmit}>{this.props.formType}</button>
+                        </div>
 
-                        <label> {/* DESCRIPTION */}
-                            <textarea
-                                placeholder='Description'
-                                value={this.state.description}
-                                onChange={this.update('description')} />
-                        </label>
-
-                        <button className="next-button" onClick={this.handleSubmit}>{this.props.formType}</button>
                     </form>
                 </div>
             </div>

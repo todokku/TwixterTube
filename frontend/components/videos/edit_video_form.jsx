@@ -8,6 +8,7 @@ class EditVideoForm extends React.Component {
         this.state = this.props.video;
         this.update = this.update.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleDeleteVideo = this.handleDeleteVideo.bind(this);
     }
 
     update(field){
@@ -20,6 +21,12 @@ class EditVideoForm extends React.Component {
         e.preventDefault();
         this.props.action(this.state)
         .then( () => this.props.history.push(`/videos/${this.props.video.id}`));
+    }
+
+    handleDeleteVideo(e) {
+        e.preventDefault();
+        this.props.deleteVideo(this.state.id)
+            .then( () => this.props.history.push('/'));
     }
     
     componentDidMount() {
@@ -54,9 +61,10 @@ class EditVideoForm extends React.Component {
                 <div className="video-form-container">
                     <h2>{this.props.formTitle}</h2>
                     <form onSubmit={this.handleSubmit} className='edit-form'>
+                        <div className="edit-form-bottom">
                             <input
                                 type="text"
-                                placeholder='Title'
+                                placeholder="Title"
                                 value={this.state.title} 
                                 onChange={this.update('title')} />
                                 
@@ -65,7 +73,12 @@ class EditVideoForm extends React.Component {
                                 value={this.state.description}
                                 onChange={this.update('description')} />
 
-                        <button className="next-button" onClick={this.handleSubmit}>{this.props.formType}</button>
+                            <div className="edit-form-buttons">
+                                <button className="next-button" onClick={this.handleSubmit}>{this.props.formType}</button>
+                                <button className="delete-button" onClick={this.handleDeleteVideo}>Delete Video</button>
+                            </div>
+                        </div>
+
                     </form>
                 </div>
             </div>

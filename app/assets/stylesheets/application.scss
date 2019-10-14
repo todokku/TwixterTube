@@ -47,9 +47,23 @@ input[type="file"] {
 }
 
 .upload-video-icon {
-    font-size: 60px;
+    font-size: 50px;
     /* padding-left: 70px;
     padding-top: 35px; */
+}
+
+.video-upload-input-fields {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.video-upload-input-field-title  {
+    
+}
+
+.video-upload-input-field-description  {
+    width: 100%;
 }
 
 .custom-file-thumbnail {
@@ -68,7 +82,7 @@ input[type="file"] {
 }
 
 .upload-thumbnail-icon {
-    font-size: 60px;
+    font-size: 50px;
 }
 
 .video-form-input-buttons {
@@ -160,39 +174,72 @@ input[type="file"] {
     flex-direction: column;
     align-items: center;
     width: 85%;
-
 }
 
-.edit-form input {
+.edit-form-bottom {
+    display: flex; 
+    flex-direction: column;
+    width: 100%;
+    padding-bottom: 20px;
+}
+
+.edit-form-bottom input {
     height: 25px;
-    width: 300px;
+    // width: 300px;
     padding: 13px 15px;
     border-radius: 5px;
     margin: 10px;
     border: 1px rgb(217, 220, 224) solid;
-    /* border-style: solid; */
     font-size: 16px;
 }
 
-.edit-form textarea {
+.edit-form-bottom textarea {
     height: 70px;
-    width: 300px;
+    // width: 300px;
     padding: 13px 15px;
     border-radius: 5px;
     margin: 10px;
     border: 1px rgb(217, 220, 224) solid;
-    /* border-style: solid; */
     font-size: 16px;
 }
+
+.edit-form-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding-top: 10px;
+}
+
+// .edit-form input {
+//     height: 25px;
+//     width: 300px;
+//     padding: 13px 15px;
+//     border-radius: 5px;
+//     margin: 10px;
+//     border: 1px rgb(217, 220, 224) solid;
+//     /* border-style: solid; */
+//     font-size: 16px;
+// }
+
+// .edit-form textarea {
+//     height: 70px;
+//     width: 300px;
+//     padding: 13px 15px;
+//     border-radius: 5px;
+//     margin: 10px;
+//     border: 1px rgb(217, 220, 224) solid;
+//     /* border-style: solid; */
+//     font-size: 16px;
+// }
 
 .edit-form input:focus {
     padding: 12px 14px;
-    border: 2px rgb(0, 122, 226) solid
+    border: 2px rgb(0, 122, 226) solid;
 }
 
 .edit-form textarea:focus {
     padding: 12px 14px;
-    border: 2px rgb(0, 122, 226) solid
+    border: 2px rgb(0, 122, 226) solid;
 }
 
 .session-form-buttons {
@@ -213,6 +260,30 @@ input[type="file"] {
     font-size: 16px;
     color: white;
     cursor: pointer;
+}
+
+.delete-button {
+    background-color: rgb(255, 0, 0);
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.publish-button {
+    background-color: rgb(0, 122, 226);
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+    margin-bottom: 20px;
 }
 
 .session-form-buttons-Links {
@@ -293,12 +364,15 @@ input[type="file"] {
 
 .search-bar input {
     width: 100%;
+    padding: 5px;
 }
 
 .search-button {
     border: 1px solid rgb(208, 208, 208);
-    margin-left: 5px;
+    margin-left: 13px;
     cursor: pointer;
+    padding-top: 6px;
+    padding-bottom: 6px;
 }
 
 .nav-bar-right {

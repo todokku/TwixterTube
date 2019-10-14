@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import EditVideoForm from './edit_video_form';
-import { editVideo, fetchVideo } from '../../actions/videos_actions';
+import { editVideo, fetchVideo, deleteVideo } from '../../actions/videos_actions';
 
 const msp = (state, ownProps) => {
     let video = state.entities.videos[ownProps.match.params.videoId] ? 
@@ -11,7 +11,7 @@ const msp = (state, ownProps) => {
     return ({
         video: video,
         formType: 'Edit Video',
-        formTitle: 'Edit your video',
+        formTitle: 'Update your Video details',
         currentUser: state.entities.users[state.session.currentUser]
     })
 
@@ -21,6 +21,7 @@ const mdp = dispatch => {
 
     return ({
         fetchVideo: (id) => dispatch(fetchVideo(id)),
+        deleteVideo: (id) => dispatch(deleteVideo(id)),
         action: videoForm => dispatch(editVideo(videoForm))
     })
 
