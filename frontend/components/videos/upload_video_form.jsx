@@ -66,7 +66,7 @@ class UploadVideoForm extends React.Component {
             this.props.history.replace('/login');
         }
         const thumbnailPreview = this.state.thumbnailUrl ? <img src={this.state.thumbnailUrl}/> : null;
-        const videoPreview = ;
+        // const videoPreview = ;
 
         return (
             <div>
