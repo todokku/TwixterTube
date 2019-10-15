@@ -48,6 +48,10 @@ class VideoShow extends React.Component {
             )     
             // videos.sort(() => Math.random() - 0.5);  // shuffles videos array
         })
+        let editButton = (this.props.currentUser && this.props.video.uploader_id === this.props.currentUser) ? 
+            <button onClick={this.handleEdit} className="edit-button">Edit</button> :
+            null;
+
         return (
             <div>
                 <NavBarContainer />
@@ -70,7 +74,8 @@ class VideoShow extends React.Component {
                                         <h1>{this.props.video.title}</h1>
                                         <p>{this.props.video.views} Views</p>
                                     </div>
-                                    <button onClick={this.handleEdit} className="edit-button">Edit</button>
+                                    {/* <button onClick={this.handleEdit} className="edit-button">Edit</button> */}
+                                    {editButton}
                                 </div>
                                 <div className="video-show-details-bottom">
                                     <h1>{this.props.uploader.username}</h1>
