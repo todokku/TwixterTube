@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, withRouter, Redirect } from 'react-router-dom';
 import NavBarContainer from '../nav_bar/nav_bar_container';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faVideo, faCamera } from '@fortawesome/free-solid-svg-icons';
+import { faVideo, faCamera, faCheck } from '@fortawesome/free-solid-svg-icons';
 
 class UploadVideoForm extends React.Component {
     constructor(props) {
@@ -65,8 +65,15 @@ class UploadVideoForm extends React.Component {
         if (!this.props.currentUser) {
             this.props.history.replace('/login');
         }
-        const thumbnailPreview = this.state.thumbnailUrl ? <img src={this.state.thumbnailUrl}/> : null;
-        // const videoPreview = ;
+        const thumbnailPreview = this.state.thumbnailUrl ? 
+        <img src={this.state.thumbnailUrl} /> 
+        : 
+        <FontAwesomeIcon icon={faCamera} className="upload-thumbnail-icon" />;
+
+        const videoPreview = this.state.videoFile ? 
+        <FontAwesomeIcon icon={faCheck} className="upload-video-icon-check" /> 
+        : 
+        <FontAwesomeIcon icon={faVideo} className="upload-video-icon" />;
 
         return (
             <div>
@@ -76,17 +83,20 @@ class UploadVideoForm extends React.Component {
                     <form onSubmit={this.handleSubmit} className='edit-form'>
                         <div className="video-form-input-buttons">
                             <label className="custom-file-upload">
-                                <FontAwesomeIcon icon={faVideo} className="upload-video-icon"/>
-                                <input type="file" accept="video/mp4,video/x-m4v,video/*" onChange={this.handleVideoFile} />
+                                {/* <FontAwesomeIcon icon={faVideo} className="upload-video-icon"/> */}
+                                <input type="file" 
+                                    accept="video/mp4,video/x-m4v,video/*" 
+                                    onChange={this.handleVideoFile} />
+                                    {videoPreview}
                             </label>
                             {/* className="custom-file-upload" */}
                             {/* THIS CSS CLASS NAME IS GONNA BE INCLUDED IN LABLES */}
                             <label className="custom-file-thumbnail">
-                                <FontAwesomeIcon icon={faCamera} className="upload-thumbnail-icon"/>
+                                {/* <FontAwesomeIcon icon={faCamera} className="upload-thumbnail-icon"/> */}
                                 <input type="file"
                                     accept="image/*" 
-                                    placeholder="Upload Thumbnail"
                                     onChange={this.handleThumbnailFile} />
+                                    {thumbnailPreview}
                             </label>
                         </div>
                         <div className="edit-form-bottom">

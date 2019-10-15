@@ -6,8 +6,16 @@ import VideoShowIndexItem from '../videos/video_show_index_item';
 class VideoShow extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            currentUser: this.props.currentUser,
+        }
         this.handleEdit = this.handleEdit.bind(this);
+        // this.shuffle = this.shuffle.bind(this);
     }
+
+    // shuffle(array) {
+    //     array.sort(() => Math.random() - 0.5);
+    // } 
 
     componentDidMount() {
         this.props.fetchVideo(this.props.match.params.videoId);
@@ -38,6 +46,7 @@ class VideoShow extends React.Component {
                     uploader={this.props.uploader}
                 />
             )     
+            // videos.sort(() => Math.random() - 0.5);  // shuffles videos array
         })
         return (
             <div>

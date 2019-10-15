@@ -8,7 +8,8 @@ class Api::VideosController < ApplicationController
     end
 
     def index
-        @videos = Video.all
+                                    # shuffle does not work for some reason
+        @videos = Video.all.take(40) # limit capacity of what videos show up on on index page
         render :index
     end
 

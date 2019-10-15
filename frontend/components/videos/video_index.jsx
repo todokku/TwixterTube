@@ -23,6 +23,9 @@ class VideosIndex extends React.Component {
                 )
                 }
         )
+
+        videos.sort(() => Math.random() - 0.5);
+
         // let videos = this.props.videos.map( video => {
 
         //     return (
