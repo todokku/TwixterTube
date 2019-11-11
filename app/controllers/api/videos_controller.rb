@@ -8,7 +8,7 @@ class Api::VideosController < ApplicationController
     end
 
     def index
-                                    # shuffle does not work for some reason
+        # shuffle does not work for some reason
         @videos = Video.all.take(40) # limit capacity of what videos show up on on index page
         render :index
     end
@@ -27,10 +27,19 @@ class Api::VideosController < ApplicationController
     def update
         # debugger
         @video = current_user.videos.find(params[:id])
-        if @video.update(video_params)
+        if @video.update(video_params_edit)
             render :show
         else
             render json: @video.errors.full_messages, status: 412
+        end
+    end
+
+    def view_update
+        @video = Video.find(params[:id])
+        if @video.update(video_params_edit_views)
+            render :show
+        else
+            render json: @video.errors.full_messages, status: 422
         end
     end
 
@@ -44,6 +53,14 @@ class Api::VideosController < ApplicationController
 
     def video_params
         params.require(:video).permit(:title, :description, :vid, :thumbnail)
+    end
+
+    def video_params_edit
+        params.require(:video).permit(:title, :description)
+    end
+
+    def video_params_edit_views
+        params.require(:video).permit(:views)
     end
 
 end

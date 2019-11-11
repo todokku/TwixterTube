@@ -10,4 +10,17 @@ class Video < ApplicationRecord
     
     has_one_attached :thumbnail
 
+    has_many :likes, as: :likeable
+
+    def num_likes
+        likes = self.likes.select { |like| like == true }
+        return likes.length
+    end
+
+    def num_dislikes 
+        dislikes = self.likes.select { |like| like == false }
+        return dislikes.length
+    end
+
+
 end

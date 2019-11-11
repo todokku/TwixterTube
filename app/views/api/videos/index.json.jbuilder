@@ -14,4 +14,5 @@
             json.extract! video.uploader, :email, :username, :id
         end
     end
+
 end
