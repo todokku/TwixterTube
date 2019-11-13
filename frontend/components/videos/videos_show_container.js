@@ -1,28 +1,39 @@
-import { connect } from 'react-redux';
-import VideoShow from './video_show';
-import { fetchVideo, fetchVideos } from '../../actions/videos_actions';
+import { connect } from "react-redux";
+import VideoShow from "./video_show";
+import * as VideoActions from "../../actions/videos_actions";
+import * as VideoUtil from "../../util/videos_util";
 
 const msp = (state, ownProps) => {
-    let currentUser = state.session.currentUser;
-    let videos = Object.values(state.entities.videos).sort(() => Math.random() - 0.5);
-    let video = state.entities.videos[ownProps.match.params.videoId];
-    let uploader = video ? state.entities.users[video.uploader_id] : null;
-    return ({
-        videos: videos,
-        video: video,
-        uploader: uploader,
-        currentUser: currentUser
-    })
+  let currentUser = state.session.currentUser;
+  let videos = Object.values(state.entities.videos).sort(
+    () => Math.random() - 0.5
+  );
+  let video = state.entities.videos[ownProps.match.params.videoId];
+  let uploader = video ? state.entities.users[video.uploader_id] : null;
+  return {
+    videos: videos,
+    video: video,
+    uploader: uploader,
+    currentUser: currentUser
+    // fetchVideoUtil: VideoUtil.fetchVideo,
+    // fetchVideoAction: VideoActions.receiveVideo,
+    // updateViewCountUtil: VideoUtil.updateVideoViewCount
 
-}
+    // updateViewCountAction: VideoActions.updateViews
+  };
+};
 
 const mdp = dispatch => {
+  return {
+    fetchVideos: () => dispatch(VideoActions.fetchVideos()),
 
-    return ({
-        fetchVideos: () => dispatch(fetchVideos()),
-        fetchVideo: (id) => dispatch(fetchVideo(id))
-    })
+    fetchVideo: id => {
+      return dispatch(VideoActions.fetchVideo(id));
+    },
 
-}
+    updateViewCount: videoPayload =>
+      dispatch(VideoActions.updateViewCount(videoPayload))
+  };
+};
 
 export default connect(msp, mdp)(VideoShow);

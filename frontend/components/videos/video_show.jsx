@@ -7,7 +7,9 @@ class VideoShow extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentUser: this.props.currentUser
+      currentUser: this.props.currentUser,
+      video: this.props.video,
+      loaded: false
     };
     this.handleEdit = this.handleEdit.bind(this);
     // this.shuffle = this.shuffle.bind(this);
@@ -18,10 +20,18 @@ class VideoShow extends React.Component {
   // }
 
   componentDidMount() {
-    this.props.fetchVideo(this.props.match.params.videoId);
-    this.props.fetchVideos();
-    this.props.video;
-    // this.props.
+    // debugger;
+    let that = this;
+    this.props.fetchVideo(this.props.match.params.videoId).then(s => {
+      that.props.fetchVideos();
+      that.props
+        .updateViewCount({
+          id: that.props.match.params.videoId,
+          views: that.props.video.views + 1
+        })
+        .then(s => that.setState({ loaded: true }));
+    });
+    // this.props.video;
     // this.props.video[views]++;    need an action to update back end, optional for now
   }
 
@@ -30,7 +40,7 @@ class VideoShow extends React.Component {
   }
 
   render() {
-    if (!this.props.video) {
+    if (!this.state.loaded) {
       return null;
     }
     let url = this.props.video.videoUrl;
