@@ -157,13 +157,18 @@ textarea {
   border: 2px rgb(0, 122, 226) solid;
 }
 
+.upload-form-background {
+  background-color: rgb(249, 249, 249);
+}
+
 .video-form-container {
   display: flex;
   flex-direction: column;
-  width: 55%;
+  width: 500px;
   margin: 0 auto;
   border: 2px solid #e6e6e6;
   align-items: center;
+  background-color: white;
 }
 
 .video-form-container h2 {
@@ -348,8 +353,11 @@ textarea {
 }
 
 .twixtertube-logo {
-  width: 80px;
+  width: 85px;
   height: 70px;
+  z-index: 0;
+  object-fit: contain;
+  padding-bottom: 5px;
 }
 
 .nav-bar-search {
@@ -478,7 +486,12 @@ textarea {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+  text-decoration: none;
+  color: rgb(198, 198, 198);
   padding: 10px 10px 10px 25px;
+  border: none;
+  background: none;
+  cursor: pointer;
 }
 
 .dropdown-item:hover {
@@ -497,6 +510,7 @@ textarea {
 
 .dropdown-item h2 {
   font-size: 18px;
+  text-decoration: none;
 }
 
 /* .nav-bar-right button {
@@ -555,16 +569,28 @@ textarea {
   display: flex;
   flex-direction: column;
   font-family: "Roboto", sans-serif;
-  max-width: 210px;
+  max-width: 209px;
   cursor: pointer;
   margin-right: 4px;
   margin-top: 10px;
-  /* padding-right: 4px; */
+  padding-right: 4px;
 }
 
-.video-item-container img {
-  width: 209px;
+// .video-item-container img {
+//   width: 209px;
+//   height: 128px;
+// }
+
+.video-item-container-image {
+  width: 100%;
+  height: 100%;
+}
+
+.video-item-container-image img {
+  background-color: black;
+  width: 100%;
   height: 128px;
+  object-fit: contain;
 }
 
 .video-details {
@@ -626,11 +652,14 @@ textarea {
 .video-show-container {
   padding-right: 24px;
   height: auto;
+  margin-left: 34px;
 }
 
 .video-container {
-  width: 875px;
-  height: 495px;
+  min-width: 427px;
+  min-height: 240px;
+  max-width: 679px;
+  max-height: 382px;
   margin-bottom: 30px;
 }
 
@@ -730,9 +759,16 @@ textarea {
   margin-bottom: 20px;
 }
 
-.video-show-list-item-image-container img {
+.video-show-list-item-image-container {
   width: 185px;
   height: 104px;
+}
+
+.video-show-list-item-image-container img {
+  background-color: black;
+  width: 185px;
+  height: 104px;
+  object-fit: contain;
 }
 
 .video-show-list-item-details {

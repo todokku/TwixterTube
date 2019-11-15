@@ -37,7 +37,7 @@ class NavBar extends React.Component {
   }
 
   toggleModal() {
-    debugger;
+    // debugger;
     if (!this.state.modalDisplay) {
       this.setState({ modalDisplay: true });
     } else {
@@ -85,10 +85,12 @@ class NavBar extends React.Component {
   }
 
   handleHomePage(e) {
+    this.setState({ modalDisplay: false });
     this.props.history.push("/");
   }
 
   handleUploadPage(e) {
+    this.setState({ modalDisplay: false });
     this.props.history.push(`/upload`);
   }
 
@@ -176,14 +178,18 @@ class NavBar extends React.Component {
             </div>
 
             <div className="dropdown-main">
-              <Link to="/" className="dropdown-item">
+              <div
+                to="/"
+                className="dropdown-item"
+                onClick={this.handleHomePage}
+              >
                 <span>
                   <FontAwesomeIcon icon={faHome} />
                 </span>
                 <h2>Home</h2>
-              </Link>
+              </div>
 
-              <div className="dropdown-item">
+              <div className="dropdown-item" onClick={this.handleUploadPage}>
                 <span>
                   <FontAwesomeIcon icon={faVideo} />
                 </span>
