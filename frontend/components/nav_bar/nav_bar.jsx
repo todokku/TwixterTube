@@ -13,7 +13,11 @@ class NavBar extends React.Component {
   // ({ currentUser, logout, clearErrors }) =>
   constructor(props) {
     super(props);
-    this.state = ""; // may need refactoring b/c update is returning a pojo
+    this.state = {
+      modalButton: document.getElementsByClassName("nav-bar-right-profile-btn"),
+      modalDisplay: false,
+      modal: document.getElementsByClassName("profile-button-modal")
+    }; // may need refactoring b/c update is returning a pojo
     this.handleLogout = this.handleLogout.bind(this);
     this.handleErrors = this.handleErrors.bind(this);
     this.handleClick = this.handleClick.bind(this);
@@ -21,11 +25,51 @@ class NavBar extends React.Component {
     this.handleHomePage = this.handleHomePage.bind(this);
     this.handleUploadPage = this.handleUploadPage.bind(this);
     this.displayProfileModel = this.displayProfileModel.bind(this);
+    this.toggleModal = this.toggleModal.bind(this);
     // need to bind update function
   }
 
+  componentDidMount() {
+    this.displayProfileModel;
+    // window.onClick = e => {
+    //   console.log("WE ARE LOOKING AT WHAT WINDOW CLICK LOOKS LIKE: ", e.target);
+    // };
+  }
+
+  toggleModal() {
+    debugger;
+    if (!this.state.modalDisplay) {
+      this.setState({ modalDisplay: true });
+    } else {
+      this.setState({ modalDisplay: false });
+    }
+  }
+
   displayProfileModel() {
-    //
+    let that = this;
+    window.addEventListener("click", e => {
+      console.log("WE ARE LOOKING AT WHAT WINDOW CLICK LOOKS LIKE: ", e.target);
+      if (e.target == that.state.modal) {
+        that.toggleModal();
+      } else {
+        that.setState({
+          modalDisplay: false
+        });
+      }
+      // if (e.target.value)
+    });
+
+    // window.addEventListener("click", e => {
+    //   console.log("WE ARE LOOKING AT WHAT WINDOW CLICK LOOKS LIKE: ", e.target);
+    //   if (e.target == that.state.modal) {
+    //     that.toggleModal();
+    //   } else {
+    //     that.setState({
+    //       modalDisplay: false
+    //     });
+    //   }
+    //   // if (e.target.value)
+    // });
   }
 
   handleLogout(e) {
@@ -54,6 +98,8 @@ class NavBar extends React.Component {
   //     })
   // }
 
+  handleDropDown(modal) {}
+
   handleSubmit(e) {
     // this is for search bar form
     // some ajax call to fetch an index of videos that have matching words in the title
@@ -61,6 +107,25 @@ class NavBar extends React.Component {
   }
 
   render() {
+    console.log("FUNCTION: ", this.displayProfileModel);
+
+    if (this.state.modal.length) {
+      console.log(
+        "THIS IS THE PROFILE BUTTON HTML ELEMENT: ",
+        this.state.modal
+      );
+      console.log(
+        "THIS IS THE PROFILE BUTTON HTML ELEMENT NO.2!!!!: ",
+        this.state.modal[0].style.display
+      );
+
+      if (this.state.modalDisplay) {
+        this.state.modal[0].style.display = "flex";
+      } else {
+        this.state.modal[0].style.display = "none";
+      }
+    }
+
     // debugger
     console.log("DISPLAYING USER POJO ON NAV BAR: ", this.props.currentUser);
     const display = this.props.currentUser ? (
@@ -86,13 +151,13 @@ class NavBar extends React.Component {
             className="nav-bar-upload-button"
             onClick={this.handleUploadPage}
           />
-          <div className="nav-bar-right-profile-btn">
+          <div className="nav-bar-right-profile-btn" onClick={this.toggleModal}>
             <FontAwesomeIcon icon={faUserCircle} />
-            <button onClick={this.handleLogout}>Sign Out</button>
+            {/* <button onClick={this.handleLogout}>Sign Out</button> */}
           </div>
         </div>
 
-        {/* <div className="profile-button-modal">
+        <div className="profile-button-modal">
           <div className="profile-dropdown-content">
             <div className="dropdown-header">
               <div className="dropdown-header-icon">
@@ -111,33 +176,29 @@ class NavBar extends React.Component {
             </div>
 
             <div className="dropdown-main">
+              <Link to="/" className="dropdown-item">
+                <span>
+                  <FontAwesomeIcon icon={faHome} />
+                </span>
+                <h2>Home</h2>
+              </Link>
+
               <div className="dropdown-item">
-                <ul>
-                  <li>
-                    <FontAwesomeIcon icon={faHome} />
-                  </li>
-                  <li></li>
-                </ul>
+                <span>
+                  <FontAwesomeIcon icon={faVideo} />
+                </span>
+                <h2>Upload</h2>
               </div>
-              <div className="dropdown-item">
-                <ul>
-                  <li>
-                    <FontAwesomeIcon icon={faVideo} />
-                  </li>
-                  <li></li>
-                </ul>
-              </div>
-              <div className="dropdown-item">
-                <ul>
-                  <li>
-                    <FontAwesomeIcon icon={faSignOutAlt} />
-                  </li>
-                  <li></li>
-                </ul>
-              </div>
+
+              <button className="dropdown-item" onClick={this.handleLogout}>
+                <span>
+                  <FontAwesomeIcon icon={faSignOutAlt} />
+                </span>
+                <h2>Sign Out</h2>
+              </button>
             </div>
           </div>
-        </div> */}
+        </div>
       </div>
     ) : (
       <div className="nav-bar-container">

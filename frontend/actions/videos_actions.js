@@ -48,8 +48,6 @@ export const fetchVideos = () => dispatch =>
 
 export const fetchVideo = id => dispatch => {
   return VideoUtil.fetchVideo(id).then(payload => {
-    debugger;
-    console.log("IN THE ACTIONS SHOW WHAT PAYLOAD LOOKS LIKE: ", payload);
     dispatch(receiveVideo(payload));
   });
 };
@@ -74,7 +72,5 @@ export const deleteVideo = id => dispatch =>
 
 export const updateViewCount = videoPayload => dispatch =>
   VideoUtil.updateVideoViewCount(videoPayload).then(payload => {
-    debugger;
-    console.log("IN THE ACTIONS SHOW WHAT PAYLOAD LOOKS LIKE: ", payload);
     dispatch(updateViews(payload));
   });

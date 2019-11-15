@@ -12,11 +12,10 @@ export default (state = {}, action) => {
     case RECEIVE_ALL_VIDEOS:
       return action.payload.videos;
     case RECEIVE_VIDEO:
-      debugger;
-      console.log(
-        "IN THE ACTIONS SHOW WHAT PAYLOAD LOOKS LIKE: ",
-        action.payload
-      );
+      // console.log(
+      //   "IN THE ACTIONS SHOW WHAT PAYLOAD LOOKS LIKE: ",
+      //   action.payload
+      // );
       newState = Object.assign({}, state, {
         [action.payload.video.id]: action.payload.video
       });

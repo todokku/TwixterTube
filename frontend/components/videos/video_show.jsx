@@ -6,10 +6,12 @@ import VideoShowIndexItem from "../videos/video_show_index_item";
 class VideoShow extends React.Component {
   constructor(props) {
     super(props);
+    // let views = this.props.video ? this.props.video.views + 1 : 1;
     this.state = {
       currentUser: this.props.currentUser,
       video: this.props.video,
-      loaded: false
+      loaded: false,
+      views: 0
     };
     this.handleEdit = this.handleEdit.bind(this);
     // this.shuffle = this.shuffle.bind(this);
@@ -29,7 +31,9 @@ class VideoShow extends React.Component {
           id: that.props.match.params.videoId,
           views: that.props.video.views + 1
         })
-        .then(s => that.setState({ loaded: true }));
+        .then(s =>
+          that.setState({ loaded: true, views: that.props.video.views })
+        );
     });
     // this.props.video;
     // this.props.video[views]++;    need an action to update back end, optional for now
@@ -83,7 +87,7 @@ class VideoShow extends React.Component {
                 <div className="video-show-details-top">
                   <div className="video-show-details-top-text">
                     <h1>{this.props.video.title}</h1>
-                    <p>{this.props.video.views} Views</p>
+                    <p>{this.state.views} Views</p>
                   </div>
                   {/* <button onClick={this.handleEdit} className="edit-button">Edit</button> */}
                   {editButton}
