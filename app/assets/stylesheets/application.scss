@@ -71,9 +71,11 @@ input[type="file"] {
 }
 
 .custom-file-thumbnail {
-  padding: 20px;
-  height: 100px;
-  width: 200px;
+  // padding: 20px;
+  // height: 100px;
+  // width: 200px;
+  height: 144px;
+  width: 248px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -87,6 +89,14 @@ input[type="file"] {
 
 .upload-thumbnail-icon {
   font-size: 50px;
+}
+
+#thumbnail {
+  display: none;
+  background-color: none;
+  width: 100%;
+  height: 144px;
+  object-fit: contain;
 }
 
 .video-form-input-buttons {

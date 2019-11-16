@@ -14,7 +14,10 @@ class UploadVideoForm extends React.Component {
       thumbnailFile: null,
       thumbnailUrl: null,
       videoUploaded: false,
-      uploadIconElement: ""
+      uploadIconElement: "",
+      thumbnailElement: null,
+      thumbnailContainerElement: null
+
       // loaded: false
       // purpose of having this property in state is so that
       // upload icon can be retrieved properly
@@ -32,6 +35,10 @@ class UploadVideoForm extends React.Component {
     this.setState({
       uploadIconElement: document.getElementsByClassName(
         "upload-thumbnail-icon"
+      ),
+      thumbnailElement: document.getElementById("thumbnail"),
+      thumbnailContainerElement: document.getElementsByClassName(
+        "custom-file-thumbnail"
       )
     });
   }
@@ -63,11 +70,18 @@ class UploadVideoForm extends React.Component {
   handleThumbnailFile(e) {
     const file = e.currentTarget.files[0];
     const fileReader = new FileReader();
-    fileReader.onloadend = () => {
+    fileReader.onloadend = e => {
       this.setState({ thumbnailFile: file, thumbnailUrl: fileReader.result });
     };
+    fileReader.onload = e => {
+      $("#thumbnail").attr("src", e.target.result);
+    };
 
-    // this.state.uploadIconElement[0].style.fontSize = 0;
+    this.state.uploadIconElement[0].style.fontSize = 0;
+    this.state.thumbnailContainerElement[0].style.background = "black";
+    this.state.thumbnailElement.style.display = "inherit";
+
+    // fileReader.onload = e => {};
     // this.state.uploadIconElement[0].style.background = this.state.thumbnailUrl;
 
     if (file) {
@@ -87,14 +101,14 @@ class UploadVideoForm extends React.Component {
       );
     }
 
-    console.log(
-      "HERE'S WHAT THUMBNAIL URL LOOKS LIKE: ",
-      this.state.thumbnailUrl
-    );
-    console.log(
-      "HERE'S WHAT THUMBNAIL FILE LOOKS LIKE: ",
-      this.state.thumbnailFile
-    );
+    if (this.state.thumbnailElement) {
+      console.log(
+        "HERE'S WHAT THE UPLOAD ICON ELEMENT LOOKS LIKE SECOND TIME: "
+        // this.state.thumbnailElement
+      );
+    }
+
+    console.log("HERE'S JQUERY: ", $("#thumbnail"));
 
     // if (this.state.thumbnailUrl) {
     // }
@@ -140,6 +154,7 @@ class UploadVideoForm extends React.Component {
                   <div className="upload-thumbnail-icon">
                     <FontAwesomeIcon icon={faCamera} />
                   </div>
+                  <img id="thumbnail" src="#" alt="" />
                   {/* {thumbnailPreview} */}
                 </label>
               </div>
