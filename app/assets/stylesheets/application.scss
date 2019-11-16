@@ -179,6 +179,7 @@ textarea {
   border: 2px solid #e6e6e6;
   align-items: center;
   background-color: white;
+  margin-top: 25px;
 }
 
 .video-form-container h2 {
@@ -347,6 +348,7 @@ textarea {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  background: white;
 }
 
 .nav-bar-left {
@@ -667,13 +669,17 @@ textarea {
 
 .video-container {
   min-width: 427px;
+  background: black;
   min-height: 240px;
   max-width: 679px;
   max-height: 382px;
+  width: 679px;
+  height: 382px;
   margin-bottom: 30px;
 }
 
 .video-container video {
+  object-fit: contain;
   width: 100%;
   height: 100%;
 }
@@ -702,7 +708,7 @@ textarea {
 .video-show-details-top-text h1 {
   font-size: 20px;
   font-family: "Roboto", sans-serif;
-  padding-bottom: 20px;
+  padding-bottom: 25px;
 }
 
 .video-show-details-top-text p {

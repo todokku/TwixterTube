@@ -2,6 +2,8 @@ import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import NavBarContainer from "../nav_bar/nav_bar_container";
 import VideoShowIndexItem from "../videos/video_show_index_item";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faThumbsUp, faThumbsDown } from "@fortawesome/free-solid-svg-icons";
 
 class VideoShow extends React.Component {
   constructor(props) {
