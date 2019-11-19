@@ -9,7 +9,10 @@ class Api::VideosController < ApplicationController
 
     def index
         # shuffle does not work for some reason
-        @videos = Video.all.take(40) # limit capacity of what videos show up on on index page
+        # limit capacity of what videos show up on on index page
+        # @videos = Video.all.take(40) 
+        @videos = Video.first(40) # method is superior due to not having to query all videos then 
+                                  # truncate array for 40 videos, former method really uneffecient
         render :index
     end
 

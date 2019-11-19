@@ -25,9 +25,23 @@ class VideoShow extends React.Component {
 
   componentDidMount() {
     // debugger;
+
+    // let that = this;
+    // this.props.fetchVideo(this.props.match.params.videoId).then(s => {
+    //   that.props.fetchVideos();
+    //   that.props
+    //     .updateViewCount({
+    //       id: that.props.match.params.videoId,
+    //       views: that.props.video.views + 1
+    //     })
+    //     .then(s =>
+    //       that.setState({ loaded: true, views: that.props.video.views })
+    //     );
+    // });
+
     let that = this;
-    this.props.fetchVideo(this.props.match.params.videoId).then(s => {
-      that.props.fetchVideos();
+    this.props.fetchVideos().then(s => {
+      that.props.fetchVideo(that.props.match.params.videoId);
       that.props
         .updateViewCount({
           id: that.props.match.params.videoId,
@@ -37,6 +51,7 @@ class VideoShow extends React.Component {
           that.setState({ loaded: true, views: that.props.video.views })
         );
     });
+
     // this.props.video;
     // this.props.video[views]++;    need an action to update back end, optional for now
   }
@@ -46,6 +61,9 @@ class VideoShow extends React.Component {
   }
 
   render() {
+    // if (!this.state.video) {
+    //   return null;
+    // }
     if (!this.state.loaded) {
       return null;
     }
@@ -87,12 +105,24 @@ class VideoShow extends React.Component {
 
               <div className="video-show-details">
                 <div className="video-show-details-top">
-                  <div className="video-show-details-top-text">
+                  <div className="video-show-details-top-top">
                     <h1>{this.props.video.title}</h1>
+                    {editButton}
+                  </div>
+                  <div className="video-show-details-top-bottom">
                     <p>{this.state.views} Views</p>
+                    <div className="like-system-container">
+                      <div className="like-thumbs-container">
+                        {/* <div className="thumbs-up">
+                          <FontAwesomeIcon icon={faThumbsUp}/>
+                          {this.props.}
+                        </div> */}
+                        <div className="thumbs-down"></div>
+                      </div>
+                      <div className="like-bar"></div>
+                    </div>
                   </div>
                   {/* <button onClick={this.handleEdit} className="edit-button">Edit</button> */}
-                  {editButton}
                 </div>
                 <div className="video-show-details-bottom">
                   <h1>{this.props.uploader.username}</h1>

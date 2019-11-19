@@ -13,12 +13,12 @@ class Video < ApplicationRecord
     has_many :likes, as: :likeable
 
     def num_likes
-        likes = self.likes.select { |like| like == true }
+        likes = self.likes.select { |like| like.liked == true }
         return likes.length
     end
 
     def num_dislikes 
-        dislikes = self.likes.select { |like| like == false }
+        dislikes = self.likes.select { |like| like.liked == false }
         return dislikes.length
     end
 

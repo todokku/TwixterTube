@@ -432,6 +432,7 @@ textarea {
 }
 
 .nav-bar-right-profile-btn {
+  cursor: pointer;
   font-size: 35px;
   color: rgb(173, 181, 189);
 }
@@ -695,27 +696,47 @@ textarea {
 
 .video-show-details-top {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   border-bottom: 2px solid #e5e5e5;
   justify-content: space-between;
 }
 
-.video-show-details-top-text {
+.video-show-details-top-top {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
-.video-show-details-top-text h1 {
+.video-show-details-top-top h1 {
   font-size: 20px;
   font-family: "Roboto", sans-serif;
   padding-bottom: 25px;
 }
 
-.video-show-details-top-text p {
+.video-show-details-top-bottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.video-show-details-top-bottom p {
   font-size: 16px;
   font-family: "Roboto", sans-serif;
   padding-bottom: 20px;
   color: rgb(110, 110, 110);
+}
+
+.like-system-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.like-thumbs-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.like-bar {
 }
 
 .video-show-details-bottom {

@@ -9,6 +9,7 @@ const msp = (state, ownProps) => {
     () => Math.random() - 0.5
   );
   let video = state.entities.videos[ownProps.match.params.videoId];
+  // let video = state.entities.videoShow;
   let uploader = video ? state.entities.users[video.uploader_id] : null;
   return {
     videos: videos,

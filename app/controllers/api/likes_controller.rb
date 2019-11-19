@@ -1,6 +1,9 @@
 class Api::LikesController < ApplicationController
     before_action :require_logged_in, only: [:create, :update, :destroy]
 
+    def show
+    end
+
     def create
         @like = Like.new(create_like_params)
         @like.user_id = current_user.id
@@ -42,5 +45,9 @@ class Api::LikesController < ApplicationController
 
     def update_like_params
         params.require(:like).permit(:liked)
+    end
+
+    def receive_like_params
+        params.require(:like).permit()
     end
 end
