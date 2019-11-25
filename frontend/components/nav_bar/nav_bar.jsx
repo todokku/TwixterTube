@@ -45,6 +45,12 @@ class NavBar extends React.Component {
     }
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.url !== prevProps.url) {
+      this.setState({ modalDisplay: false });
+    }
+  }
+
   displayProfileModel() {
     let that = this;
     window.addEventListener("click", e => {

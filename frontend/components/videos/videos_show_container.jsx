@@ -11,11 +11,13 @@ const msp = (state, ownProps) => {
   let video = state.entities.videos[ownProps.match.params.videoId];
   // let video = state.entities.videoShow;
   let uploader = video ? state.entities.users[video.uploader_id] : null;
+  let url = ownProps.match.url;
   return {
     videos: videos,
     video: video,
     uploader: uploader,
-    currentUser: currentUser
+    currentUser: currentUser,
+    url: url
     // fetchVideoUtil: VideoUtil.fetchVideo,
     // fetchVideoAction: VideoActions.receiveVideo,
     // updateViewCountUtil: VideoUtil.updateVideoViewCount

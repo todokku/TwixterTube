@@ -127,7 +127,7 @@ class UploadVideoForm extends React.Component {
 
     return (
       <div>
-        <NavBarContainer />
+        <NavBarContainer url={this.props.url} />
         <div className="upload-form-background">
           <div className="video-form-container">
             <h2>{this.props.formTitle}</h2>

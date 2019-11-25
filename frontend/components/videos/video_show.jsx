@@ -14,6 +14,7 @@ class VideoShow extends React.Component {
       video: this.props.video,
       loaded: false,
       views: 0
+      // url: this.props.match.url
     };
     this.handleEdit = this.handleEdit.bind(this);
     // this.shuffle = this.shuffle.bind(this);
@@ -24,6 +25,7 @@ class VideoShow extends React.Component {
   // }
 
   componentDidMount() {
+    console.log("MOUNTING VIDEO COMPONENT!!!!===========");
     // debugger;
 
     // let that = this;
@@ -48,12 +50,34 @@ class VideoShow extends React.Component {
           views: that.props.video.views + 1
         })
         .then(s =>
-          that.setState({ loaded: true, views: that.props.video.views })
+          that.setState({
+            loaded: true,
+            views: that.props.video.views
+            // url: this.props.match.url
+          })
         );
     });
 
     // this.props.video;
     // this.props.video[views]++;    need an action to update back end, optional for now
+  }
+
+  componentDidUpdate(prevProps) {
+    console.log("GOING ON TO NEXT VIDEO FROM NEW PROPS: ", prevProps);
+    // if (prevProps.video.id !== this.props.video.id)
+    if (this.props.match.url !== prevProps.match.url) {
+      this.props
+        .updateViewCount({
+          id: this.props.match.params.videoId,
+          views: this.props.video.views + 1
+        })
+        .then(s =>
+          this.setState({
+            views: this.props.video.views
+            // url: this.props.match.url
+          })
+        );
+    }
   }
 
   handleEdit(e) {
@@ -80,6 +104,7 @@ class VideoShow extends React.Component {
           uploader={this.props.uploader}
         />
       );
+      let currentLike = this.props.video;
       // videos.sort(() => Math.random() - 0.5);  // shuffles videos array
     });
     let editButton =
@@ -92,7 +117,7 @@ class VideoShow extends React.Component {
 
     return (
       <div>
-        <NavBarContainer />
+        <NavBarContainer url={this.props.url} />
         <div className="video-show-wrapper">
           <span> </span>
           <div className="video-show-page">
