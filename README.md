@@ -32,6 +32,8 @@ Tubular is video sharing website where users can upload, watch, and interact wit
 
 <p>Once logged in, users can click on the video icon located within the header. They will be met by the following page:</p>
 
-<p><a>
-    
-  </a></p>
+<p>
+  <a>
+    <img src="images/upload_form.png" >
+  </a>
+</p>
