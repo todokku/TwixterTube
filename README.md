@@ -1,24 +1,5 @@
-# README
+<img src="images/Screen%20Shot%202019-12-01%20at%208.18.53%20PM.png" >
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Tubular is video sharing website where users can upload, watch, and interact with each other's videos through comments and a like/dislike system. It was built utlizing a Rails backend with a React/Redux frontend.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+a
