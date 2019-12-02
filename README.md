@@ -37,3 +37,6 @@ Tubular is video sharing website where users can upload, watch, and interact wit
     <img src="images/upload_form.png" >
   </a>
 </p>
+
+<p>Users can select a video file to add by clicking on the field containing the video icon. Similarly, users can select an image file to use as a thumbnail for their video. Finally, they will need to input a title and description to enable the video to be uploaded. At this time, they just need to click on the 'Publish' button, after which, they will be sent to the home page and be able to see their video be added to the master list of videos.
+</p>
