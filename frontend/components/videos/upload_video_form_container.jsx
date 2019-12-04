@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { postVideo } from "../../actions/videos_actions";
 import UploadVideoForm from "./upload_video_form";
 
-const msp = state => {
+const msp = (state, ownProps) => {
   let url = ownProps.match.url;
 
   return {
