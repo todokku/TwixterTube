@@ -45,7 +45,20 @@ class NavBar extends React.Component {
       let parentId = e.target.parentNode ? e.target.parentNode.id : null;
       if (e.target.id === "modal-button" || parentId === "modal-button") {
         that.toggleModal();
-      } else if (e.target.id !== "modal" && !!that.state.modalDisplay) {
+      } else if (
+        !(
+          e.target.id === "modal" ||
+          e.target.id === "dropdown-ul" ||
+          e.target.id === "dropdown-icon" ||
+          e.target.id === "profile-dropdown-content" ||
+          e.target.id === "dropdown-header" ||
+          parentId === "dropdown-ul" ||
+          parentId === "dropdown-icon" ||
+          parentId === "profile-dropdown-content" ||
+          parentId === "dropdown-header"
+        ) &&
+        !!that.state.modalDisplay
+      ) {
         that.setState({ modalDisplay: false });
       }
       console.log("EVENT TARGET:  ", e);
@@ -197,13 +210,16 @@ class NavBar extends React.Component {
         </div>
 
         <div className="profile-button-modal" id="modal">
-          <div className="profile-dropdown-content">
-            <div className="dropdown-header">
+          <div
+            className="profile-dropdown-content"
+            id="profile-dropdown-content"
+          >
+            <div className="dropdown-header" id="dropdown-header">
               <div className="dropdown-header-icon">
-                <FontAwesomeIcon icon={faUserCircle} />
+                <FontAwesomeIcon icon={faUserCircle} id="dropdown-icon" />
               </div>
               <div className="dropdown-header-user">
-                <ul>
+                <ul id="dropdown-ul">
                   <li className="dropdown-header-username">
                     {this.props.currentUser.username}
                   </li>
