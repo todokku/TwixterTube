@@ -20,4 +20,4 @@ const removeLike = likeId => ({
 });
 
 // const re
-export const removeLike = likeId => dispatch => LikeUtil.removeLike();
+// export const removeLike = likeId => dispatch => LikeUtil.removeLike(likeId).then( like => dispatch(upda) )

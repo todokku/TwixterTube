@@ -1,5 +1,7 @@
 // export const
 export const addLike = like => {
+  console.log("IN UTIL FUNCTION LOOK AT LIKE CREATION:    ", like);
+
   return $.ajax({
     url: `/api/likes`,
     method: `POST`,
@@ -8,6 +10,7 @@ export const addLike = like => {
 };
 
 export const changeLike = like => {
+  console.log("IN UTIL FUNCTION LOOK AT LIKE:    ", like);
   return $.ajax({
     url: `/api/likes/${like.id}`,
     method: `PATCH`,
@@ -15,11 +18,9 @@ export const changeLike = like => {
   });
 };
 
-// export const fetchLike = like => {
-
-// }
-
 export const removeLike = id => {
+  console.log("IN UTIL FUNCTION LOOK AT LIKE ID:    ", id);
+
   return $.ajax({
     url: `/api/likes/${id}`,
     method: `DELETE`

@@ -349,6 +349,8 @@ textarea {
   justify-content: space-between;
   align-items: center;
   background: white;
+  position: fixed;
+  z-index: 10;
 }
 
 .nav-bar-left {
@@ -661,7 +663,7 @@ textarea {
   font-family: "Roboto", sans-serif;
   display: flex;
   justify-content: center;
-  padding-top: 30px;
+  padding-top: 75px;
 }
 
 .video-show-container {
@@ -731,11 +733,72 @@ textarea {
 .like-system-container {
   display: flex;
   flex-direction: column;
+  padding-top: 5px;
 }
 
 .like-thumbs-container {
   display: flex;
   flex-direction: row;
+}
+
+.thumbs-up {
+  padding-right: 15px;
+  color: rgb(144, 144, 144);
+}
+
+.thumbs-up-selected {
+  padding-right: 15px;
+  color: rgb(8, 99, 210);
+}
+
+.thumbs-up-selected :hover {
+  cursor: pointer;
+}
+
+// .thumbs-up
+
+.thumbs-up :hover {
+  cursor: pointer;
+}
+
+.thumbs-up strong {
+  // color: rgb(96, 96, 96);
+  // font-family: "Roboto", sans-serif;
+}
+
+#thumbs-up-icon {
+  padding-right: 8px;
+  // color: rgb(144, 144, 144);
+}
+
+.thumbs-down {
+  padding-right: 15px;
+
+  color: rgb(144, 144, 144);
+}
+
+.thumbs-up-selected {
+  padding-right: 15px;
+
+  color: rgb(8, 99, 210);
+}
+
+.thumbs-down :hover {
+  cursor: pointer;
+}
+
+.thumbs-down-selected :hover {
+  cursor: pointer;
+}
+
+.thumbs-down strong {
+  // color: rgb(96, 96, 96);
+  // font-family: "Roboto", sans-serif;
+}
+
+#thumbs-down-icon {
+  padding-right: 8px;
+  // color: rgb(144, 144, 144);
 }
 
 .like-bar {

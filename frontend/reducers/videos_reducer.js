@@ -12,21 +12,25 @@ export default (state = {}, action) => {
     case RECEIVE_ALL_VIDEOS:
       return action.payload.videos;
 
-    case RECEIVE_VIDEO:
-      console.log(
-        "IN THE ACTIONS SHOW WHAT PAYLOAD LOOKS LIKE: ",
-        action.payload
-      );
-      newState = Object.assign({}, state, {
-        [action.payload.video.id]: action.payload.video
-      });
-      return newState;
+    // case RECEIVE_VIDEO:
+    //   console.log(
+    //     "IN THE ACTIONS SHOW WHAT PAYLOAD LOOKS LIKE: ",
+    //     action.payload
+    //   );
+    //   // [action.payload.video.id]: action.payload.video
+    //   // reason for sending payload to see if there is a like property
+    //   // then check on component of like property exists, then do
+    //   // proper css for highlighting proper like / dislike node
+    //   newState = Object.assign({}, state, {
+    //     [action.payload.video.id]: action.payload
+    //   });
+    //   return newState;
 
-    case UPDATE_VIEW_COUNT:
-      newState = Object.assign({}, state, {
-        [action.payload.video.id]: action.payload.video
-      });
-      return newState;
+    // case UPDATE_VIEW_COUNT:
+    //   newState = Object.assign({}, state, {
+    //     [action.payload.video.id]: action.payload.video
+    //   });
+    //   return newState;
 
     case REMOVE_VIDEO:
       newState = Object.assign({}, state);

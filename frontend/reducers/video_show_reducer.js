@@ -1,19 +1,22 @@
-import { RECEIVE_VIDEO } from "../actions/videos_actions";
+import { RECEIVE_VIDEO, UPDATE_VIEW_COUNT } from "../actions/videos_actions";
 
 export default (state = {}, action) => {
   Object.freeze(state);
   let newState = {};
 
   switch (action.type) {
-    // case RECEIVE_VIDEO:
-    //   console.log(
-    //     "IN THE ACTIONS SHOW WHAT VIDEO SHOW PAYLOAD LOOKS LIKE: ",
-    //     action.payload
-    //   );
-    //   //   newState = Object.assign({}, state, {
-    //   //     [action.payload.video.id]: action.payload.video
-    //   //   });
-    //   return action.payload.video;
+    case RECEIVE_VIDEO:
+      // console.log(
+      //   "IN THE ACTIONS SHOW WHAT VIDEO SHOW PAYLOAD LOOKS LIKE: ",
+      //   action.payload
+      // );
+      //   newState = Object.assign({}, state, {
+      //     [action.payload.video.id]: action.payload.video
+      //   });
+      return action.payload;
+
+    case UPDATE_VIEW_COUNT:
+      return action.payload;
 
     default:
       return state;

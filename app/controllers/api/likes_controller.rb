@@ -40,14 +40,14 @@ class Api::LikesController < ApplicationController
     private
 
     def create_like_params
-        params.require(:like).permit(:user_id, :likeable_id, :likeable_type, :liked)
+        params.require(:like).permit(:likeable_id, :likeable_type, :liked)
     end
 
     def update_like_params
         params.require(:like).permit(:liked)
     end
 
-    def receive_like_params
-        params.require(:like).permit()
-    end
+    # def receive_like_params
+    #     params.require(:like).permit()
+    # end
 end

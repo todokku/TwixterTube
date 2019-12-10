@@ -5,10 +5,23 @@ import * as VideoUtil from "../../util/videos_util";
 
 const msp = (state, ownProps) => {
   let currentUser = state.session.currentUser;
-  let videos = Object.values(state.entities.videos).sort(
-    () => Math.random() - 0.5
+  let videos = Object.values(state.entities.videos);
+  //   .sort(
+  //   () => Math.random() - 0.5
+  // );
+  console.log(
+    "WHAT DOES THIS PAYLOAD LOOK LIKE IN THE CONTAINER:  ",
+    // state.entities.videos[ownProps.match.params.videoId]
+    state.entities.videoShow
   );
-  let video = state.entities.videos[ownProps.match.params.videoId];
+  // let video = state.entities.videos[ownProps.match.params.videoId];
+  let video = state.entities.videoShow ? state.entities.videoShow.video : null;
+  // if like is positive, set css color to blue of like, vice verse for dislike
+  let currentLike = state.entities.videoShow
+    ? state.entities.videoShow.like
+    : null;
+
+  // let currentLike = state.entities.videos[ownProps.match.params.videoId].like;
   // let video = state.entities.videoShow;
   let uploader = video ? state.entities.users[video.uploader_id] : null;
   let url = ownProps.match.url;
@@ -17,7 +30,10 @@ const msp = (state, ownProps) => {
     video: video,
     uploader: uploader,
     currentUser: currentUser,
-    url: url
+    url: url,
+    currentLike
+
+    // currentLike
     // fetchVideoUtil: VideoUtil.fetchVideo,
     // fetchVideoAction: VideoActions.receiveVideo,
     // updateViewCountUtil: VideoUtil.updateVideoViewCount
@@ -30,9 +46,7 @@ const mdp = dispatch => {
   return {
     fetchVideos: () => dispatch(VideoActions.fetchVideos()),
 
-    fetchVideo: id => {
-      return dispatch(VideoActions.fetchVideo(id));
-    },
+    fetchVideo: id => dispatch(VideoActions.fetchVideo(id)),
 
     updateViewCount: videoPayload =>
       dispatch(VideoActions.updateViewCount(videoPayload))

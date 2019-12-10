@@ -35,7 +35,7 @@ class NavBar extends React.Component {
       modal: document.getElementsByClassName("profile-button-modal")
     });
 
-    console.log("THIS IS THE MODAL: ", !!modal.style.display);
+    // console.log("THIS IS THE MODAL: ", !!modal.style.display);
     let that = this;
     // document.getElementById("modal-button").onclick = function() {
     //   that.toggleModal();
@@ -61,7 +61,7 @@ class NavBar extends React.Component {
       ) {
         that.setState({ modalDisplay: false });
       }
-      console.log("EVENT TARGET:  ", e);
+      // console.log("EVENT TARGET:  ", e);
     };
 
     // let that = this;
@@ -115,9 +115,8 @@ class NavBar extends React.Component {
   //   //   // if (e.target.value)
   //   // });
   // }
-
   handleLogout(e) {
-    this.props.logout();
+    this.props.logout().then(() => this.props.history.push("/"));
   }
 
   handleErrors(e) {
@@ -156,14 +155,14 @@ class NavBar extends React.Component {
     console.log("FUNCTION: ", this.displayProfileModel);
     if (this.state.modal) {
       if (this.state.modal.length) {
-        console.log(
-          "THIS IS THE PROFILE BUTTON HTML ELEMENT: ",
-          this.state.modal
-        );
-        console.log(
-          "THIS IS THE PROFILE BUTTON HTML ELEMENT NO.2!!!!: ",
-          this.state.modal[0].style.display
-        );
+        // console.log(
+        //   "THIS IS THE PROFILE BUTTON HTML ELEMENT: ",
+        //   this.state.modal
+        // );
+        // console.log(
+        //   "THIS IS THE PROFILE BUTTON HTML ELEMENT NO.2!!!!: ",
+        //   this.state.modal[0].style.display
+        // );
 
         if (this.state.modalDisplay) {
           this.state.modal[0].style.display = "flex";
@@ -174,7 +173,7 @@ class NavBar extends React.Component {
     }
 
     // debugger
-    console.log("DISPLAYING USER POJO ON NAV BAR: ", this.props.currentUser);
+    // console.log("DISPLAYING USER POJO ON NAV BAR: ", this.props.currentUser);
     const display = this.props.currentUser ? (
       <div className="nav-bar-container">
         <div className="nav-bar-left" onClick={this.handleHomePage}>
