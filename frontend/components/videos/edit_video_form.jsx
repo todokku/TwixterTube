@@ -57,7 +57,7 @@ class EditVideoForm extends React.Component {
     // }
 
     return (
-      <div>
+      <div className="upload-form-container">
         <NavBarContainer url={this.props.url} />
         <div className="upload-form-background">
           <div className="video-form-container">

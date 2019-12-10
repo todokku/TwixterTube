@@ -260,74 +260,82 @@ class VideoShow extends React.Component {
   // }
 
   handleVideoLike() {
-    if (!!this.props.currentLike) {
-      if (this.props.currentLike.liked === false) {
-        changeLike({
-          id: this.props.currentLike.id,
+    if (!this.props.currentUser) {
+      this.props.history.push("/login");
+    } else {
+      if (!!this.props.currentLike) {
+        if (this.props.currentLike.liked === false) {
+          changeLike({
+            id: this.props.currentLike.id,
+            liked: true,
+            likeable_id: this.props.video.id,
+            likeable_type: "Video"
+          }).then(() =>
+            this.props.fetchVideo(this.props.match.params.videoId).then(() => {
+              this.setState({ dislike: false, like: true });
+            })
+          );
+        } else {
+          removeLike(this.props.currentLike.id).then(() =>
+            this.props.fetchVideo(this.props.match.params.videoId).then(() => {
+              this.setState({ dislike: false, like: false });
+            })
+          );
+        }
+      } else {
+        addLike({
           liked: true,
           likeable_id: this.props.video.id,
           likeable_type: "Video"
         }).then(() =>
           this.props.fetchVideo(this.props.match.params.videoId).then(() => {
-            this.setState({ dislike: false, like: true });
-          })
-        );
-      } else {
-        removeLike(this.props.currentLike.id).then(() =>
-          this.props.fetchVideo(this.props.match.params.videoId).then(() => {
-            this.setState({ dislike: false, like: false });
+            this.setState({
+              like: true,
+              dislike: false
+            });
           })
         );
       }
-    } else {
-      addLike({
-        liked: true,
-        likeable_id: this.props.video.id,
-        likeable_type: "Video"
-      }).then(() =>
-        this.props.fetchVideo(this.props.match.params.videoId).then(() => {
-          this.setState({
-            like: true,
-            dislike: false
-          });
-        })
-      );
     }
   }
 
   handleVideoDislike() {
-    if (!!this.props.currentLike) {
-      if (this.props.currentLike.liked === true) {
-        changeLike({
-          id: this.props.currentLike.id,
+    if (!this.props.currentUser) {
+      this.props.history.push("/login");
+    } else {
+      if (!!this.props.currentLike) {
+        if (this.props.currentLike.liked === true) {
+          changeLike({
+            id: this.props.currentLike.id,
+            liked: false,
+            likeable_id: this.props.video.id,
+            likeable_type: "Video"
+          }).then(() =>
+            this.props.fetchVideo(this.props.match.params.videoId).then(() => {
+              this.setState({ dislike: true, like: false });
+            })
+          );
+        } else {
+          removeLike(this.props.currentLike.id).then(() =>
+            this.props.fetchVideo(this.props.match.params.videoId).then(() => {
+              this.setState({ dislike: false, like: false });
+            })
+          );
+        }
+      } else {
+        addLike({
           liked: false,
           likeable_id: this.props.video.id,
           likeable_type: "Video"
         }).then(() =>
           this.props.fetchVideo(this.props.match.params.videoId).then(() => {
-            this.setState({ dislike: true, like: false });
-          })
-        );
-      } else {
-        removeLike(this.props.currentLike.id).then(() =>
-          this.props.fetchVideo(this.props.match.params.videoId).then(() => {
-            this.setState({ dislike: false, like: false });
+            this.setState({
+              like: false,
+              dislike: true
+            });
           })
         );
       }
-    } else {
-      addLike({
-        liked: false,
-        likeable_id: this.props.video.id,
-        likeable_type: "Video"
-      }).then(() =>
-        this.props.fetchVideo(this.props.match.params.videoId).then(() => {
-          this.setState({
-            like: false,
-            dislike: true
-          });
-        })
-      );
     }
   }
 

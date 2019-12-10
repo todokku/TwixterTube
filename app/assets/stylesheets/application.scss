@@ -177,6 +177,11 @@ textarea {
   border: 2px rgb(0, 122, 226) solid;
 }
 
+.upload-form-container {
+  display: flex;
+  flex-direction: column;
+}
+
 .upload-form-background {
   background-color: rgb(249, 249, 249);
 }
@@ -189,7 +194,7 @@ textarea {
   border: 2px solid #e6e6e6;
   align-items: center;
   background-color: white;
-  margin-top: 25px;
+  margin-top: 75px;
 }
 
 .video-form-container h2 {
