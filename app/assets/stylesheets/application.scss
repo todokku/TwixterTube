@@ -133,9 +133,19 @@ textarea {
   box-sizing: border-box;
 }
 
+.logo {
+  display: flex;
+  flex-direction: row;
+}
+
+.logo :hover {
+  cursor: pointer;
+}
+
 .logo h2 {
   font-size: 30px;
   font-weight: 1000;
+  font-family: "Pathway Gothic One", sans-serif;
 }
 
 .session-form {
