@@ -13,7 +13,12 @@ export default (state = {}, action) => {
       //   newState = Object.assign({}, state, {
       //     [action.payload.video.id]: action.payload.video
       //   });
-      return action.payload;
+      newState = Object.assign({}, state, {
+        like: action.payload.like,
+        video: action.payload.video,
+        user: action.payload.user
+      });
+      return newState;
 
     case UPDATE_VIEW_COUNT:
       return action.payload;

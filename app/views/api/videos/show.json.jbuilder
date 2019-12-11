@@ -43,42 +43,42 @@ if current_user
 
 end
 
-if @video.comments.length != 0
+# if @video.comments.length != 0
 
-    @video.comments.each do |comment| 
-        
-        like = comment.likes.find_by(user_id: current_user.id)
+@video.comments.each do |comment| 
+    
+    like = comment.likes.find_by(user_id: current_user.id)
 
-        json.comments do
-            if current_user && !!like
-                if like.liked # if boolean true, person liked comment
-                    json.set! comment.id do
-                        json.body comment.body
-                        json.author comment.author
-                        json.liked true
-                        json.likes comment.num_likes
-                        json.dislikes comment.num_dislikes
-                    end
-                else           # if false, person disliked comment
-                    json.set! comment.id do
-                        json.body comment.body
-                        json.author comment.author
-                        json.liked false
-                        json.likes comment.num_likes
-                        json.dislikes comment.num_dislikes
-                    end
-                end
-            else
+    json.comments do
+        if current_user && !!like
+            if like.liked # if boolean true, person liked comment
                 json.set! comment.id do
                     json.body comment.body
                     json.author comment.author
+                    json.liked true
+                    json.likes comment.num_likes
+                    json.dislikes comment.num_dislikes
+                end
+            else           # if false, person disliked comment
+                json.set! comment.id do
+                    json.body comment.body
+                    json.author comment.author
+                    json.liked false
                     json.likes comment.num_likes
                     json.dislikes comment.num_dislikes
                 end
             end
+        else
+            json.set! comment.id do
+                json.body comment.body
+                json.author comment.author
+                json.likes comment.num_likes
+                json.dislikes comment.num_dislikes
+            end
         end
-
-
     end
 
+
 end
+
+# end
