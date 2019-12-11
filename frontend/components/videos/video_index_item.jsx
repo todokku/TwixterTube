@@ -21,6 +21,11 @@ class VideoIndexItem extends React.Component {
         author = uploader;
       }
     });
+    let title =
+      this.props.video.title.length > 60
+        ? this.props.video.title.slice(0, 60) + "..."
+        : this.props.video.title;
+
     return (
       <li className="video-item-container" onClick={this.handleVidClick}>
         {/* <video controls>
@@ -33,7 +38,7 @@ class VideoIndexItem extends React.Component {
           <img src={thumbnail} />
         </div>
         <div className="video-details">
-          <h1>{this.props.video.title}</h1>
+          <h1>{title}</h1>
           <p id="vid-item-text">{author.username}</p>
           <p id="vid-item-text">
             {this.props.video.views} Views · {this.props.video.publishedAgo} ago
