@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     patch '/videos/:id/views', to: 'videos#view_update'
 
     resources :likes, only: [:create, :update, :destroy]
+    resources :comments,  only: [:create, :update, :destroy]
+    # resources :comments,  except: [:new, :edit]
 
   end
 

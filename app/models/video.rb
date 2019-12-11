@@ -12,6 +12,10 @@ class Video < ApplicationRecord
 
     has_many :likes, as: :likeable
 
+    has_many :comments,
+        foreign_key: :video_id,
+        class_name: :Comment
+
     def num_likes
         likes = self.likes.select { |like| like.liked == true }
         return likes.length

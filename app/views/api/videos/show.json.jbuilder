@@ -22,4 +22,63 @@ if current_user
         end
     end
 
+    # liked_comments = @video.comments.select { |comment| comment.user_id == current_user.id }
+
+    # if liked_comments.length != 0
+    #     liked_comments.each do |comment|
+    #         # for this property, you are only interested
+    #         # about the id's, convert that this object to
+    #         # Object.keys(likedComments) and only change
+    #         # css value of the like thumb buttons from 
+    #         # these specific comment id's
+    #         json.likedComments do 
+    #             json.set! comment.id do
+    #                 json.author comment.author
+    #                 json.user_id comment.user_id
+    #             end
+    #         end
+
+    #     end
+    # end 
+
+end
+
+if @video.comments.length != 0
+
+    @video.comments.each do |comment| 
+        
+        like = comment.likes.find_by(user_id: current_user.id)
+
+        json.comments do
+            if current_user && !!like
+                if like.liked # if boolean true, person liked comment
+                    json.set! comment.id do
+                        json.body comment.body
+                        json.author comment.author
+                        json.liked true
+                        json.likes comment.num_likes
+                        json.dislikes comment.num_dislikes
+                    end
+                else           # if false, person disliked comment
+                    json.set! comment.id do
+                        json.body comment.body
+                        json.author comment.author
+                        json.liked false
+                        json.likes comment.num_likes
+                        json.dislikes comment.num_dislikes
+                    end
+                end
+            else
+                json.set! comment.id do
+                    json.body comment.body
+                    json.author comment.author
+                    json.likes comment.num_likes
+                    json.dislikes comment.num_dislikes
+                end
+            end
+        end
+
+
+    end
+
 end
