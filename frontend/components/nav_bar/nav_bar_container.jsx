@@ -7,7 +7,9 @@ const msp = (state, ownProps) => {
   //     let url = ownProps.match.url;
 
   return {
-    currentUser: state.entities.users[state.session.currentUser]
+    // currentUser: state.entities.users[state.session.currentUser]
+    currentUser: state.session.currentUser
+
     //   url: url
   };
 };

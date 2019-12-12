@@ -1,11 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router-dom";
 
-class CommentsIndex extends React.Component {
-  constructor(props) {
-    super(props);
-    // this.state = {};
-  }
-}
+const CommentsIndex = props => {};
 
 export default withRouter(CommentsIndex);

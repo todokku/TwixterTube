@@ -3,8 +3,7 @@ import CommentsIndex from "./comments_index";
 import * as CommentActions from "../../actions/comments_actions";
 
 const msp = (state, ownProps) => {
-  let comments = state.entities.comments;
-
+  let comments = Object.values(state.entities.comments);
   return {
     comments
   };
