@@ -9,11 +9,10 @@ const msp = (state, ownProps) => {
   //   .sort(
   //   () => Math.random() - 0.5
   // );
-  console.log(
-    "WHAT DOES THIS PAYLOAD LOOK LIKE IN THE CONTAINER:  ",
-    // state.entities.videos[ownProps.match.params.videoId]
-    state.entities.videoShow
-  );
+  // console.log(
+  //   "WHAT DOES THIS PAYLOAD LOOK LIKE IN THE CONTAINER:  ",
+  //   state.entities.videoShow
+  // );
   // let video = state.entities.videos[ownProps.match.params.videoId];
   let video = state.entities.videoShow ? state.entities.videoShow.video : null;
   // if like is positive, set css color to blue of like, vice verse for dislike

@@ -5,6 +5,7 @@ import VideoShowIndexItem from "../videos/video_show_index_item";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faThumbsUp, faThumbsDown } from "@fortawesome/free-solid-svg-icons";
 import { addLike, changeLike, removeLike } from "../../util/likes_util";
+import CommentsIndexContainer from "../comments/comments_index_container";
 
 class VideoShow extends React.Component {
   constructor(props) {
@@ -344,8 +345,10 @@ class VideoShow extends React.Component {
     //   return null;
     // }
     if (!this.state.loaded) {
+      console.log("DON'T LOAD VIDEO SHOW YET");
       return null;
     }
+    console.log("SHOWING VIDEO SHOW NOW");
     let url = this.props.video.videoUrl;
     let videos = [];
     this.props.videos.slice(0, 10).forEach(video => {
@@ -424,6 +427,8 @@ class VideoShow extends React.Component {
                   <p>{this.props.video.description}</p>
                 </div>
               </div>
+              {/* <div className="comments-container"></div> */}
+              <CommentsIndexContainer videoId={this.props.video.id} />
             </div>
 
             <div className="video-show-index-container">

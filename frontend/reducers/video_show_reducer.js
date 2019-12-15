@@ -18,6 +18,7 @@ export default (state = {}, action) => {
         video: action.payload.video,
         user: action.payload.user
       });
+      console.log("WHAT VIDEO SHOW LOOKS LIKE IN REDUCER:   ", newState);
       return newState;
 
     case UPDATE_VIEW_COUNT:

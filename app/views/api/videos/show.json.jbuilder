@@ -13,6 +13,7 @@ json.user do
 end
 
 if current_user
+    # debugger
     likes = @video.likes.select { |like| like.user_id == current_user.id }
     current_like = likes[0]
 
@@ -46,11 +47,13 @@ end
 # if @video.comments.length != 0
 
 @video.comments.each do |comment| 
+
+
     
-    like = comment.likes.find_by(user_id: current_user.id)
 
     json.comments do
-        if current_user && !!like
+        if current_user && !!comment.likes.find_by(user_id: current_user.id)
+            like = comment.likes.find_by(user_id: current_user.id)
             if like.liked # if boolean true, person liked comment
                 json.set! comment.id do
                     json.body comment.body

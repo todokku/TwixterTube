@@ -152,7 +152,6 @@ class NavBar extends React.Component {
   }
 
   render() {
-    console.log("FUNCTION: ", this.displayProfileModel);
     if (this.state.modal) {
       if (this.state.modal.length) {
         // console.log(
