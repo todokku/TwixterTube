@@ -5,10 +5,11 @@ import { withRouter } from "react-router-dom";
 import CommentIndexItem from "./comment_index_item";
 
 const CommentsIndex = props => {
-  const [user, setUser] = useState(props.currentUser);
   const [body, setBody] = useState("");
-  const [editCommentIndex, setCommentIndex] = useState(null);
-  //   const [buttonHide, setButtonHide] = useState(true);
+  const [buttonHide, setButtonHide] = useState(true);
+  const [submitActive, setSubmitActive] = useState(false);
+
+  //   const [buttonHide, setButtonHide] =
   //   const [submitActive, setSubmitActive] = useState(false);
 
   useEffect(() => {
@@ -18,18 +19,29 @@ const CommentsIndex = props => {
 
   function handleInput(e) {
     setBody(e.target.value);
+    setSubmitActive(true);
   }
 
   function loggedOutUserClick(e) {
     props.history.push("/login");
   }
 
+  const toggleBtns = () => {
+    if (buttonHide) {
+      setButtonHide(!buttonHide);
+    }
+  };
+
   const handleCreateComment = e => {
+    e.preventDefault();
+
     if (body.length != 0) {
       props.addComment({
         video_id: props.videoId,
         body: body
       });
+      setBody("");
+      setButtonHide(true);
     }
   };
 
@@ -37,7 +49,10 @@ const CommentsIndex = props => {
     props.editComment(commentData);
   };
 
-  const handleDeleteComment = commentId => {};
+  const handleCancel = () => {
+    setBody("");
+    setButtonHide(true);
+  };
 
   let currentUserIcon;
   let commentFormInput;
@@ -48,34 +63,67 @@ const CommentsIndex = props => {
       </p>
     );
     commentFormInput = (
-      <textarea
-        className="comment-textarea"
-        value={body}
-        onChange={handleInput}
-        placeholder="Add a public comment..."
-      />
-      //   <input
-      //     type="text"
+      //   <textarea
+      //     className="comment-textarea"
       //     value={body}
       //     onChange={handleInput}
       //     placeholder="Add a public comment..."
       //   />
+      <input
+        type="text"
+        value={body}
+        placeholder="Add a public comment..."
+        onChange={handleInput}
+        onFocus={toggleBtns}
+        onBlur={toggleBtns}
+        className="signed-in"
+      />
     );
   } else {
     currentUserIcon = (
       <FontAwesomeIcon icon={faUserCircle} className="comment-user-circle" />
     );
     commentFormInput = (
-      <textarea
-        className="comment-textarea"
+      //   <textarea
+      //     className="comment-textarea"
+      //     value={body}
+      //     onChange={handleInput}
+      //     placeholder="Add a public comment..."
+      //     // disabled
+      //     onClick={loggedOutUserClick}
+      //   />
+      <input
+        type="text"
         value={body}
+        placeholder="Please sign in to post a public comment"
         onChange={handleInput}
-        placeholder="Add a public comment..."
-        // disabled
+        onFocus={toggleBtns}
+        onBlur={toggleBtns}
         onClick={loggedOutUserClick}
+        className="signed-out"
+        disabled
       />
-      //   <input type="text" placeholder disabled onClick={loggedOutUserClick} />
     );
+  }
+
+  let buttonClass;
+  if (buttonHide) {
+    buttonClass = "hidden";
+  } else {
+    buttonClass = "";
+  }
+
+  let active;
+  if (submitActive && body != "") {
+    active = "comment-submit-btn-active";
+    setTimeout(() => {
+      document.getElementById("comment-disable").disabled = false;
+    }, 1);
+  } else {
+    active = "comment-submit-btn";
+    setTimeout(() => {
+      document.getElementById("comment-disable").disabled = true;
+    }, 1);
   }
 
   return (
@@ -83,13 +131,27 @@ const CommentsIndex = props => {
       <h3>{props.comments.length} Comments</h3>
       <div className="video-show-comments-form-container">
         <div className="comment-form-icon-container">{currentUserIcon}</div>
+
         <div className="comments-form-styling-container">
           <div className="video-show-comments-form">
-            {/* <form> */}
-            {commentFormInput}
-            {/* </form> */}
-            <div className="comment-form-buttons ">
-              <button onClick={handleCreateComment}>COMMENT</button>
+            <form>
+              <span className="comment-form-input-container">
+                {commentFormInput}
+              </span>
+            </form>
+
+            <div className={`comment-form-buttons ${buttonClass}`}>
+              <button className="comment-cancel-btn" onClick={handleCancel}>
+                CANCEL
+              </button>
+
+              <button
+                id="comment-disable"
+                className={active}
+                onClick={handleCreateComment}
+              >
+                COMMENT
+              </button>
             </div>
           </div>
         </div>
@@ -97,10 +159,9 @@ const CommentsIndex = props => {
       <ul className="video-show-comments">
         {props.comments.map((comment, idx) => (
           <CommentIndexItem
-            comment={comment.body}
-            author={comment.author}
-            likes={comment.likes}
-            dislikes={comment.dislikes}
+            currentUser={props.currentUser}
+            comment={comment}
+            commentId={comment.id}
             editComment={props.editComment}
             deleteComment={props.deleteComment}
             key={`comment-${idx}`}

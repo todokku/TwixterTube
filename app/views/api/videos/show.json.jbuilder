@@ -56,6 +56,8 @@ end
             like = comment.likes.find_by(user_id: current_user.id)
             if like.liked # if boolean true, person liked comment
                 json.set! comment.id do
+                    json.id comment.id
+                    json.user_id comment.user_id
                     json.body comment.body
                     json.author comment.author
                     json.liked true
@@ -64,6 +66,8 @@ end
                 end
             else           # if false, person disliked comment
                 json.set! comment.id do
+                    json.id comment.id
+                    json.user_id comment.user_id
                     json.body comment.body
                     json.author comment.author
                     json.liked false
@@ -72,7 +76,9 @@ end
                 end
             end
         else
-            json.set! comment.id do
+            json.set! comment.id do                    
+                json.id comment.id
+                json.user_id comment.user_id
                 json.body comment.body
                 json.author comment.author
                 json.likes comment.num_likes

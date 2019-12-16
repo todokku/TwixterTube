@@ -15,18 +15,45 @@ const CommentIndexItem = props => {
   //     commenterIcon = null;
   //   }
 
+  useEffect(() => {
+    console.log(
+      "HERE ARE THE PROPS:   ",
+      props.comment,
+      props.currentUser,
+      props.comment.id
+    );
+  });
+
+  function handleDelete() {
+    props.deleteComment(props.commentId);
+  }
+
+  let deleteBtn;
+  if (props.currentUser) {
+    if (props.currentUser.id == props.comment.user_id) {
+      deleteBtn = (
+        <button className="comment-delete-button" onClick={handleDelete}>
+          Delete
+        </button>
+      );
+    }
+  }
+
   return (
     <li className="comment-container-item">
       <div className="comment-styling-container">
         <div className="comment-user-icon-container">
-          <i className="comment-user-icon">
-            {props.author.slice(0, 1).toUpperCase()}
-          </i>
+          <p className="comment-user-icon">
+            {props.comment.author.slice(0, 1).toUpperCase()}
+          </p>
         </div>
         <div className="comment-details-container">
-          <p className="comment-username">{props.author}</p>
-          <p className="comment-body">{props.comment}</p>
+          <p className="comment-username">{props.comment.author}</p>
+          <p className="comment-body">{props.comment.body}</p>
         </div>
+      </div>
+      <div>
+        <div className="comment-button-container">{deleteBtn}</div>
       </div>
     </li>
   );

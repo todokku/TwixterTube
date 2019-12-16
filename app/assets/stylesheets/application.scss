@@ -265,6 +265,7 @@ textarea {
 .video-show-comments-form {
   display: flex;
   flex-direction: column;
+  margin-bottom: 15px;
   width: 100%;
 }
 
@@ -315,9 +316,85 @@ textarea {
 //   height: 30px;
 // }
 
+.comment-cancel-btn {
+  padding: 13px 15px;
+  margin-right: 10px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 15px;
+  border: none;
+  background: rgb(249, 249, 249);
+}
+
+.comment-cancel-btn:hover {
+  cursor: pointer;
+}
+
+.comment-submit-btn {
+  padding: 13px 15px;
+  background: rgb(204, 204, 204);
+  border-radius: 2px;
+  color: #fff;
+  font-size: 15px;
+}
+
+.comment-submit-btn-active {
+  padding: 13px 15px;
+  background: #1a73e8;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 15px;
+}
+
+.comment-submit-btn-active:hover {
+  cursor: pointer;
+  background: rgb(0, 125, 225);
+  box-shadow: 0.5px 1px 2px rgb(0, 125, 225);
+}
+
 .comment-form-buttons {
   margin-top: 10px;
   align-self: flex-end;
+}
+
+.comment-form-input-container::after {
+  display: block;
+  content: "";
+  border-top: 2px solid #606060;
+  transform: scaleX(0);
+  transition: transform 200ms ease-in-out;
+  width: 100%;
+}
+
+.comment-form-input-container:focus-within::after {
+  transform: scaleX(1);
+}
+
+.signed-in {
+  width: 99%;
+  border: none;
+  border-bottom: 1px solid rgb(229, 229, 229);
+  padding: 5px;
+  font-size: 15px;
+  background: rgb(249, 249, 249);
+}
+
+.signed-in:focus {
+  border-bottom: 0px solid rgb(229, 229, 229);
+  // transition: border-bottom 100ms;
+  padding-bottom: 6px;
+}
+
+.signed-out {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid rgb(229, 229, 229);
+  padding: 5px;
+  font-size: 15px;
+  background: rgb(249, 249, 249);
+}
+
+.signed-out:focus {
+  border-bottom: 2px solid #606060;
 }
 
 .current-user-icon {
@@ -359,7 +436,7 @@ textarea {
 
 .comment-container-item {
   display: flex;
-  /* justify-content: space-between; */
+  justify-content: space-between;
   margin-bottom: 30px;
 }
 
@@ -368,6 +445,24 @@ textarea {
   font-size: 14px;
   font-weight: bolder;
   margin-bottom: 7px;
+}
+
+.comment-delete-button {
+  background: #1a73e8;
+  color: #fff;
+  border-radius: 4px;
+  padding: 8px 12px;
+  font-size: 14px;
+  text-align: center;
+  font-family: "Roboto", Arial, sans-serif;
+}
+
+.comment-delete-button:hover {
+  cursor: pointer;
+  background: rgb(0, 125, 225);
+}
+
+.comment-delete-button-container {
 }
 
 .comment-body {
