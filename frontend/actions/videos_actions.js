@@ -10,6 +10,7 @@ import * as VideoUtil from "../util/videos_util";
 export const RECEIVE_ALL_VIDEOS = "RECEIVE_ALL_VIDEOS";
 export const RECEIVE_VIDEO = "RECEIVE_VIDEO";
 export const REMOVE_VIDEO = "REMOVE_VIDEO";
+export const REMOVE_ALL_VIDEOS = "REMOVE_ALL_VIDEOS";
 export const RECEIVE_UPLOADERS = "RECEIVE_UPLOADERS";
 export const UPDATE_VIEW_COUNT = "UPDATE_VIEW_COUNT";
 
@@ -43,8 +44,14 @@ export const updateViews = payload => ({
   payload
 });
 
-export const fetchVideos = () => dispatch =>
-  VideoUtil.fetchVideos().then(payload => dispatch(receiveAllVideos(payload)));
+export const removeAllVideos = () => ({
+  type: REMOVE_ALL_VIDEOS
+});
+
+export const fetchVideos = query => dispatch =>
+  VideoUtil.fetchVideos(query).then(payload =>
+    dispatch(receiveAllVideos(payload))
+  );
 
 export const fetchVideo = id => dispatch => {
   return VideoUtil.fetchVideo(id).then(payload => {

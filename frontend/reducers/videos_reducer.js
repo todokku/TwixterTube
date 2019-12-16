@@ -2,7 +2,8 @@ import {
   RECEIVE_ALL_VIDEOS,
   RECEIVE_VIDEO,
   REMOVE_VIDEO,
-  UPDATE_VIEW_COUNT
+  UPDATE_VIEW_COUNT,
+  REMOVE_ALL_VIDEOS
 } from "../actions/videos_actions";
 
 export default (state = {}, action) => {
@@ -36,6 +37,10 @@ export default (state = {}, action) => {
       newState = Object.assign({}, state);
       delete newState[action.videoId];
       return newState;
+
+    case REMOVE_ALL_VIDEOS:
+      return {};
+
     default:
       return state;
   }
