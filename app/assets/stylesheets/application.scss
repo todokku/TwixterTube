@@ -304,6 +304,7 @@ textarea {
 .video-show-comments-form-container {
   display: flex;
   flex-direction: row;
+  margin-bottom: 15px;
 }
 
 .video-show-comments-form {
@@ -470,6 +471,13 @@ textarea {
   font-family: "Roboto", Arial, sans-serif;
   font-size: 16px;
   font-weight: 100;
+  max-width: 540px;
+  overflow-wrap: break-word;
+  line-height: 1.4;
+}
+
+.hidden {
+  display: none;
 }
 
 .comment-user-circle {
