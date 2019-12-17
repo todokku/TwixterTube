@@ -152,9 +152,9 @@ class VideoShow extends React.Component {
     }
   }
 
-  // componentWillUnmount() {
-
-  // }
+  componentWillUnmount() {
+    this.props.removeAllVideos();
+  }
 
   handleEdit(e) {
     this.props.history.push(`/videos/${this.props.video.id}/edit`);

@@ -6,6 +6,7 @@ import VideoIndexContainer from "./videos/video_index_container";
 import VideoShowContainer from "./videos/videos_show_container";
 import EditVideoContainer from "./videos/edit_video_form_container";
 import UploadFormContainer from "./videos/upload_video_form_container";
+import SearchVideoIndexContainer from "./search/search_video_index_container";
 import { Route, Switch } from "react-router-dom";
 import { AuthRoute, ProtectedRoute } from "../util/route_util";
 
@@ -19,6 +20,11 @@ export default ({ location, match }) => {
         <ProtectedRoute
           path="/videos/:videoId/edit"
           component={EditVideoContainer}
+        />
+        <Route
+          exact
+          path="/search/:query"
+          component={SearchVideoIndexContainer}
         />
         <Route path="/videos/:videoId" component={VideoShowContainer} />
         <ProtectedRoute path="/upload" component={UploadFormContainer} />

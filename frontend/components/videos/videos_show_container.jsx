@@ -48,7 +48,9 @@ const mdp = dispatch => {
     fetchVideo: id => dispatch(VideoActions.fetchVideo(id)),
 
     updateViewCount: videoPayload =>
-      dispatch(VideoActions.updateViewCount(videoPayload))
+      dispatch(VideoActions.updateViewCount(videoPayload)),
+
+    removeAllVideos: () => dispatch(VideoActions.removeAllVideos())
   };
 };
 

@@ -16,16 +16,18 @@ class NavBar extends React.Component {
     this.state = {
       modalButton: null,
       modalDisplay: false,
-      modal: null
+      modal: null,
+      search: ""
     }; // may need refactoring b/c update is returning a pojo
     this.handleLogout = this.handleLogout.bind(this);
     this.handleErrors = this.handleErrors.bind(this);
-    this.handleClick = this.handleClick.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleLogin = this.handleLogin.bind(this);
+    this.handleSearch = this.handleSearch.bind(this);
     this.handleHomePage = this.handleHomePage.bind(this);
     this.handleUploadPage = this.handleUploadPage.bind(this);
     // this.displayProfileModel = this.displayProfileModel.bind(this);
     this.toggleModal = this.toggleModal.bind(this);
+    this.handleSearchInput = this.handleSearchInput.bind(this);
     // need to bind update function
   }
 
@@ -73,6 +75,8 @@ class NavBar extends React.Component {
     //   }
     // };
   }
+
+  handleSearch(e) {}
 
   toggleModal() {
     // debugger;
@@ -123,7 +127,7 @@ class NavBar extends React.Component {
     this.props.clearErrors();
   }
 
-  handleClick(e) {
+  handleLogin(e) {
     this.props.history.push("/login");
   }
 
@@ -137,18 +141,20 @@ class NavBar extends React.Component {
     this.props.history.push(`/upload`);
   }
 
-  // update() {
-  //     return e => this.setState({
-
-  //     })
-  // }
+  handleSearchInput(e) {
+    this.setState({ search: e.target.value });
+  }
 
   handleDropDown(modal) {}
 
-  handleSubmit(e) {
+  handleSearch(e) {
     // this is for search bar form
     // some ajax call to fetch an index of videos that have matching words in the title
     //  this.props.action(this.state)  which will send the update state for a query to back end
+    if (!this.state.search !== "") {
+      this.props.history.push(`/search/${this.state.search}`);
+    }
+    this.setState({ body: "" });
   }
 
   render() {
@@ -182,7 +188,12 @@ class NavBar extends React.Component {
 
         <div className="nav-bar-search">
           <form className="search-bar">
-            <input type="text" placeholder="Search" onChange={this.update} />{" "}
+            <input
+              type="text"
+              value={this.state.search}
+              placeholder="Search"
+              onChange={this.update}
+            />
             {/* Search Bar should be wrapped in a form */}
           </form>
           <button className="search-button">
@@ -267,18 +278,21 @@ class NavBar extends React.Component {
         </div>
 
         <div className="nav-bar-search">
-          <form onSubmit={this.handleSubmit} className="search-bar">
-            <input type="text" placeholder="Search" onChange={this.update} />
-            {/* update function may need refactoring */}
+          <form onSubmit={this.handleSearch} className="search-bar">
+            <input
+              type="text"
+              placeholder="Search"
+              value={this.state.body}
+              onChange={this.handleSearchInput}
+            />
           </form>
           <button className="search-button">
-            <FontAwesomeIcon icon={faSearch} />
+            <FontAwesomeIcon icon={faSearch} onClick={this.handleSearch} />
           </button>
-          {/*  */}
         </div>
 
         <div className="nav-bar-right">
-          <button onClick={this.handleClick} className="sign-in-button">
+          <button onClick={this.handleLogin} className="sign-in-button">
             <p>SIGN IN</p>
           </button>
         </div>
