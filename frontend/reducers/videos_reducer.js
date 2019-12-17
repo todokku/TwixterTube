@@ -11,7 +11,11 @@ export default (state = {}, action) => {
   let newState = {};
   switch (action.type) {
     case RECEIVE_ALL_VIDEOS:
-      return action.payload.videos;
+      if (action.payload.videos) {
+        return action.payload.videos;
+      } else {
+        return {};
+      }
 
     // case RECEIVE_VIDEO:
     //   console.log(

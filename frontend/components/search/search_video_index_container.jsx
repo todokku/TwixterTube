@@ -3,12 +3,16 @@ import { fetchVideos } from "../../actions/videos_actions";
 import SearchVideoIndex from "./search_video_index";
 
 const msp = (state, ownProps) => {
-  let videos = state.entities.videos;
+  let videos = Object.values(state.entities.videos);
   let query = ownProps.match.params.query;
+  let url = ownProps.match.url;
+  let users = state.entities.users;
 
   return {
     videos,
-    query
+    query,
+    url,
+    users
   };
 };
 

@@ -644,6 +644,81 @@ textarea {
   padding-left: 20px;
 }
 
+.search-container {
+  width: 80%;
+  margin: auto;
+  padding-top: 80px;
+}
+
+.search-results-header {
+  font-size: 20px;
+  font-family: "Roboto", Arial, sans-serif;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgb(224, 224, 224);
+  padding-bottom: 14px;
+}
+
+.search-video-index-item {
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+  margin-bottom: 16px;
+}
+
+.search-video-item-thumbnail img {
+  width: 246px;
+  object-fit: contain;
+  height: 138px;
+  background-color: black;
+}
+
+.search-video-item-details {
+  margin-left: 15px;
+}
+
+.search-video-item-title {
+  padding-bottom: 10px;
+  font-size: 18px;
+  font-family: "Roboto", Arial, sans-serif;
+  font-weight: 500;
+}
+
+.search-results-error {
+  text-align: center;
+  font-size: 24px;
+  font-family: "Roboto", Arial, sans-serif;
+  padding-bottom: 15px;
+}
+
+.search-results-error-message {
+  text-align: center;
+  font-family: "Roboto", Arial, sans-serif;
+  font-size: 15px;
+  padding-bottom: 20px;
+}
+
+.search-error-puppy-container {
+  margin: auto;
+  text-align: center;
+}
+
+.search-error-puppy {
+  max-width: 575px;
+}
+
+.search-video-item-info {
+  font-family: "Roboto", Arial, sans-serif;
+  font-size: 15px;
+  color: rgb(96, 96, 96);
+  padding-bottom: 10px;
+}
+
+.search-video-item-description {
+  font-family: "Roboto", Arial, sans-serif;
+  font-size: 15px;
+  color: rgb(96, 96, 96);
+}
+
 .search-bar {
   width: 90%;
 }

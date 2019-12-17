@@ -25,7 +25,7 @@ const CommentIndexItem = props => {
   });
 
   function handleDelete() {
-    props.deleteComment(props.commentId);
+    props.deleteComment(props.comment.id);
   }
 
   let deleteBtn;

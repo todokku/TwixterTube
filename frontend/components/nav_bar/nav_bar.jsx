@@ -151,7 +151,8 @@ class NavBar extends React.Component {
     // this is for search bar form
     // some ajax call to fetch an index of videos that have matching words in the title
     //  this.props.action(this.state)  which will send the update state for a query to back end
-    if (!this.state.search !== "") {
+
+    if (this.state.search !== "") {
       this.props.history.push(`/search/${this.state.search}`);
     }
     this.setState({ body: "" });
@@ -187,16 +188,16 @@ class NavBar extends React.Component {
         </div>
 
         <div className="nav-bar-search">
-          <form className="search-bar">
+          <form className="search-bar" onSubmit={this.handleSearch}>
             <input
               type="text"
               value={this.state.search}
               placeholder="Search"
-              onChange={this.update}
+              onChange={this.handleSearchInput}
             />
             {/* Search Bar should be wrapped in a form */}
           </form>
-          <button className="search-button">
+          <button className="search-button" onClick={this.handleSearch}>
             <FontAwesomeIcon icon={faSearch} />
           </button>
         </div>
@@ -282,11 +283,11 @@ class NavBar extends React.Component {
             <input
               type="text"
               placeholder="Search"
-              value={this.state.body}
+              value={this.state.search}
               onChange={this.handleSearchInput}
             />
           </form>
-          <button className="search-button">
+          <button className="search-button" onClick={this.handleSearch}>
             <FontAwesomeIcon icon={faSearch} onClick={this.handleSearch} />
           </button>
         </div>
