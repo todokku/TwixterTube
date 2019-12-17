@@ -8,9 +8,10 @@ import {
 } from "../../actions/videos_actions";
 
 const msp = (state, ownProps) => {
-  let video = state.entities.videos[ownProps.match.params.videoId]
-    ? state.entities.videos[ownProps.match.params.videoId]
-    : { id: "", title: "", description: "" };
+  // let video = state.entities.videoShow
+  // ? state.entities.videoShow.video
+  // : { id: "", title: "", description: "" };
+  let video = state.entities.videoShow ? state.entities.videoShow.video : null;
 
   let url = ownProps.match.url;
 

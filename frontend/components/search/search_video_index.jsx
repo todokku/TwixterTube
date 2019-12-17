@@ -5,6 +5,7 @@ import SearchVideoIndexItem from "./search_video_index_item";
 
 const SearchVideoIndex = props => {
   useEffect(() => {
+    window.scrollTo(0, 0);
     props.fetchVideos(props.match.params.query);
   }, []);
 

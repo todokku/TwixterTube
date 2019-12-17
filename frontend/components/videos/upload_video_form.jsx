@@ -32,6 +32,8 @@ class UploadVideoForm extends React.Component {
 
   componentDidMount() {
     // this.setState({ loaded: true });
+    window.scrollTo(0, 0);
+
     this.setState({
       uploadIconElement: document.getElementsByClassName(
         "upload-thumbnail-icon"

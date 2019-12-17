@@ -5,7 +5,12 @@ import NavBarContainer from "../nav_bar/nav_bar_container";
 class EditVideoForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = this.props.video;
+    this.state = {
+      loaded: false,
+      title: "",
+      description: "",
+      id: ""
+    };
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDeleteVideo = this.handleDeleteVideo.bind(this);
@@ -20,8 +25,13 @@ class EditVideoForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    let videoEditPayload = {
+      title: this.state.title,
+      description: this.state.description,
+      id: this.props.match.params.videoId
+    };
     this.props
-      .action(this.state)
+      .action(videoEditPayload)
       .then(() => this.props.history.push(`/videos/${this.props.video.id}`));
   }
 
@@ -33,18 +43,20 @@ class EditVideoForm extends React.Component {
   }
 
   componentDidMount() {
+    window.scrollTo(0, 0);
     this.props.fetchVideo(this.props.match.params.videoId).then(response => {
       this.setState({
+        loaded: true,
         id: this.props.match.params.videoId,
-        title: response.payload.video.title,
-        description: response.payload.video.description
+        title: this.props.video.title,
+        description: this.props.video.description
       });
     });
     // debugger
   }
 
   render() {
-    if (!this.props.video.uploader_id) {
+    if (!this.state.loaded) {
       return null;
     }
     console.log(this.state);
