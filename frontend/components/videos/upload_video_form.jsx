@@ -134,56 +134,61 @@ class UploadVideoForm extends React.Component {
         {/* <div className="upload-form-background"> */}
         <div className="upload-main-container">
           <SideBarContainer />
-          <div className="upload-form-container">
-            <h2>{this.props.formTitle}</h2>
-            <form onSubmit={this.handleSubmit} className="edit-form">
-              <div className="video-form-input-buttons">
-                <label className="custom-file-upload">
-                  {/* <FontAwesomeIcon icon={faVideo} className="upload-video-icon"/> */}
+          <div className="upload-form-parent-container">
+            <div className="upload-form-container">
+              <h2>{this.props.formTitle}</h2>
+              <form onSubmit={this.handleSubmit} className="edit-form">
+                <div className="video-form-input-buttons">
+                  <label className="custom-file-upload">
+                    {/* <FontAwesomeIcon icon={faVideo} className="upload-video-icon"/> */}
+                    <input
+                      type="file"
+                      accept="video/mp4,video/x-m4v,video/*"
+                      onChange={this.handleVideoFile}
+                    />
+                    {videoPreview}
+                  </label>
+                  {/* className="custom-file-upload" */}
+                  {/* THIS CSS CLASS NAME IS GONNA BE INCLUDED IN LABLES */}
+                  <label className="custom-file-thumbnail">
+                    {/* <FontAwesomeIcon icon={faCamera} className="upload-thumbnail-icon"/> */}
+                    <input
+                      type="file"
+                      accept="image/*"
+                      onChange={this.handleThumbnailFile}
+                    />
+                    <div className="upload-thumbnail-icon">
+                      <FontAwesomeIcon icon={faCamera} />
+                    </div>
+                    <img id="thumbnail" src="#" alt="" />
+                    {/* {thumbnailPreview} */}
+                  </label>
+                </div>
+                <div className="edit-form-bottom">
                   <input
-                    type="file"
-                    accept="video/mp4,video/x-m4v,video/*"
-                    onChange={this.handleVideoFile}
+                    type="text"
+                    placeholder="Title"
+                    value={this.state.title}
+                    onChange={this.update("title")}
                   />
-                  {videoPreview}
-                </label>
-                {/* className="custom-file-upload" */}
-                {/* THIS CSS CLASS NAME IS GONNA BE INCLUDED IN LABLES */}
-                <label className="custom-file-thumbnail">
-                  {/* <FontAwesomeIcon icon={faCamera} className="upload-thumbnail-icon"/> */}
-                  <input
-                    type="file"
-                    accept="image/*"
-                    onChange={this.handleThumbnailFile}
+
+                  <textarea
+                    placeholder="Description"
+                    value={this.state.description}
+                    onChange={this.update("description")}
                   />
-                  <div className="upload-thumbnail-icon">
-                    <FontAwesomeIcon icon={faCamera} />
-                  </div>
-                  <img id="thumbnail" src="#" alt="" />
-                  {/* {thumbnailPreview} */}
-                </label>
-              </div>
-              <div className="edit-form-bottom">
-                <input
-                  type="text"
-                  placeholder="Title"
-                  value={this.state.title}
-                  onChange={this.update("title")}
-                />
+                </div>
 
-                <textarea
-                  placeholder="Description"
-                  value={this.state.description}
-                  onChange={this.update("description")}
-                />
-              </div>
-
-              <div className="edit-form-buttons">
-                <button className="publish-button" onClick={this.handleSubmit}>
-                  {this.props.formType}
-                </button>
-              </div>
-            </form>
+                <div className="edit-form-buttons">
+                  <button
+                    className="publish-button"
+                    onClick={this.handleSubmit}
+                  >
+                    {this.props.formType}
+                  </button>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
 

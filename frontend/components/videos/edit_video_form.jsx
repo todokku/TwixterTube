@@ -76,39 +76,41 @@ class EditVideoForm extends React.Component {
             <SideBarContainer />
             <div className="edit-main-container">
               <div className="edit-space-recommended"></div>
-              <div className="video-form-container">
-                <h2>{this.props.formTitle}</h2>
-                <form onSubmit={this.handleSubmit} className="edit-form">
-                  <div className="edit-form-bottom">
-                    <input
-                      type="text"
-                      placeholder="Title"
-                      value={this.state.title}
-                      onChange={this.update("title")}
-                    />
+              <div className="video-form-parent-container">
+                <div className="video-form-container">
+                  <h2>{this.props.formTitle}</h2>
+                  <form onSubmit={this.handleSubmit} className="edit-form">
+                    <div className="edit-form-bottom">
+                      <input
+                        type="text"
+                        placeholder="Title"
+                        value={this.state.title}
+                        onChange={this.update("title")}
+                      />
 
-                    <textarea
-                      placeholder="Description"
-                      value={this.state.description}
-                      onChange={this.update("description")}
-                    />
+                      <textarea
+                        placeholder="Description"
+                        value={this.state.description}
+                        onChange={this.update("description")}
+                      />
 
-                    <div className="edit-form-buttons">
-                      <button
-                        className="next-button"
-                        onClick={this.handleSubmit}
-                      >
-                        {this.props.formType}
-                      </button>
-                      <button
-                        className="delete-button"
-                        onClick={this.handleDeleteVideo}
-                      >
-                        Delete Video
-                      </button>
+                      <div className="edit-form-buttons">
+                        <button
+                          className="next-button"
+                          onClick={this.handleSubmit}
+                        >
+                          {this.props.formType}
+                        </button>
+                        <button
+                          className="delete-button"
+                          onClick={this.handleDeleteVideo}
+                        >
+                          Delete Video
+                        </button>
+                      </div>
                     </div>
-                  </div>
-                </form>
+                  </form>
+                </div>
               </div>
             </div>
           </div>
