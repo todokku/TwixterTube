@@ -2,6 +2,7 @@ import React from "react";
 import NavBarContainer from "../nav_bar/nav_bar_container";
 import VideoIndexItem from "./video_index_item";
 import { withRouter } from "react-router-dom";
+import SideBarContainer from "../sidebar/sidebar_container";
 
 class VideosIndex extends React.Component {
   constructor(props) {
