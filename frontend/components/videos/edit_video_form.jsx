@@ -59,7 +59,6 @@ class EditVideoForm extends React.Component {
     if (!this.state.loaded) {
       return null;
     }
-    console.log(this.state);
 
     if (this.props.currentUser.id !== this.props.video.uploader_id) {
       this.props.history.push("/");

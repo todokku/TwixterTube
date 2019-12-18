@@ -239,6 +239,46 @@ textarea {
   resize: vertical;
 }
 
+.edit-form input:focus {
+  padding: 12px 14px;
+  border: 2px rgb(0, 122, 226) solid;
+}
+
+.edit-form textarea:focus {
+  padding: 12px 14px;
+  border: 2px rgb(0, 122, 226) solid;
+}
+
+#email-input {
+  border: 1px rgb(217, 220, 224) solid;
+  padding-bottom: 13px 15px;
+}
+
+#email-input:focus {
+  border: 2px rgb(0, 122, 226) solid;
+  padding: 12px 14px;
+}
+
+#username-input:focus {
+  border: 2px rgb(0, 122, 226) solid;
+  padding: 12px 14px;
+}
+
+#username-input {
+  border: 1px rgb(217, 220, 224) solid;
+  padding-bottom: 13px 15px;
+}
+
+#password-input:focus {
+  border: 2px rgb(0, 122, 226) solid;
+  padding: 12px 14px;
+}
+
+#password-input {
+  border: 1px rgb(217, 220, 224) solid;
+  padding-bottom: 13px 15px;
+}
+
 .edit-form-buttons {
   display: flex;
   flex-direction: row;
@@ -508,16 +548,6 @@ textarea {
 //     /* border-style: solid; */
 //     font-size: 16px;
 // }
-
-.edit-form input:focus {
-  padding: 12px 14px;
-  border: 2px rgb(0, 122, 226) solid;
-}
-
-.edit-form textarea:focus {
-  padding: 12px 14px;
-  border: 2px rgb(0, 122, 226) solid;
-}
 
 .session-form-buttons {
   display: flex;
