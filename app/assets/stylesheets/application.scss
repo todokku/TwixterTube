@@ -1026,6 +1026,22 @@ textarea {
   padding-left: 10px;
 }
 
+.video-index-container-main {
+  display: flex;
+}
+
+.video-index-main-content {
+  width: 87%;
+  margin: auto;
+}
+
+.video-index-main-recommended-inner {
+  width: 86%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
 .video-index-recommended-header h1 {
   font-family: "Roboto", Arial, sans-serif;
   font-size: 20px;
@@ -1309,7 +1325,39 @@ textarea {
   background: #1a73e8;
 }
 
-.side-bar-main {
+.sidebar-main {
   display: flex;
   flex-direction: column;
+}
+
+.sidebar-container {
+  margin-top: 56px;
+  background: white;
+  position: fixed;
+  height: 100%;
+}
+
+.sidebar-content-item {
+  padding: 16px 0 14px 0px;
+  width: 72px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: rgb(96, 96, 96);
+  cursor: pointer;
+}
+
+.sidebar-icon {
+  font-size: 20px;
+}
+
+.sidebar-content-item:hover {
+  background: rgb(240, 240, 240);
+}
+
+.sidebar-item-title {
+  padding-top: 10px;
+  font-family: "Roboto", Arial, sans-serif;
+  font-size: 13px;
 }

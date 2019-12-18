@@ -43,11 +43,19 @@ class VideosIndex extends React.Component {
         <NavBarContainer url={this.props.url} />
         {/* <h1>React is Working</h1> */}
         <div className="video-index-container-background">
-          <div className="video-index-recommended-header">
-            <h1>Recommended</h1>
-          </div>
-          <div className="video-index-container">
-            <ul className="video-index-container-items">{videos}</ul>
+          <div className="video-index-container-main">
+            <SideBarContainer />
+            <div className="video-index-main-content">
+              <div className="video-index-main-recommended-inner">
+
+                <div className="video-index-recommended-header">
+                  <h1>Recommended</h1>
+                </div>
+                <div className="video-index-container">
+                  <ul className="video-index-container-items">{videos}</ul>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
