@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, withRouter, Redirect } from "react-router-dom";
 import NavBarContainer from "../nav_bar/nav_bar_container";
+import SideBarContainer from "../sidebar/sidebar_container";
 
 class EditVideoForm extends React.Component {
   constructor(props) {
@@ -68,39 +69,48 @@ class EditVideoForm extends React.Component {
     // }
 
     return (
-      <div className="upload-form-container">
+      <div className="edit-parent-container">
         <NavBarContainer url={this.props.url} />
         <div className="upload-form-background">
-          <div className="video-form-container">
-            <h2>{this.props.formTitle}</h2>
-            <form onSubmit={this.handleSubmit} className="edit-form">
-              <div className="edit-form-bottom">
-                <input
-                  type="text"
-                  placeholder="Title"
-                  value={this.state.title}
-                  onChange={this.update("title")}
-                />
+          <div className="edit-container">
+            <SideBarContainer />
+            <div className="edit-main-container">
+              <div className="edit-space-recommended"></div>
+              <div className="video-form-container">
+                <h2>{this.props.formTitle}</h2>
+                <form onSubmit={this.handleSubmit} className="edit-form">
+                  <div className="edit-form-bottom">
+                    <input
+                      type="text"
+                      placeholder="Title"
+                      value={this.state.title}
+                      onChange={this.update("title")}
+                    />
 
-                <textarea
-                  placeholder="Description"
-                  value={this.state.description}
-                  onChange={this.update("description")}
-                />
+                    <textarea
+                      placeholder="Description"
+                      value={this.state.description}
+                      onChange={this.update("description")}
+                    />
 
-                <div className="edit-form-buttons">
-                  <button className="next-button" onClick={this.handleSubmit}>
-                    {this.props.formType}
-                  </button>
-                  <button
-                    className="delete-button"
-                    onClick={this.handleDeleteVideo}
-                  >
-                    Delete Video
-                  </button>
-                </div>
+                    <div className="edit-form-buttons">
+                      <button
+                        className="next-button"
+                        onClick={this.handleSubmit}
+                      >
+                        {this.props.formType}
+                      </button>
+                      <button
+                        className="delete-button"
+                        onClick={this.handleDeleteVideo}
+                      >
+                        Delete Video
+                      </button>
+                    </div>
+                  </div>
+                </form>
               </div>
-            </form>
+            </div>
           </div>
         </div>
       </div>

@@ -180,6 +180,24 @@ textarea {
 .upload-form-container {
   display: flex;
   flex-direction: column;
+  width: 500px;
+  margin: 0 auto;
+  border: 2px solid #e6e6e6;
+  align-items: center;
+  background-color: white;
+  margin-top: 75px;
+}
+
+.upload-form-container h2 {
+  font-size: 18px;
+  // font-family: "Roboto", sans-serif;
+  font-family: "Roboto", Arial, sans-serif;
+  margin: 20px;
+}
+
+.upload-main-container {
+  display: flex;
+  flex-direction: row;
 }
 
 .upload-form-background {
@@ -194,7 +212,6 @@ textarea {
   border: 2px solid #e6e6e6;
   align-items: center;
   background-color: white;
-  margin-top: 75px;
 }
 
 .video-form-container h2 {
@@ -210,6 +227,10 @@ textarea {
   flex-direction: column;
   align-items: center;
   width: 85%;
+}
+
+.edit-space-recommended {
+  height: 80px;
 }
 
 .edit-form-bottom {
@@ -756,7 +777,7 @@ textarea {
 }
 
 .search-bar input {
-  border-radius: 3px;
+  border-radius: 1px;
   width: 100%;
   padding: 5px;
   font-size: 16px;
@@ -789,6 +810,11 @@ textarea {
 .search-button:hover {
   background-color: #f0f0f0;
   border-color: #c6c6c6;
+}
+
+.search-button:active {
+  background-color: rgb(230, 230, 230);
+  border-color: rgb(198, 198, 198);
 }
 
 .nav-bar-right {
@@ -1031,12 +1057,12 @@ textarea {
 }
 
 .video-index-main-content {
-  width: 87%;
+  width: 90%;
   margin: auto;
 }
 
 .video-index-main-recommended-inner {
-  width: 86%;
+  width: 90%;
   margin: auto;
   display: flex;
   flex-direction: column;
