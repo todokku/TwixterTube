@@ -54,9 +54,9 @@ const CommentIndex2 = props => {
   let commentFormInput;
   if (props.currentUser) {
     currentUserIcon = (
-      <i className="current-user-icon">
+      <p className="current-user-icon">
         {props.currentUser.username.slice(0, 1).toUpperCase()}
-      </i>
+      </p>
     );
     commentFormInput = (
       <input
