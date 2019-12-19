@@ -273,11 +273,11 @@ class NavBar extends React.Component {
       </div>
     ) : (
       <div className="nav-bar-container">
-        <div className="nav-bar-left">
+        <div className="nav-bar-left" onClick={this.handleHomePage}>
           {/* <img src={window.twixLogo} /> */}
           <img src={window.twixLogo} className="twixtertube-logo" />
 
-          <span onClick={this.handleHomePage}>TwixterTube</span>
+          <span>TwixterTube</span>
         </div>
 
         <div className="nav-bar-search">
