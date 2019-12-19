@@ -30,10 +30,10 @@ const SearchVideoIndex = props => {
               Try different keywords
             </p>
             <div className="search-error-puppy-container">
-              {/* <img
+              <img
                 src={window.searchErrorPuppy}
                 className="search-error-puppy"
-              /> */}
+              />
             </div>
           </div>
         </div>
