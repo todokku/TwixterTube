@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router-dom";
 import NavBarContainer from "../nav_bar/nav_bar_container";
 import SearchVideoIndexItem from "./search_video_index_item";
+import ModalSideBarContainer from "../sidebar/modal_sidebar_container";
+import SideBarContainer from "../sidebar/sidebar_container";
 
 const SearchVideoIndex = props => {
   useEffect(() => {
@@ -18,7 +20,9 @@ const SearchVideoIndex = props => {
       <div>
         <NavBarContainer url={props.url} />
         <div className="search-container">
-          <div className="sidebar-main"></div>
+          {/* <div className="sidebar-main"></div> */}
+          <ModalSideBarContainer />
+          <SideBarContainer />
           <div className="search-video-index-container">
             <header className="search-results-header">Search Results</header>
             <p className="search-results-error">No results found</p>
@@ -37,8 +41,12 @@ const SearchVideoIndex = props => {
     ) : (
       <div>
         <NavBarContainer url={props.url} />
+        <ModalSideBarContainer />
+
         <div className="search-container">
-          <div className="sidebar-main"></div>
+          {/* <div className="sidebar-main"></div> */}
+          <SideBarContainer />
+
           <div className="search-video-index-container">
             <header className="search-results-header">Search Results</header>
             <ul className="search-video-list">

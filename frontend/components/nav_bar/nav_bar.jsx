@@ -133,7 +133,9 @@ class NavBar extends React.Component {
 
   handleHomePage(e) {
     this.setState({ modalDisplay: false });
-    this.props.history.push("/");
+    if (this.props.match.url !== "/") {
+      this.props.history.push("/");
+    }
   }
 
   handleUploadPage(e) {

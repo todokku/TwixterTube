@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faThumbsUp, faThumbsDown } from "@fortawesome/free-solid-svg-icons";
 import { addLike, changeLike, removeLike } from "../../util/likes_util";
 import CommentsIndexContainer from "../comments/comments_index_container";
+import ModalSideBarContainer from "../sidebar/modal_sidebar_container";
 
 class VideoShow extends React.Component {
   constructor(props) {
@@ -382,64 +383,71 @@ class VideoShow extends React.Component {
     return (
       <div>
         <NavBarContainer url={this.props.url} />
+        <ModalSideBarContainer />
         <div className="video-show-wrapper">
           <span> </span>
           <div className="video-show-page">
-            <div className="video-show-container">
-              <div className="video-show-container-internal">
-                <div className="video-container">
-                  <video controls key={url}>
-                    <source src={url} />
-                  </video>
-                </div>
-
-                <div className="video-show-details">
-                  <div className="video-show-details-top">
-                    <div className="video-show-details-top-top">
-                      <h1>{this.props.video.title}</h1>
-                      {editButton}
+            <div className="video-show-page-wrapper">
+              <div className="video-show-page-internal-wrapper">
+                <div className="video-show-container">
+                  <div className="video-show-container-internal">
+                    <div className="video-container">
+                      <video controls key={url}>
+                        <source src={url} />
+                      </video>
                     </div>
-                    <div className="video-show-details-top-bottom">
-                      <p>{this.state.views} Views</p>
-                      <div className="like-system-container">
-                        <div className="like-thumbs-container">
-                          <div className={like} onClick={this.handleVideoLike}>
-                            <FontAwesomeIcon
-                              icon={faThumbsUp}
-                              id="thumbs-up-icon"
-                            />
-                            <strong>{this.props.video.likes}</strong>
-                          </div>
-                          <div
-                            className={dislike}
-                            onClick={this.handleVideoDislike}
-                          >
-                            <FontAwesomeIcon
-                              icon={faThumbsDown}
-                              id="thumbs-down-icon"
-                            />
-                            <strong>{this.props.video.dislikes}</strong>
+
+                    <div className="video-show-details">
+                      <div className="video-show-details-top">
+                        <div className="video-show-details-top-top">
+                          <h1>{this.props.video.title}</h1>
+                          {editButton}
+                        </div>
+                        <div className="video-show-details-top-bottom">
+                          <p>{this.state.views} Views</p>
+                          <div className="like-system-container">
+                            <div className="like-thumbs-container">
+                              <div
+                                className={like}
+                                onClick={this.handleVideoLike}
+                              >
+                                <FontAwesomeIcon
+                                  icon={faThumbsUp}
+                                  id="thumbs-up-icon"
+                                />
+                                <strong>{this.props.video.likes}</strong>
+                              </div>
+                              <div
+                                className={dislike}
+                                onClick={this.handleVideoDislike}
+                              >
+                                <FontAwesomeIcon
+                                  icon={faThumbsDown}
+                                  id="thumbs-down-icon"
+                                />
+                                <strong>{this.props.video.dislikes}</strong>
+                              </div>
+                            </div>
+                            <div className="like-bar"></div>
                           </div>
                         </div>
-                        <div className="like-bar"></div>
+                        {/* <button onClick={this.handleEdit} className="edit-button">Edit</button> */}
+                      </div>
+                      <div className="video-show-details-bottom">
+                        <h1>{this.props.uploader.username}</h1>
+                        <h2>Published on {this.props.video.published}</h2>
+                        <p>{this.props.video.description}</p>
                       </div>
                     </div>
-                    {/* <button onClick={this.handleEdit} className="edit-button">Edit</button> */}
-                  </div>
-                  <div className="video-show-details-bottom">
-                    <h1>{this.props.uploader.username}</h1>
-                    <h2>Published on {this.props.video.published}</h2>
-                    <p>{this.props.video.description}</p>
+                    {/* <div className="comments-container"></div> */}
+                    <CommentsIndexContainer videoId={this.props.video.id} />
                   </div>
                 </div>
-                {/* <div className="comments-container"></div> */}
-                <CommentsIndexContainer videoId={this.props.video.id} />
+                <div className="video-show-index-container">
+                  <h3>Up Next</h3>
+                  <ul className="video-show-index-list">{videos}</ul>
+                </div>
               </div>
-            </div>
-
-            <div className="video-show-index-container">
-              <h3>Up Next</h3>
-              <ul className="video-show-index-list">{videos}</ul>
             </div>
           </div>
         </div>

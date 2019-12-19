@@ -24,6 +24,7 @@ const msp = (state, ownProps) => {
   // let video = state.entities.videoShow;
   let uploader = video ? state.entities.users[video.uploader_id] : null;
   let url = ownProps.match.url;
+  // console.log("WHAT DOES PROPS.MATCH.URL LOOK LIKE:   ", typeof url);
   return {
     videos: videos,
     video: video,

@@ -9,8 +9,8 @@ const msp = (state, ownProps) => {
   };
 };
 
-const mdp = dispatch => {
-  return {};
-};
+// const mdp = dispatch => {
+//   return {};
+// };
 
-export default connect(msp, mdp)(SideBar);
+export default connect(msp, null)(SideBar);

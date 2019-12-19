@@ -11,6 +11,7 @@ const msp = (state, ownProps) => {
   });
 
   let url = ownProps.match.url;
+  console.log("WHAT DOES PROPS.MATCH.URL LOOK LIKE:   ", url, url === "/");
 
   return {
     videos: videos,

@@ -2,6 +2,7 @@ import React from "react";
 import { Link, withRouter, Redirect } from "react-router-dom";
 import NavBarContainer from "../nav_bar/nav_bar_container";
 import SideBarContainer from "../sidebar/sidebar_container";
+import ModalSideBarContainer from "../sidebar/modal_sidebar_container";
 
 class EditVideoForm extends React.Component {
   constructor(props) {
@@ -71,6 +72,8 @@ class EditVideoForm extends React.Component {
     return (
       <div className="edit-parent-container">
         <NavBarContainer url={this.props.url} />
+        <ModalSideBarContainer />
+
         <div className="upload-form-background">
           <div className="edit-container">
             <SideBarContainer />

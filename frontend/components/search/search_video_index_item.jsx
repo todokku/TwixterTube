@@ -6,25 +6,46 @@ const SearchVideoIndexItem = props => {
     props.history.push(`/videos/${props.video.id}`);
   }
 
-  let videoDescription;
+  let videoDescription = props.video.description;
+  let title = props.video.title;
+  let username = props.uploader.username;
+  //   let username =
+  //     "najfonaewiofjenwiofjewpafjewiugphewuipafhewuihfewhfiweuaphfewaiuhfewiewfupaiuwefp";
 
-  return (
-    <li className="search-video-index-item" onClick={handleVideoClick}>
-      <div className="search-video-item-thumbnail">
-        <img src={props.video.thumbnailUrl} />
-      </div>
-      <div className="search-video-item-details">
-        <h2 className="search-video-item-title">{props.video.title}</h2>
-        <p className="search-video-item-info">
-          {props.uploader.username} · {props.video.views} views ·{" "}
-          {props.video.publishedAgo} ago
-        </p>
-        <p className="search-video-item-description">
-          {props.video.description}
-        </p>
-      </div>
-    </li>
-  );
+  if (videoDescription.length > 125) {
+    videoDescription = videoDescription.slice(0, 125) + "...";
+  }
+
+  if (title.length > 67) {
+    title = title.slice(0, 67) + "...";
+  }
+
+  if (username.length > 35) {
+    username = username.slice(0, 35) + "...";
+  }
+
+  if (props)
+    return (
+      <li className="search-video-index-item" onClick={handleVideoClick}>
+        <div className="search-video-item-thumbnail">
+          <img src={props.video.thumbnailUrl} />
+        </div>
+        <div className="search-video-item-details">
+          <h2 className="search-video-item-title">
+            {/* {props.video.title} */}
+            {title}
+          </h2>
+          <p className="search-video-item-info">
+            {username} · {props.video.views} views · {props.video.publishedAgo}{" "}
+            ago
+          </p>
+          <p className="search-video-item-description">
+            {/* {props.video.description} */}
+            {videoDescription}
+          </p>
+        </div>
+      </li>
+    );
 };
 
 export default withRouter(SearchVideoIndexItem);

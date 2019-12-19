@@ -4,6 +4,7 @@ import NavBarContainer from "../nav_bar/nav_bar_container";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faVideo, faCamera, faCheck } from "@fortawesome/free-solid-svg-icons";
 import SideBarContainer from "../sidebar/sidebar_container";
+import ModalSideBarContainer from "../sidebar/modal_sidebar_container";
 
 class UploadVideoForm extends React.Component {
   constructor(props) {
@@ -131,6 +132,8 @@ class UploadVideoForm extends React.Component {
     return (
       <div className="upload-parent-container">
         <NavBarContainer url={this.props.url} />
+        <ModalSideBarContainer />
+
         {/* <div className="upload-form-background"> */}
         <div className="upload-main-container">
           <SideBarContainer />

@@ -3,6 +3,7 @@ import NavBarContainer from "../nav_bar/nav_bar_container";
 import VideoIndexItem from "./video_index_item";
 import { withRouter } from "react-router-dom";
 import SideBarContainer from "../sidebar/sidebar_container";
+import ModalSideBarContainer from "../sidebar/modal_sidebar_container";
 
 class VideosIndex extends React.Component {
   constructor(props) {
@@ -45,9 +46,9 @@ class VideosIndex extends React.Component {
         <div className="video-index-container-background">
           <div className="video-index-container-main">
             <SideBarContainer />
+            <ModalSideBarContainer />
             <div className="video-index-main-content">
               <div className="video-index-main-recommended-inner">
-
                 <div className="video-index-recommended-header">
                   <h1>Recommended</h1>
                 </div>

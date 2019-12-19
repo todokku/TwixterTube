@@ -676,7 +676,7 @@ textarea {
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding-left: 35px;
+  margin-left: 66px;
   cursor: pointer;
 }
 
@@ -708,9 +708,10 @@ textarea {
 }
 
 .search-container {
-  width: 80%;
+  // width: 80%;
   margin: auto;
-  padding-top: 80px;
+  display: flex;
+  // padding-top: 80px;
 }
 
 .search-results-header {
@@ -726,6 +727,13 @@ textarea {
   flex-direction: row;
   cursor: pointer;
   margin-bottom: 16px;
+}
+
+.search-video-index-container {
+  margin-top: 85px;
+  margin-left: 130px;
+  margin-bottom: 80px;
+  width: 80%;
 }
 
 .search-video-item-thumbnail img {
@@ -1069,6 +1077,7 @@ textarea {
 .video-index-main-content {
   width: 90%;
   margin: auto;
+  margin-bottom: 80px;
 }
 
 .video-index-main-recommended-inner {
@@ -1093,10 +1102,26 @@ textarea {
 }
 
 .video-show-page {
-  margin-bottom: 80px auto;
-  margin-left: 80px auto;
-  margin-right: 80px auto;
-  width: 95%;
+  // margin-bottom: 80px auto;
+  // margin-left: 80px auto;
+  // margin-right: 80px auto;
+  width: 86%;
+  margin: auto;
+  // font-family: "Roboto", sans-serif;
+  // font-family: "Roboto", Arial, sans-serif;
+
+  // display: flex;
+  // justify-content: center;
+  // padding-top: 75px;
+}
+
+.video-show-page-wrapper {
+  width: 90%;
+  margin: auto;
+}
+
+.video-show-page-internal-wrapper {
+  width: 100%;
   // font-family: "Roboto", sans-serif;
   font-family: "Roboto", Arial, sans-serif;
 
@@ -1277,6 +1302,8 @@ textarea {
   font-size: 16px;
   // font-family: "Roboto", sans-serif;
   font-family: "Roboto", Arial, sans-serif;
+  overflow-wrap: break-word;
+  line-height: 1.4;
 }
 
 .video-show-index-container {
@@ -1396,4 +1423,104 @@ textarea {
   padding-top: 10px;
   font-family: "Roboto", Arial, sans-serif;
   font-size: 13px;
+}
+
+.sidebar-modal-parent-container {
+  // z-index: 13;
+  // position: fixed;
+  // width: 100%;
+  // height: 100%;
+}
+
+.sidebar-modal {
+  background-color: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 14;
+}
+
+.sidebar-bars-button {
+  position: fixed;
+  z-index: 16;
+  border: none;
+  font-size: 20px;
+  top: 14px;
+  left: 20px;
+  color: rgba(96, 96, 96, 0.85);
+}
+
+.sidebar-modal-content {
+  // position: absolute;
+  // z-index: 16;
+  // border: none;
+  // font-size: 21px;
+  // top: 14px;
+  // left: 20px;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  z-index: 15;
+  width: 270px;
+  height: 100%;
+}
+
+.inner-sidebar-modal-logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 56px;
+  cursor: pointer;
+  width: 204px;
+  margin-left: 66px;
+}
+
+.inner-sidebar-modal-logo span {
+  font-family: "Pathway Gothic One", sans-serif;
+  font-size: 25px;
+}
+
+.sidebar-twixtertube-logo {
+  width: 85px;
+  height: 70px;
+  object-fit: contain;
+  padding-bottom: 5px;
+}
+
+.sidebar-modal-content-items {
+  border-top: 1px solid rgba(96, 96, 96, 0.8);
+  margin-top: 10px;
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.inner-sidebar-modal-button-title {
+}
+
+.sidebar-modal-content-item {
+  display: flex;
+  padding: 17px 25px;
+  align-items: center;
+  text-decoration: none;
+  color: rgb(96, 96, 96);
+  cursor: pointer;
+}
+
+.sidebar-modal-content-item:hover {
+  background: rgb(242, 242, 242);
+}
+
+.sidebar-modal-content-item:active {
+  background: rgb(215, 215, 215);
+}
+
+.sidebar-modal-icon {
+  font-size: 20px;
+  padding-right: 30px;
+}
+
+.sidebar-modal-item-title {
+  font-family: "Roboto", Arial, sans-serif;
+  font-size: 16px;
 }
