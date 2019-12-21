@@ -10,7 +10,7 @@ import SearchVideoIndexContainer from "./search/search_video_index_container";
 import { Route, Switch } from "react-router-dom";
 import { AuthRoute, ProtectedRoute } from "../util/route_util";
 
-export default ({ location, match, twixLogo, searchErrorPuppy }) => {
+export default ({ location, match }) => {
   // if (location.pathname !== '/signup' || location.pathname !== '/login' ) {
   // console.log(
   //   "DO THE IMAGES SHOW HERE ON APP PAGE?:   ",

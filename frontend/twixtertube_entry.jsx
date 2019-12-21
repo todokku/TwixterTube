@@ -1,5 +1,3 @@
-import searchErrorPuppy from "../images/cute_doggy.jpeg";
-import twixLogo from "../images/twixter_logo.png";
 import React from "react";
 import ReactDOM from "react-dom";
 import Root from "./components/root";
@@ -31,12 +29,5 @@ document.addEventListener("DOMContentLoaded", () => {
   window.getState = store.getState;
   window.dispatch = store.dispatch;
   window.logout = Action.logout;
-  ReactDOM.render(
-    <Root
-      store={store}
-      searchErrorPuppy={searchErrorPuppy}
-      twixLogo={twixLogo}
-    />,
-    root
-  );
+  ReactDOM.render(<Root store={store} />, root);
 });

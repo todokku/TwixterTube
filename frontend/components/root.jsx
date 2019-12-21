@@ -4,10 +4,10 @@ import { HashRouter } from "react-router-dom";
 import App from "./app";
 import UserAuth from "./user_auth";
 
-const Root = ({ store, searchErrorPuppy, twixLogo }) => (
+const Root = ({ store }) => (
   <Provider store={store}>
     <HashRouter>
-      <App searchErrorPuppy={searchErrorPuppy} twixLogo={twixLogo} />
+      <App />
     </HashRouter>
   </Provider>
 );

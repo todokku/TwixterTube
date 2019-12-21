@@ -4,12 +4,10 @@ import NavBarContainer from "../nav_bar/nav_bar_container";
 import SearchVideoIndexItem from "./search_video_index_item";
 import ModalSideBarContainer from "../sidebar/modal_sidebar_container";
 import SideBarContainer from "../sidebar/sidebar_container";
-import searchErrorPuppy from "../../../app/assets/images/cute_doggy.jpeg";
 
 const SearchVideoIndex = props => {
   useEffect(() => {
     window.scrollTo(0, 0);
-    console.log("WHAT DOES LOGO LOOK LIKE:  ", searchErrorPuppy);
     props.fetchVideos(props.match.params.query);
   }, []);
 
@@ -37,11 +35,6 @@ const SearchVideoIndex = props => {
 "
                 className="search-error-puppy"
               />
-              {/* <img
-                src={require("../../../images/cute_doggy.jpeg")}
-                src={window.searchErrorPuppy}
-                className="search-error-puppy"
-              /> */}
             </div>
           </div>
         </div>
