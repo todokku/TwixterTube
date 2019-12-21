@@ -39,6 +39,7 @@ const SearchVideoIndex = props => {
               />
               {/* <img
                 src={require("../../../images/cute_doggy.jpeg")}
+                src={window.searchErrorPuppy}
                 className="search-error-puppy"
               /> */}
             </div>
