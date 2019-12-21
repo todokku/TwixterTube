@@ -38,5 +38,9 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "file-loader": "^5.0.2",
+    "image-webpack-loader": "^6.0.0"
+  }
 }

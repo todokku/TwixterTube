@@ -8,6 +8,7 @@ import {
   faHome,
   faSignOutAlt
 } from "@fortawesome/free-solid-svg-icons";
+// import twixLogo from "../../../app/assets/images/twixter_logo.png";
 
 class NavBar extends React.Component {
   // ({ currentUser, logout, clearErrors }) =>
@@ -185,7 +186,12 @@ class NavBar extends React.Component {
     const display = this.props.currentUser ? (
       <div className="nav-bar-container">
         <div className="nav-bar-left" onClick={this.handleHomePage}>
-          <img src={window.twixLogo} className="twixtertube-logo" />
+          {/* <img src={window.twixLogo} className="twixtertube-logo" /> */}
+          <img
+            src="https://twixtertube-dev.s3-us-west-1.amazonaws.com/twixter_logo.png"
+            className="twixtertube-logo"
+          />
+
           <span>TwixterTube</span>
         </div>
 
@@ -275,7 +281,8 @@ class NavBar extends React.Component {
       <div className="nav-bar-container">
         <div className="nav-bar-left" onClick={this.handleHomePage}>
           {/* <img src={window.twixLogo} /> */}
-          <img src={window.twixLogo} className="twixtertube-logo" />
+          {/* <img src={window.twixLogo} className="twixtertube-logo" /> */}
+          <img src={twixLogo} className="twixtertube-logo" />
 
           <span>TwixterTube</span>
         </div>

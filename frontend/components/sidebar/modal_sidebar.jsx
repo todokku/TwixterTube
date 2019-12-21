@@ -69,7 +69,10 @@ const ModalSideBar = props => {
               <FontAwesomeIcon icon={faBars} />
             </button>
             <div className="inner-sidebar-modal-logo" onClick={handleLogoClick}>
-              <img src={window.twixLogo} className="sidebar-twixtertube-logo" />
+              <img
+                src="https://twixtertube-dev.s3-us-west-1.amazonaws.com/twixter_logo.png"
+                className="sidebar-twixtertube-logo"
+              />
               <span>TwixterTube</span>
             </div>
           </div>

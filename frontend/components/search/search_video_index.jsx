@@ -4,10 +4,12 @@ import NavBarContainer from "../nav_bar/nav_bar_container";
 import SearchVideoIndexItem from "./search_video_index_item";
 import ModalSideBarContainer from "../sidebar/modal_sidebar_container";
 import SideBarContainer from "../sidebar/sidebar_container";
+import searchErrorPuppy from "../../../app/assets/images/cute_doggy.jpeg";
 
 const SearchVideoIndex = props => {
   useEffect(() => {
     window.scrollTo(0, 0);
+    console.log("WHAT DOES LOGO LOOK LIKE:  ", searchErrorPuppy);
     props.fetchVideos(props.match.params.query);
   }, []);
 
@@ -30,8 +32,13 @@ const SearchVideoIndex = props => {
               Try different keywords
             </p>
             <div className="search-error-puppy-container">
+              <img
+                src="https://twixtertube-dev.s3-us-west-1.amazonaws.com/cute_doggy.jpeg
+"
+                className="search-error-puppy"
+              />
               {/* <img
-                src={window.searchErrorPuppy}
+                src={require("../../../images/cute_doggy.jpeg")}
                 className="search-error-puppy"
               /> */}
             </div>
