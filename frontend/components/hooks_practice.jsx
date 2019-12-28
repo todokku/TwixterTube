@@ -24,3 +24,18 @@ function Foo(props) {
     console.log(props.name);
   }, []); // <-- should error and offer autofix to [props.name]
 }
+
+// let player = {
+//   id: 185312,
+//   health: 160,
+//   items: {
+//     bow: 15,
+//     arrow: 20,
+
+//   }
+//   jumpHeight: 20
+// }
+
+// if (player.height !== 20) {
+//   player.ban()
+// }

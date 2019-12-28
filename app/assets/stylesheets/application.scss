@@ -336,6 +336,42 @@ textarea {
   width: 100%;
 }
 
+.comment-like-system-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.comment-like-thumb-container {
+  display: flex;
+  margin-right: 15px;
+  color: rgb(144, 144, 144);
+  cursor: pointer;
+  padding-right: 5px;
+}
+
+.comment-like-thumb-container strong {
+  padding: 8px 0;
+}
+
+.comment-dislike-thumb-container {
+  display: flex;
+  padding-right: 5px;
+  color: rgb(144, 144, 144);
+  cursor: pointer;
+}
+
+.comment-dislike-thumb-container strong {
+  padding: 8px 0;
+}
+
+.thumb-colored {
+  color: rgb(19, 99, 209);
+}
+
+.comment-thumb-icon {
+  padding: 8px;
+}
+
 .video-show-comments-form {
   display: flex;
   flex-direction: column;
@@ -541,7 +577,7 @@ textarea {
 }
 
 .comment-body {
-  margin-bottom: 12px;
+  margin-bottom: 5px;
   font-family: "Roboto", Arial, sans-serif;
   font-size: 16px;
   font-weight: 100;

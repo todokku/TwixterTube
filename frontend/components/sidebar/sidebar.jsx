@@ -31,14 +31,7 @@ const SideBar = props => {
           <FontAwesomeIcon icon={faVideo} className="sidebar-icon" />
           <span className="sidebar-item-title">Upload</span>
         </Link>
-        <a
-          href="https://github.com/ashap94"
-          className="sidebar-content-item"
-          target="_blank"
-        >
-          <FontAwesomeIcon icon={faGithub} className="sidebar-icon" />
-          <span className="sidebar-item-title">GitHub</span>
-        </a>
+
         <a
           href="https://www.linkedin.com/in/aaron-shapiro1994/"
           className="sidebar-content-item"
@@ -46,6 +39,15 @@ const SideBar = props => {
         >
           <FontAwesomeIcon icon={faLinkedin} className="sidebar-icon" />
           <span className="sidebar-item-title">LinkedIn</span>
+        </a>
+
+        <a
+          href="https://github.com/ashap94"
+          className="sidebar-content-item"
+          target="_blank"
+        >
+          <FontAwesomeIcon icon={faGithub} className="sidebar-icon" />
+          <span className="sidebar-item-title">GitHub</span>
         </a>
         {/* Next SideBar item will be your profile page link */}
       </div>

@@ -350,10 +350,10 @@ class VideoShow extends React.Component {
     //   return null;
     // }
     if (!this.state.loaded) {
-      console.log("DON'T LOAD VIDEO SHOW YET");
+      // console.log("DON'T LOAD VIDEO SHOW YET");
       return null;
     }
-    console.log("SHOWING VIDEO SHOW NOW");
+    // console.log("SHOWING VIDEO SHOW NOW");
     let url = this.props.video.videoUrl;
     let videos = [];
     this.props.videos.slice(0, 10).forEach(video => {
@@ -440,7 +440,10 @@ class VideoShow extends React.Component {
                       </div>
                     </div>
                     {/* <div className="comments-container"></div> */}
-                    <CommentsIndexContainer videoId={this.props.video.id} />
+                    <CommentsIndexContainer
+                      videoId={this.props.video.id}
+                      fetchVideo={this.props.fetchVideo}
+                    />
                   </div>
                 </div>
                 <div className="video-show-index-container">

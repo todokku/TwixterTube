@@ -112,7 +112,7 @@ class UploadVideoForm extends React.Component {
       );
     }
 
-    console.log("HERE'S JQUERY: ", $("#thumbnail"));
+    // console.log("HERE'S JQUERY: ", $("#thumbnail"));
 
     // if (this.state.thumbnailUrl) {
     // }

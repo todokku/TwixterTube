@@ -93,15 +93,7 @@ const ModalSideBar = props => {
               <FontAwesomeIcon icon={faVideo} className="sidebar-modal-icon" />
               <span className="sidebar-modal-item-title">Upload</span>
             </Link>
-            <a
-              href="https://github.com/ashap94"
-              className="sidebar-modal-content-item"
-              target="_blank"
-              onClick={toggleModal}
-            >
-              <FontAwesomeIcon icon={faGithub} className="sidebar-modal-icon" />
-              <span className="sidebar-modal-item-title">GitHub</span>
-            </a>
+
             <a
               href="https://www.linkedin.com/in/aaron-shapiro1994/"
               className="sidebar-modal-content-item"
@@ -113,6 +105,15 @@ const ModalSideBar = props => {
                 className="sidebar-modal-icon"
               />
               <span className="sidebar-modal-item-title">LinkedIn</span>
+            </a>
+            <a
+              href="https://github.com/ashap94"
+              className="sidebar-modal-content-item"
+              target="_blank"
+              onClick={toggleModal}
+            >
+              <FontAwesomeIcon icon={faGithub} className="sidebar-modal-icon" />
+              <span className="sidebar-modal-item-title">GitHub</span>
             </a>
           </div>
         </div>

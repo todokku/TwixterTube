@@ -116,7 +116,7 @@ const CommentIndex2 = props => {
 
         <div className="comments-form-styling-container">
           <div className="video-show-comments-form">
-            <form>
+            <form onSubmit={handleSubmit}>
               <span className="comment-form-input-container">
                 {commentFormInput}
               </span>
@@ -145,6 +145,7 @@ const CommentIndex2 = props => {
             deleteComment={props.deleteComment}
             currentUser={props.currentUser}
             key={`comment-${idx}`}
+            fetchVideo={props.fetchVideo}
           />
         ))}
       </ul>

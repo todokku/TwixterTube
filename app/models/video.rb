@@ -10,7 +10,8 @@ class Video < ApplicationRecord
     
     has_one_attached :thumbnail
 
-    has_many :likes, as: :likeable
+    has_many :likes, as: :likeable,
+    dependent: :destroy
 
     has_many :comments,
         foreign_key: :video_id,

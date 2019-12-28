@@ -10,7 +10,8 @@ class Comment < ApplicationRecord
         foreign_key: :video_id,
         class_name: :Video
 
-    has_many :likes, as: :likeable
+    has_many :likes, as: :likeable,
+    dependent: :destroy
 
     def num_likes 
         likes = self.likes.select do |like| 

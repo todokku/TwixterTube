@@ -61,6 +61,8 @@ end
                     json.body comment.body
                     json.author comment.author
                     json.liked true
+                    json.like_id like.id
+                    json.video_id @video.id
                     json.likes comment.num_likes
                     json.dislikes comment.num_dislikes
                 end
@@ -71,6 +73,8 @@ end
                     json.body comment.body
                     json.author comment.author
                     json.liked false
+                    json.like_id like.id
+                    json.video_id @video.id
                     json.likes comment.num_likes
                     json.dislikes comment.num_dislikes
                 end
@@ -81,6 +85,7 @@ end
                 json.user_id comment.user_id
                 json.body comment.body
                 json.author comment.author
+                json.video_id @video.id
                 json.likes comment.num_likes
                 json.dislikes comment.num_dislikes
             end

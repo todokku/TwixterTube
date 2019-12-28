@@ -10,7 +10,7 @@ class User < ApplicationRecord
         foreign_key: :uploader_id,
         class_name: :Video
 
-    has_many :likes,
+    has_many :likes, dependent: :destroy,
         foreign_key: :user_id,
         class_name: :Like
 

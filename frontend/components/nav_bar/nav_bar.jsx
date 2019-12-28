@@ -8,6 +8,7 @@ import {
   faHome,
   faSignOutAlt
 } from "@fortawesome/free-solid-svg-icons";
+import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
 class NavBar extends React.Component {
   // ({ currentUser, logout, clearErrors }) =>
@@ -265,6 +266,28 @@ class NavBar extends React.Component {
                 <h2>Upload</h2>
               </div>
 
+              <a
+                className="dropdown-item"
+                href="https://www.linkedin.com/in/aaron-shapiro1994/"
+                target="_blank"
+              >
+                <span>
+                  <FontAwesomeIcon icon={faLinkedin} />
+                </span>
+                <h2>LinkedIn</h2>
+              </a>
+
+              <a
+                className="dropdown-item"
+                href="https://github.com/ashap94"
+                target="_blank"
+              >
+                <span>
+                  <FontAwesomeIcon icon={faGithub} />
+                </span>
+                <h2>GitHub</h2>
+              </a>
+
               <button className="dropdown-item" onClick={this.handleLogout}>
                 <span>
                   <FontAwesomeIcon icon={faSignOutAlt} />
@@ -278,10 +301,10 @@ class NavBar extends React.Component {
     ) : (
       <div className="nav-bar-container">
         <div className="nav-bar-left" onClick={this.handleHomePage}>
-            <img
-              src="https://twixtertube-dev.s3-us-west-1.amazonaws.com/twixter_logo.png"
-              className="twixtertube-logo"
-            />
+          <img
+            src="https://twixtertube-dev.s3-us-west-1.amazonaws.com/twixter_logo.png"
+            className="twixtertube-logo"
+          />
           <span>TwixterTube</span>
         </div>
 
