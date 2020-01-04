@@ -20,9 +20,7 @@ import React, { useState, useEffect } from "react";
 // export default Example;
 
 function Foo(props) {
-  useEffect(() => {
-    console.log(props.name);
-  }, []); // <-- should error and offer autofix to [props.name]
+  useEffect(() => {}, []); // <-- should error and offer autofix to [props.name]
 }
 
 // let player = {

@@ -98,19 +98,19 @@ class UploadVideoForm extends React.Component {
       this.props.history.replace("/login");
     }
 
-    if (this.state.uploadIconElement) {
-      console.log(
-        "HERE'S WHAT THE UPLOAD ICON ELEMENT LOOKS LIKE SECOND TIME: ",
-        this.state.uploadIconElement
-      );
-    }
+    // if (this.state.uploadIconElement) {
+    //   console.log(
+    //     "HERE'S WHAT THE UPLOAD ICON ELEMENT LOOKS LIKE SECOND TIME: ",
+    //     this.state.uploadIconElement
+    //   );
+    // }
 
-    if (this.state.thumbnailElement) {
-      console.log(
-        "HERE'S WHAT THE UPLOAD ICON ELEMENT LOOKS LIKE SECOND TIME: "
-        // this.state.thumbnailElement
-      );
-    }
+    // if (this.state.thumbnailElement) {
+    //   console.log(
+    //     "HERE'S WHAT THE UPLOAD ICON ELEMENT LOOKS LIKE SECOND TIME: "
+    //     // this.state.thumbnailElement
+    //   );
+    // }
 
     // console.log("HERE'S JQUERY: ", $("#thumbnail"));
 

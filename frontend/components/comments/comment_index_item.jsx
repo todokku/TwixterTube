@@ -9,8 +9,8 @@ import { addLike, changeLike, removeLike } from "../../util/likes_util";
 const CommentIndexItem = props => {
   const [like, setLike] = useState(false);
   const [dislike, setDislike] = useState(false);
-  const [numberLikes, setNumberLikes] = useState(0);
-  const [numberDislikes, setNumberDislikes] = useState(0);
+  const [numberLikes, setNumberLikes] = useState(props.comment.likes);
+  const [numberDislikes, setNumberDislikes] = useState(props.comment.dislikes);
   const [likeId, setLikeId] = useState(props.comment.like_id);
 
   useEffect(() => {
@@ -35,17 +35,17 @@ const CommentIndexItem = props => {
   //     commenterIcon = null;
   //   }
 
-  useEffect(() => {
-    console.log(
-      "HERE ARE THE PROPS:   ",
-      props.comment,
-      props.currentUser,
-      props.comment.id
-    );
-  });
+  // useEffect(() => {
+  //   console.log(
+  //     "HERE ARE THE PROPS:   ",
+  //     props.comment,
+  //     props.currentUser,
+  //     props.comment.id
+  //   );
+  // });
 
   function handleCommentLike() {
-    console.log("HERE IS likeID WHEN CLICKING HANDLE LIKE FUCNTION:  ", likeId);
+    // console.log("HERE IS likeID WHEN CLICKING HANDLE LIKE FUCNTION:  ", likeId);
     if (!props.currentUser) {
       props.history.push("/login");
     } else {
@@ -61,8 +61,8 @@ const CommentIndexItem = props => {
             .then(() => {
               setLike(true);
               setDislike(false);
-              setNumberLikes(like + 1);
-              setNumberDislikes(dislike - 1);
+              setNumberLikes(numberLikes + 1);
+              setNumberDislikes(numberDislikes - 1);
             });
         } else {
           removeLike(likeId)
@@ -70,7 +70,7 @@ const CommentIndexItem = props => {
             .then(() => {
               setLike(false);
               setDislike(false);
-              setNumberLikes(like - 1);
+              setNumberLikes(numberLikes - 1);
               setLikeId(null);
             });
         }
@@ -84,7 +84,7 @@ const CommentIndexItem = props => {
           .then(likeData => {
             setLike(true);
             setDislike(false);
-            setNumberLikes(like + 1);
+            setNumberLikes(numberLikes + 1);
             setLikeId(likeData.id);
           });
       }
@@ -92,7 +92,7 @@ const CommentIndexItem = props => {
   }
 
   function handleCommentDislike() {
-    console.log("HERE IS likeID WHEN CLICKING HANDLE LIKE FUCNTION:  ", likeId);
+    // console.log("HERE IS likeID WHEN CLICKING HANDLE LIKE FUCNTION:  ", likeId);
     if (!props.currentUser) {
       props.history.push("/login");
     } else {
@@ -108,14 +108,14 @@ const CommentIndexItem = props => {
             .then(() => {
               setLike(false);
               setDislike(true);
-              setNumberLikes(like - 1);
-              setNumberDislikes(dislike + 1);
+              setNumberLikes(numberLikes - 1);
+              setNumberDislikes(numberDislikes + 1);
             });
         } else {
           removeLike(likeId).then(() => {
             setLike(false);
             setDislike(false);
-            setNumberDislikes(dislike - 1);
+            setNumberDislikes(numberDislikes - 1);
             setLikeId(null);
           });
         }
@@ -127,7 +127,7 @@ const CommentIndexItem = props => {
         }).then(likeData => {
           setLike(false);
           setDislike(true);
-          setNumberDislikes(dislike + 1);
+          setNumberDislikes(numberDislikes + 1);
           setLikeId(likeData.id);
         });
       }

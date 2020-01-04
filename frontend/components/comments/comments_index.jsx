@@ -13,7 +13,7 @@ const CommentsIndex = props => {
   //   const [submitActive, setSubmitActive] = useState(false);
 
   useEffect(() => {
-    console.log("WHERE ARE THE COMMENTS?  : ", props.comments);
+    // console.log("WHERE ARE THE COMMENTS?  : ", props.comments);
     // $("textarea").autoResize();
   }, []);
 

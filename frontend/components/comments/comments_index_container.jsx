@@ -6,7 +6,7 @@ const msp = (state, ownProps) => {
   let comments = Object.values(state.entities.comments);
   let currentUser = state.entities.users[state.session.currentUser];
   //   console.log("NOW IN THE COMMENTS CONTAINER");
-  console.log("HERE ARE THE COMMENTS IN ARRAY FORM:   ", comments);
+  // console.log("HERE ARE THE COMMENTS IN ARRAY FORM:   ", comments);
   return {
     comments,
     currentUser

@@ -38,7 +38,6 @@ class NavBar extends React.Component {
       modal: document.getElementsByClassName("profile-button-modal")
     });
 
-    // console.log("THIS IS THE MODAL: ", !!modal.style.display);
     let that = this;
     // document.getElementById("modal-button").onclick = function() {
     //   that.toggleModal();
@@ -64,7 +63,6 @@ class NavBar extends React.Component {
       ) {
         that.setState({ modalDisplay: false });
       }
-      // console.log("EVENT TARGET:  ", e);
     };
 
     // let that = this;
@@ -97,7 +95,6 @@ class NavBar extends React.Component {
   // displayProfileModel() {
   //   let that = this;
   //   window.addEventListener("click", e => {
-  //     console.log("WE ARE LOOKING AT WHAT WINDOW CLICK LOOKS LIKE: ", e.target);
   //     if (e.target == that.state.modal) {
   //       that.toggleModal();
   //     } else {
@@ -109,7 +106,6 @@ class NavBar extends React.Component {
   //   });
 
   //   // window.addEventListener("click", e => {
-  //   //   console.log("WE ARE LOOKING AT WHAT WINDOW CLICK LOOKS LIKE: ", e.target);
   //   //   if (e.target == that.state.modal) {
   //   //     that.toggleModal();
   //   //   } else {
@@ -164,15 +160,6 @@ class NavBar extends React.Component {
   render() {
     if (this.state.modal) {
       if (this.state.modal.length) {
-        // console.log(
-        //   "THIS IS THE PROFILE BUTTON HTML ELEMENT: ",
-        //   this.state.modal
-        // );
-        // console.log(
-        //   "THIS IS THE PROFILE BUTTON HTML ELEMENT NO.2!!!!: ",
-        //   this.state.modal[0].style.display
-        // );
-
         if (this.state.modalDisplay) {
           this.state.modal[0].style.display = "flex";
         } else {
@@ -182,7 +169,6 @@ class NavBar extends React.Component {
     }
 
     // debugger
-    // console.log("DISPLAYING USER POJO ON NAV BAR: ", this.props.currentUser);
     const display = this.props.currentUser ? (
       <div className="nav-bar-container">
         <div className="nav-bar-left" onClick={this.handleHomePage}>
