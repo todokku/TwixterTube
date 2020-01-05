@@ -1,6 +1,6 @@
 <img src="images/Screen%20Shot%202019-12-01%20at%208.18.53%20PM.png" >
 
-ViewTube is a clone of the popular streaming site known as YouTube made with Ruby on Rails, PostgreSQL, React, Redux, CSS, Webpack, AWS, and Heroku. Users can watch videos, search for videos, and create accounts to upload and delete videos.
+TwixterTube is a clone of the popular streaming site known as YouTube made with Ruby on Rails, PostgreSQL, React, Redux, CSS, Webpack, AWS, and Heroku. Users can watch videos, search for videos, and create accounts to upload and delete videos.
 
 ![loggin_pulp](https://user-images.githubusercontent.com/52110753/71785727-e83c2d80-2fb7-11ea-90d6-04d7aafa8d26.gif)
 
