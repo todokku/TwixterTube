@@ -25,7 +25,7 @@ ViewTube is a clone of the popular streaming site known as YouTube made with Rub
     </ul>
   </li>
   <li>Logged in users can also comment on a video.</li>
-  <li>Users can use the search bar at the top of the screen to filter all of the videos by their title.</li>
+  <li>Users can use the search bar at the top of the screen to filter all of the videos by their title or description.</li>
   <li>Users have access to a nav bar that can assist them in navigating to key locations of the site.</li>
 <!--   <li></li> -->
 </ul>
@@ -42,3 +42,22 @@ ViewTube is a clone of the popular streaming site known as YouTube made with Rub
 
 <p>Users can select a video file to add by clicking on the field containing the video icon. Similarly, users can select an image file to use as a thumbnail for their video. Finally, they will need to input a title and description to enable the video to be uploaded. At this time, they just need to click on the 'Publish' button, after which, they will be sent to the home page and be able to see their video be added to the master list of videos.
 </p>
+
+<h2>Code Snippets</h2>
+
+<p>Employed Active Record comparison methods in Video's controller to render relevant videos for search functionality from index action. Also serves first 20 videos in Postgress Database if no query is detected, used for index page. </p>
+
+```
+def index(query = '')
+        query = params['query'] || ''
+
+        if query == ''
+            @videos = Video.first(20)
+        else
+            query = "%" + query.downcase + "%"
+            @videos = Video.where('lower(title) like ? or lower(description) like ?', query, query);
+        end
+
+        render :index
+    end
+```
