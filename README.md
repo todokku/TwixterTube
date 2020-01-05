@@ -1,6 +1,8 @@
 <img src="images/Screen%20Shot%202019-12-01%20at%208.18.53%20PM.png" >
 
-TwixterTube is video sharing website where users can upload, watch, and interact with each other's videos through comments and a like/dislike system. It was built utlizing a Rails backend with a React/Redux frontend.
+ViewTube is a clone of the popular streaming site known as YouTube made with Ruby on Rails, PostgreSQL, React, Redux, CSS, Webpack, AWS, and Heroku. Users can watch videos, search for videos, and create accounts to upload and delete videos.
+
+<a href="https://imgflip.com/gif/3l9maj"><img src="https://i.imgflip.com/3l9maj.gif" title="made at imgflip.com"/></a>
 
 <p> 
   <a href="https://twixtertube.herokuapp.com/#/">Live App</a>
