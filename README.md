@@ -61,3 +61,29 @@ def index(query = '')
         render :index
     end
 ```
+
+<p>Utilized React Hooks for construction of later components such as the Comments, Modals and sidebar components. Below deomnstrates the first few lines of the CommentIndexItem, a single comment and how the props and state do not utilize "this" and can have the syntax of a functional component.</p>
+
+```
+const CommentIndexItem = props => {
+  const [like, setLike] = useState(false);
+  const [dislike, setDislike] = useState(false);
+  const [numberLikes, setNumberLikes] = useState(props.comment.likes);
+  const [numberDislikes, setNumberDislikes] = useState(props.comment.dislikes);
+  const [likeId, setLikeId] = useState(props.comment.like_id);
+
+  useEffect(() => {
+    // like_id is only present for users who are logged in and if the comment has a like
+    // associated with the currentUser
+    if (!!likeId) {
+      if (props.comment.liked === true) {
+        setLike(true);
+      } else if (props.comment.liked === false) {
+        setDislike(true);
+      }
+    }
+
+    setNumberLikes(props.comment.likes);
+    setNumberDislikes(props.comment.dislikes);
+  }, []);
+```
