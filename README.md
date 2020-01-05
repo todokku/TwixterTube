@@ -62,7 +62,7 @@ def index(query = '')
     end
 ```
 
-<p>Utilized React Hooks for construction of later components such as the Comments, Modals and sidebar components. Below deomnstrates the first few lines of the CommentIndexItem, a single comment and how the props and state do not utilize "this" and can have the syntax of a functional component.</p>
+<p>Utilized React Hooks for construction of later components such as the Comments, Modals and sidebar components. Below deomnstrates the first few lines of the CommentIndexItem, a single comment and how the props and state do not utilize "this" and can have the syntax of a functional component. The second input for the useEffect function simulates componentDidMount, so that I can properly set specific jsx variables to be used in the html portion of the component.</p>
 
 ```
 const CommentIndexItem = props => {
@@ -87,3 +87,40 @@ const CommentIndexItem = props => {
     setNumberDislikes(props.comment.dislikes);
   }, []);
 ```
+
+<p>Blob table created for AWS S3 video and image uploading.</p>
+
+```
+class CreateActiveStorageTables < ActiveRecord::Migration[5.2]
+  def change
+    create_table :active_storage_blobs do |t|
+      t.string   :key,        null: false
+      t.string   :filename,   null: false
+      t.string   :content_type
+      t.text     :metadata
+      t.bigint   :byte_size,  null: false
+      t.string   :checksum,   null: false
+      t.datetime :created_at, null: false
+
+      t.index [ :key ], unique: true
+    end
+
+    create_table :active_storage_attachments do |t|
+      t.string     :name,     null: false
+      t.references :record,   null: false, polymorphic: true, index: false
+      t.references :blob,     null: false
+
+      t.datetime :created_at, null: false
+
+      t.index [ :record_type, :record_id, :name, :blob_id ], name: "index_active_storage_attachments_uniqueness", unique: true
+      t.foreign_key :active_storage_blobs, column: :blob_id
+    end
+  end
+end
+```
+
+<h2>Potential Future Features</h2>
+<ul>
+  <li>Channels</li>
+  <li>Subscriptions</li>
+</ul>
