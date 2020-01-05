@@ -5,7 +5,7 @@ ViewTube is a clone of the popular streaming site known as YouTube made with Rub
 ![loggin_pulp](https://user-images.githubusercontent.com/52110753/71785727-e83c2d80-2fb7-11ea-90d6-04d7aafa8d26.gif)
 
 <p> 
-  <a href="https://twixtertube.herokuapp.com/#/">Check out the Live Site Here!</a>
+  <a href="https://twixtertube.herokuapp.com/#/" target="_blank">Check out the Live Site Here!</a>
 </p>
 
 <h2>Features</h2>
