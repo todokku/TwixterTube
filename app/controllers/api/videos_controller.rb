@@ -8,7 +8,6 @@ class Api::VideosController < ApplicationController
     end
 
     def index(query = '')
-        # debugger
         query = params['query'] || ''
 
         if query == ''

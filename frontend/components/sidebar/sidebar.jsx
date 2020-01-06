@@ -49,6 +49,15 @@ const SideBar = props => {
           <FontAwesomeIcon icon={faGithub} className="sidebar-icon" />
           <span className="sidebar-item-title">GitHub</span>
         </a>
+
+        <a
+          href="https://ashap94.github.io/"
+          className="sidebar-content-item"
+          target="_blank"
+        >
+          <FontAwesomeIcon icon={faUser} className="sidebar-icon" />
+          <span className="sidebar-item-title">Author</span>
+        </a>
         {/* Next SideBar item will be your profile page link */}
       </div>
     </div>

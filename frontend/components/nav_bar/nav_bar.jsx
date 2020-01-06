@@ -6,7 +6,8 @@ import {
   faSearch,
   faUserCircle,
   faHome,
-  faSignOutAlt
+  faSignOutAlt,
+  faUser
 } from "@fortawesome/free-solid-svg-icons";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
@@ -272,6 +273,17 @@ class NavBar extends React.Component {
                   <FontAwesomeIcon icon={faGithub} />
                 </span>
                 <h2>GitHub</h2>
+              </a>
+
+              <a
+                className="dropdown-item"
+                href="https://ashap94.github.io/"
+                target="_blank"
+              >
+                <span>
+                  <FontAwesomeIcon icon={faUser} />
+                </span>
+                <h2>About the Author</h2>
               </a>
 
               <button className="dropdown-item" onClick={this.handleLogout}>

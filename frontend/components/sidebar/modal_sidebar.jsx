@@ -115,6 +115,16 @@ const ModalSideBar = props => {
               <FontAwesomeIcon icon={faGithub} className="sidebar-modal-icon" />
               <span className="sidebar-modal-item-title">GitHub</span>
             </a>
+
+            <a
+              href="https://ashap94.github.io/"
+              className="sidebar-modal-content-item"
+              target="_blank"
+              onClick={toggleModal}
+            >
+              <FontAwesomeIcon icon={faUser} className="sidebar-modal-icon" />
+              <span className="sidebar-modal-item-title">Author</span>
+            </a>
           </div>
         </div>
       </div>

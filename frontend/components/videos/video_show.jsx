@@ -108,10 +108,6 @@ class VideoShow extends React.Component {
     if (this.props.match.url !== prevProps.match.url) {
       this.props.fetchVideos();
       this.props.fetchVideo(that.props.match.params.videoId).then(() => {
-        // console.log(
-        //   "DOES VIDEO EXIST AFTER COMPONENTDIDMOUNT:  ",
-        //   that.props.video
-        // );
         that.props
           .updateViewCount({
             id: that.props.match.params.videoId,
@@ -120,7 +116,6 @@ class VideoShow extends React.Component {
           .then(s => {
             if (!that.props.currentLike) {
               that.setState({
-                // loaded: true,
                 views: that.props.video.views,
                 like: false,
                 dislike: false,
@@ -130,7 +125,6 @@ class VideoShow extends React.Component {
             } else {
               if (that.props.currentLike.liked) {
                 that.setState({
-                  // loaded: true,
                   views: that.props.video.views,
                   like: true,
                   dislike: false,
@@ -139,7 +133,6 @@ class VideoShow extends React.Component {
                 });
               } else {
                 that.setState({
-                  // loaded: true,
                   views: that.props.video.views,
                   like: false,
                   dislike: true,
