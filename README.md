@@ -91,7 +91,7 @@ class CreateActiveStorageTables < ActiveRecord::Migration[5.2]
 end
 ```
 
-<h2>Upload</h2>
+<h2>Video Search</h2>
 
 <p>Users, whether logged in or logged out, can search videos based on their title and/or description.</p>
 
