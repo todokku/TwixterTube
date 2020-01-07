@@ -2,7 +2,8 @@
 
 TwixterTube is a clone of the popular streaming site known as YouTube made with Ruby on Rails, PostgreSQL, React, Redux, CSS, Webpack, AWS, and Heroku. Users can watch videos, search for videos, and create accounts to upload and delete videos.
 
-![loggin_pulp](https://user-images.githubusercontent.com/52110753/71785727-e83c2d80-2fb7-11ea-90d6-04d7aafa8d26.gif)
+![twitertube_opening_720p](https://user-images.githubusercontent.com/52110753/71931059-cd9dbc00-3151-11ea-80c5-b51bdedd4720.gif)
+
 
 <p>
   <a href="https://twixtertube.herokuapp.com/#/" target="_blank" >Check out the Live Site Here!</a>
