@@ -14,16 +14,16 @@
 # Configure Using Gemfile
 # gem 'pg'
 #
-default: &default
-  adapter: postgresql
-  encoding: unicode
+#default: &default
+#  adapter: postgresql
+#  encoding: unicode
   # For details on connection pooling, see Rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+#  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
-development:
-  <<: *default
-  database: twixtertube_development
+#development:
+#  <<: *default
+#  database: twixtertube_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -55,9 +55,9 @@ development:
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
-test:
-  <<: *default
-  database: twixtertube_test
+#test:
+#  <<: *default
+#  database: twixtertube_test
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -71,15 +71,15 @@ test:
 # On Heroku and other platform providers, you may have a full connection URL
 # available as an environment variable. For example:
 #
-#   DATABASE_URL="postgres://kefyeuorrezowo:a0cc9f1c953314a68c67e6fb46b75709de4b9d82a97eab9f6b3b15f043b1678a@ec2-107-20-173-227.compute-1.amazonaws.com:5432/d81pgrrl6ql7ae"
+DATABASE_URL="postgres://kefyeuorrezowo:a0cc9f1c953314a68c67e6fb46b75709de4b9d82a97eab9f6b3b15f043b1678a@ec2-107-20-173-227.compute-1.amazonaws.com:5432/d81pgrrl6ql7ae"
 #
 # You can use this database configuration with:
 #
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-production:
-  <<: *default
-  database: twixtertube_production
-  username: twixtertube
-  password: <%= ENV['TWIXTERTUBE_DATABASE_PASSWORD'] %>
+#production:
+#  <<: *default
+#  database: twixtertube_production
+#  username: twixtertube
+#  password: <%= ENV['TWIXTERTUBE_DATABASE_PASSWORD'] %>
